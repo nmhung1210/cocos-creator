@@ -3,6 +3,7 @@
 CocosCreator@2.4.2
 ```
 
+This is built to support you quickly setup cocos creator for your project.
 
 <p align="center">
     <a href="https://github.com/nmhung1210/cocos-creator/stargazers">
