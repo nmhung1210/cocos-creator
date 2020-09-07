@@ -13,7 +13,7 @@
     "url": "https://github.com/cocos-creator/fireball/issues"
   },
   "scripts": {
-    "start": "electron ."
+    "postinstall": "electron-rebuild"
   },
   "dependencies": {
     "@babel/core": "7.8.7",
@@ -136,12 +136,12 @@
     "xmldom": "0.1.22",
     "xxhashjs": "0.2.1",
     "xxtea-node": "1.1.2",
-    "yargs": "4.3.1"
+    "yargs": "4.3.1",
+    "electron": "^5.0.8"
   },
   "devDependencies": {
     "check-dependencies": "^1.1.0",
     "devtron": "^1.1.0",
-    "electron": "^5.0.8",
     "gulp-cached": "1.1.0",
     "gulp-changed": "1.3.0",
     "gulp-fb": "0.5.1",
