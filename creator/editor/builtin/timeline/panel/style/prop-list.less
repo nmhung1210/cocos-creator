@@ -1,0 +1,161 @@
+.prop-list {
+    flex: 1;
+    background: @color_dark_background;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 36px;// Add Property 按钮的高度，这样才能让 props 的滚动跟 prop-list 滚动效果一致
+
+    .key {
+        width: @dot_size;
+        height: @dot_size;
+        position: absolute;
+        top: @row_height / 2 - @dot_size / 2;
+        left: -@dot_size / 2;
+        z-index: @index_top;
+        cursor: pointer;
+
+        & > .dot {
+            width: @dot_size;
+            height: @dot_size;
+            border-radius: @dot_size / 4;
+            background: @color_key;
+            transform: rotate(45deg);
+            transition: background-color 0.3s;
+        }
+
+        &:hover {
+
+            & > .dot {
+                background: @color_key_hover;
+                transform: rotate(45deg) scale(1.2);
+            }
+        }
+
+        &[selected] {
+
+            & > .dot {
+                background: @color_key_hover;
+            }
+        }
+    }
+
+    .texture {
+        width: @row_height * 1.2;
+        height: @row_height - 2;
+        position: absolute;
+        top: 2px;
+        left: 0;
+        z-index: @index_top;
+
+        & > .wrap {
+            width: @row_height * 1.2;
+            height: @row_height - 2;
+            border: 1px solid #777;
+            transition: all 0.3s;
+            transform-origin: 0;
+            transform: scale(1);
+
+            & > img {
+                position: relative;
+                top: -@row_height / 2;
+                width: @row_height * 1.2 * 2;
+                height: @row_height * 2 - 4;
+                transition: all 0.3s;
+                transform-origin: 0;
+                transform: scale(0.5);
+            }
+        }
+
+        &:hover {
+
+            & > .wrap {
+                border-color: transparent;
+                transform: scale(2);
+            }
+        }
+
+        &[selected] {
+
+            & > .wrap {
+                border-color: @color_key_hover;
+            }
+        }
+    }
+
+    .line {
+        height: @dot_size - 2;
+        position: absolute;
+        top: @row_height / 2 - (@dot_size - 2) / 2;
+        left: 0;
+        background: @color_line;
+        transition: background-color 0.3s;
+        z-index: @index_pointer;
+        cursor: pointer;
+
+        &:hover {
+            background: @color_line_hover;
+        }
+    }
+
+    & > .prop-row {
+        height: @row_height;
+        position: relative;
+
+        &:nth-child(even) {
+            background: @color_very_dark_background
+        }
+
+        &[type=texture] {
+            height: @row_height * 2;
+        }
+    }
+
+    &[shadow] {
+    
+        .key, .line {
+            opacity: 0.2;
+
+            &:hover, &[selected] {
+
+                & > .dot {
+                    background: @color_key;
+                }
+            }
+
+            &[preview] {
+                opacity: 1;
+            }
+        }
+
+        .texture {
+            opacity: 0.2;
+
+            &:hover, &[selected] {
+
+                & > .wrap {
+                    transform: scale(1);
+                }
+            }
+
+            &[preview] {
+                opacity: 1;
+
+                & > .wrap {
+                    border-left-color: red;
+                }
+            }
+        }
+    }
+
+    & > .box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid @color_key * 1.5;
+        background: @color_key * 0.6;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: @index_top;
+    }
+}

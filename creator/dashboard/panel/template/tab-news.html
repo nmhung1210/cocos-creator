@@ -1,0 +1,11 @@
+<div class="tab-news">
+    <ui-loader v-show="loading"></ui-loader>
+    <webview
+        :src="src"
+
+        @new-window="newWindow($event)"
+
+        @did-start-loading="startLoading($event)"
+        @did-stop-loading="stopLoading($event)"
+    ></webview>
+</div>

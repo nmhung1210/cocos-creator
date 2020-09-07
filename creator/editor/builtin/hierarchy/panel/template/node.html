@@ -1,0 +1,52 @@
+<li
+    :style="onUpdateStyle(start)"
+    :arrow="node.children && node.children.length > 0"
+    :active="node.isActive"
+    :show="node.show"
+    :prefab="node.prefabState"
+    :selected="node.selected"
+    :hint="node.hint"
+    :ignore="node.ignore"
+
+    @click="onClick"
+    @dblclick="onDBClick"
+    @mouseEnter="onMouseEnter"
+    @mouseLeave="onMouseLeave"
+    @mouseDown="onMouseDown"
+    @mouseUp="onMouseUp"
+>
+    <!-- 节点锁 -->
+    <i class="fa fa-unlock"
+        v-if="!node.locked"
+        :active="node.locked"
+        :title="t('locked_tooltip')"
+        @click="onLockClick"
+    ></i>
+    <i class="fa fa-lock"
+        v-if="node.locked"
+        :active="node.locked"
+        :title="t('locked_tooltip')"
+        @click="onLockClick"
+    ></i>
+
+    <i class="fa fa-caret-down"
+        :style="node.fold ? 'transform: rotate(-90deg);' : 'transform: rotate(0deg);'"
+        @click="onIClick"
+        @mousedown="onIMouseDown"
+        @mouseup="onIMouseUp"
+        @dblclick="onIDBClick"
+    ></i>
+    <input draggable="true"
+        v-if="node.rename"
+        :value="node.name"
+        @click="onInputClick"
+        @mousedown="onInputMouseDown"
+        @blur="onInputBlur"
+        @keydown="onInputKeydown"
+
+        v-init="init-input"
+    />
+    <span
+        v-else
+    >{{node.name}}</span>
+</li>

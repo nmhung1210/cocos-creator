@@ -1,0 +1,71 @@
+<div class="nodes"
+    @scroll="_onScroll"
+>
+
+    <div :class="['node',item === node ? 'selected':'']"
+        v-for="item in hierarchy"
+        :style="queryNodeStyle(item.level)"
+        :selected="item === node"
+        :state="item.state"
+        :disabled="item.disabled"
+
+        @click="_onNodeClick(item)"
+    >
+        <template
+            v-if="item.state === 0"
+        >
+            {{item.name}}
+            <i class="fa fa-navicon"
+                @click="_onNodeMoreClick(item)"
+            ></i>
+        </template>
+        <template
+            v-else
+        >
+            /{{getRoot()}}/
+            <input
+                :value="getPath(item.path)"
+                v-focus
+
+                @keydown="_onNodeInputKeydown($event, item)"
+                @blur="_onNodeInputBlur($event, item)"
+            />
+        </template>
+    </div>
+
+    <div class="missing-title"
+        v-if="mnodes && mnodes.length"
+    >{{t('lost_node')}}</div>
+
+    <div class="node m"
+        v-for="item in mnodes"
+        :selected="item === node"
+        :state="item.state"
+
+        @click="_onVNodeClick(item)"
+    >
+        <template
+            v-if="item.state === 0"
+        >
+            <div title="{{item.name}}">
+                {{item.name}}
+            </div>
+            <i class="fa fa-navicon"
+                @click="_onVNodeMoreClick(item)"
+            ></i>
+        </template>
+        <template
+            v-else
+        >
+            /{{getRoot()}}/
+            <input
+                :value="getPath(item.name)"
+                v-focus
+
+                @keydown="_onVNodeInputKeydown($event, item)"
+                @blur="_onVNodeInputBlur($event, item)"
+            />
+        </template>
+    </div>
+</div>
+

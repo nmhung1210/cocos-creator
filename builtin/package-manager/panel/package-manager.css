@@ -1,0 +1,136 @@
+:host {
+  color: #aaa;
+  display: flex;
+  flex-direction: column;
+}
+
+#search {
+  width: 240px;
+}
+
+.border {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+ul {
+  padding: 0px;
+  margin: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
+li:first-child {
+  margin-top: 0px;
+}
+
+li .row-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon-button {
+  color: #09f;
+  padding: 2px 4px;
+  border-radius: 0px;
+  border: none;
+
+  cursor: pointer;
+}
+
+
+.icon-button:hover {
+  background-color: #333;
+}
+
+.icon-button:active {
+  background-color: #555;
+}
+
+.pkg-item {
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 2px;
+  background: #373737;
+}
+
+.name-col {
+  align-items: baseline;
+}
+.name-col .name {
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+  color: #e1e1e1;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name-col .name:hover {
+  text-decoration: underline;
+}
+.name-col .version {
+  font-size: 12px;
+}
+
+.desc-col {
+  margin-top: 5px;
+}
+.desc-col .desc {
+  font-size: 12px;
+  font-weight: 200;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.author-col {
+  margin-top: 5px;
+  align-items: baseline;
+  overflow: hidden;
+}
+
+.author-col .author {
+  font-size: 12px;
+  color: #888;
+  margin-left: 5px;
+}
+.author-col .author:hover {
+  cursor: pointer;
+  color: #267fba;
+  text-decoration: underline;
+}
+
+.btn-col {
+  margin-top: 30px;
+}
+
+.toolbar {
+  position: relative;
+  box-sizing: border-box;
+  height: 26px;
+
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 4px 2px;
+  font-size: 1.0rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#none {
+  margin: auto;
+  text-align: center;
+}
+
+#package-manager{
+  overflow-y: scroll;
+}

@@ -1,0 +1,63 @@
+
+.module {
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .info {
+
+        p {
+            margin: 0;
+            color: #999;
+            line-height: 20px;
+        }
+    }
+
+    & > section {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 20px 25px 10px 10px;
+
+        .module-header {
+            display: flex;
+            padding-left: 20px;
+            margin-bottom:10px;
+
+            .checkbox {
+                width: 80px;
+
+                ui-checkbox {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .module-section {
+            padding-right: 20px;
+            flex: 1;
+            flex-direction: column;
+            overflow: auto;
+        }
+
+        .module-item {
+            display: flex;
+            padding: 6px 0 6px 20px;
+            transition: background 0.2s;
+
+            &:hover {
+                background: #777;
+            }
+        }
+
+        .name {
+            flex: 1;
+        }
+
+        .checkbox {
+            width: 60px;
+            text-align: center;
+        }
+    }
+}

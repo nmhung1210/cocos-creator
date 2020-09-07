@@ -1,0 +1,138 @@
+@import './_define.less';
+
+@spacing: 12px;
+
+.tab-project {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: @active-background-color;
+
+    .content {
+        flex: 1;
+        overflow: auto;
+        position: relative;
+        display: flex;
+
+        ul {
+            margin: 0;
+            padding: @spacing 0 @spacing @spacing;
+
+            li {
+                float: left;
+                margin: 0 @spacing @spacing 0;
+                list-style: none;
+                width: 236px;
+                height: 180px;
+                border: 1px solid #666;
+                cursor: default;
+
+                .icon {
+                    height: 126px;
+                    border-bottom: 1px solid #666;
+                    background: #1c1c1c;
+                    position: relative;
+
+                    img {
+                        margin: 3px 58px;
+                        opacity: 0.9;
+                    }
+
+                    .mask {
+                        opacity: 0;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: #000;
+                        transition: opacity 0.2s;
+                    }
+
+                    .button {
+                        opacity: 0;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        text-align: center;
+                        padding: 62px 20px;
+                        box-sizing: border-box;
+                        transition: opacity 0.2s;
+
+                        span {
+                            padding: 8px 26px;
+                            background: #ed7461;
+                            border-radius: 2px;
+                            cursor: pointer;
+                            color: #eee;
+                        }
+
+                        .fa-times {
+                            position: absolute;
+                            right: 14px;
+                            top: 10px;
+                            font-size: 14px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    &:hover {
+                        .mask {
+                            opacity: 0.4;
+                        }
+
+                        .button {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .name {
+                    padding: 0 15px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    line-height: 53px;
+                    text-align: center;
+                    font-size: 14px;
+                    background: #333;
+                }
+
+                &:hover {
+                    border-color: #888;
+                }
+
+                &[active] {
+                    border-color: #ed7461;
+                }
+            }
+        }
+
+        & > div {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            span:last-child {
+                padding: 6px 12px;
+                border-radius: 2px;
+                background: @button-background-color;
+                color: @button-text-color;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .footer {
+        border-top: 1px solid #666;
+        padding: 5px 20px;
+        line-height: 30px;
+        height: 30px;
+        background: #222;
+        color: #666;
+    }
+}

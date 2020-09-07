@@ -1,0 +1,100 @@
+<link rel='stylesheet' href='app://node_modules/font-awesome/css/font-awesome.min.css'>
+<div id="editor-scene">
+    <div id='editor-toolbar'>
+        <i class="fa fa-search-plus"
+            @click="_onZoomUp"
+        ></i>
+        <i class="fa fa-search-minus"
+            @click="_onZoomDown"
+        ></i>
+        <i class="fa fa-search"
+            @click="_onZoomReset"
+        ></i>
+        
+        <span> | </span>
+
+        <img class="align-item" src="packages://scene/icon/align-top.png"
+            title="{{_T('SCENE.align_top')}}"
+            disabled='{{!align}}'
+            @click="_onAlignTop"
+        >
+        <img class="align-item" src="packages://scene/icon/align-v-center.png"
+            title="{{_T('SCENE.align_v_center')}}"
+            disabled='{{!align}}'
+            @click="_onAlignVCenter"
+        >
+        <img class="align-item" src="packages://scene/icon/align-bottom.png"
+            title="{{_T('SCENE.align_bottom')}}"
+            disabled='{{!align}}'
+            @click="_onAlignBottom"
+        >
+        <img class="align-item" src="packages://scene/icon/align-left.png"
+            title="{{_T('SCENE.align_left')}}"
+            disabled='{{!align}}'
+            @click="_onAlignLeft"
+        >
+        <img class="align-item" src="packages://scene/icon/align-h-center.png"
+            title="{{_T('SCENE.align_h_center')}}"
+            disabled='{{!align}}'
+            @click="_onAlignHCenter"
+        >
+        <img class="align-item" src="packages://scene/icon/align-right.png"
+            title="{{_T('SCENE.align_right')}}"
+            disabled='{{!align}}'
+            @click="_onAlignRight"
+        >
+
+        <span style="margin:0px 5px;"> | </span>
+
+        <img class="distribute-item" src="packages://scene/icon/distribute-top.png"
+            title="{{_T('SCENE.distribute_top')}}"
+            disabled='{{!distribute}}'
+            @click="_onDistributeTop"
+        >
+
+        <img class="distribute-item" src="packages://scene/icon/distribute-v-center.png"
+            title="{{_T('SCENE.distribute_v_center')}}"
+            disabled='{{!distribute}}'
+            @click="_onDistributeVCenter"
+        >
+
+        <img class="distribute-item" src="packages://scene/icon/distribute-bottom.png"
+            title="{{_T('SCENE.distribute_bottom')}}"
+            disabled='{{!distribute}}'
+            @click="_onDistributeBottom"
+        >
+
+        <img class="distribute-item" class="distribute-item" src="packages://scene/icon/distribute-left.png"
+            title="{{_T('SCENE.distribute_left')}}"
+            disabled='{{!distribute}}'
+            @click="_onDistributeLeft"
+        >
+
+        <img class="distribute-item" src="packages://scene/icon/distribute-h-center.png"
+            title="{{_T('SCENE.distribute_h_center')}}"
+            disabled='{{!distribute}}'
+            @click="_onDistributeHCenter"
+        >
+
+        <img class="distribute-item" src="packages://scene/icon/distribute-right.png"
+            title="{{_T('SCENE.distribute_right')}}"
+            disabled='{{!distribute}}'
+            @click="_onDistributeRight"
+        >
+
+        <div id="scene-settings">
+            <span> | </span>
+            <rendering-settings></rendering-settings>
+            <span> | </span>
+            <camera-settings></camera-settings>
+        </div>
+    </div>
+
+    <div id="border">
+
+        <!-- scene view insert here-->
+        
+        <ui-loader id="loader">{{_T('SHARED.loading')}}</ui-loader>
+        <ui-drop-area id="dropArea" class="fit" hidden></ui-drop-area>
+    </div>
+</div>

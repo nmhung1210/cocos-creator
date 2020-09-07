@@ -1,0 +1,47 @@
+<div id="info-panel">
+    <ui-loader v-if="loading"></ui-loader>
+    <div class="info">
+        <section class="login-area">
+            <ui-prop name="{{t('login_type')}}">
+                <ui-select v-value="config.loginType">
+                    <template v-for="item in loginType">
+                        <option v-value="item.type">{{item.name}}</option>
+                    </template>
+                </ui-select>
+                <!--<ui-button @click="oauthClick" v-if="showLoginBtn">{{t('huawei_login')}}</ui-button>-->
+                <div class="login-tips" v-if="isLogin"> {{t('already_login')}}</div>
+                <ui-button @click="logoutClick" class="ml5" v-if="isLogin"> {{t('logout')}}</ui-button>
+            </ui-prop>
+            <ui-prop v-if="!oAuth" name="{{t('client_id')}}">
+                <ui-input class="flex-1" v-value="config.clientId"></ui-input>
+            </ui-prop>
+            <ui-prop v-if="!oAuth" name="{{t('client_secret')}}">
+                <ui-input class="flex-1" v-value="config.clientSecret"></ui-input>
+            </ui-prop>
+        </section>
+        <section class="info-area">
+            <ui-prop name="{{t('appid')}}">
+                <ui-input class="flex-1" v-value="config.appid"></ui-input>
+            </ui-prop>
+            <ui-prop name="{{t('version')}}">
+                <ui-input class="flex-1" v-value="config.version"></ui-input>
+            </ui-prop>
+            <ui-prop name="{{t('apk_path')}}">
+                <div class="flex-1 layout horizontal center">
+                    <ui-input class="flex-2" v-value="config.apkPath"></ui-input>
+                    <ui-button class="tiny" v-on:confirm="_onChooseDistPathClick">
+                        ···
+                    </ui-button>
+                </div>
+            </ui-prop>
+            <ui-prop class="description-prop" name="{{t('description')}}">
+                <ui-text-area class="flex-1" v-value="config.description"></ui-text-area>
+            </ui-prop>
+        </section>
+    </div>
+    <div class="btn-area">
+        <ui-button v-on:confirm="uploadClick" class="green">{{t('upload_btn')}}
+        </ui-button>
+        <ui-button v-on:confirm="cancelClick" class="green">{{t('cancel_btn')}}</ui-button>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.tools {
+    display: flex;
+    padding: 4px;
+
+    i {
+        border-radius: 2px;
+        transition: background-color 0.2s;
+        cursor: pointer;
+        height: 22px;
+        width: 22px;
+        line-height: 22px;
+        text-align: center;
+        transition:all 0.2s ease;
+        overflow: hidden;
+
+        &:hover {
+            background: #666;
+        }
+    }
+
+    ui-input {
+        margin-left: 4px;
+        flex: 1;
+    }
+
+    .tool-cancel {
+        position: absolute;
+        right: 76px;
+        top: 9px;
+    }
+}

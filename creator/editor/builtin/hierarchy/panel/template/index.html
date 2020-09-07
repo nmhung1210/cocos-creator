@@ -1,0 +1,18 @@
+<div class="hierarchy">
+
+    <tools
+        :filter="filter"
+    ></tools>
+
+    <nodes
+        v-el:nodes
+        v-show="!filter"
+        :length="length"
+        v-ref:nodes
+    ></nodes>
+
+    <search
+        v-show="filter"
+        :filter="filter"
+    ></search>
+</div>

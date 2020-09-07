@@ -1,0 +1,1 @@
+var e=cc.Class({extends:cc.Component,properties:{isDetectMesh:!0,isRender:!0},onLoad:function(){},update:function(e){}});module.exports=e;

@@ -1,0 +1,1 @@
+"use strict";const e=require("./icon-gizmo");module.exports=class extends e{url(){return"unpack://static/icon/gizmos/particle-gizmo.png"}};

@@ -1,0 +1,48 @@
+{
+  "name": "cocos-services",
+  "version": "0.6.5",
+  "description": "Cocos Service Package, is the developer's importance service integration center.",
+  "author": "yangxin@Cocos",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.panel.title/i18n:cocos-services.service": {
+      "message": "cocos-services:open",
+      "icon": "iconMenu.png",
+      "accelerator": "CommandOrControl+7"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "i18n:cocos-services.service",
+    "icon": "iconTab.png",
+    "width": 300,
+    "height": 530,
+    "resizable": false,
+    "max-height": 700,
+    "max-width": 600,
+    "min-width": 300,
+    "min-height": 530,
+    "popable": true
+  },
+  "panel-browser": {
+    "main": "panel-browser/index.js",
+    "type": "fixed-size",
+    "title": "i18n:cocos-services.service-extension",
+    "width": 770,
+    "height": 510,
+    "devTools": true
+  },
+  "panel-extension": {
+    "main": "panel-extension/index.js",
+    "type": "fixed-size",
+    "title": "i18n:cocos-services.service-extension",
+    "width": 770,
+    "height": 510
+  },
+  "dependencies": {
+    "compressing": "^1.4.0",
+    "watch": "^1.0.2",
+    "xcode": "^1.0.0"
+  }
+}

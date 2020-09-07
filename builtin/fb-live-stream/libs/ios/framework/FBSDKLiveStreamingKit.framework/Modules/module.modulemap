@@ -1,0 +1,6 @@
+framework module FBSDKLiveStreamingKit {
+    umbrella header "FBSDKLiveStreamingKit.h"
+
+    export *
+    module * { export * }
+}

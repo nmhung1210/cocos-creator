@@ -1,0 +1,29 @@
+<section class="multiple">
+    <section v-for="record in records" class="dfx">
+        <ui-hint class="right record-item {{record === select? 'green':''}}"
+                 @click="changeClick(record)">
+            <div class="dfx record-item-width">
+                <div>{{getNameByPath(record)}}{{record.modify?'*':''}}</div>
+                <ui-button
+                        class="red transparent tiny ml5"
+                        v-show="record !== select"
+                        @click="removeClick(record)">
+                    <i class="icon-cancel"></i>
+                </ui-button>
+            </div>
+        </ui-hint>
+        <div class="thumbnail-item">
+            <thumbnail :select="select" :record="record" :percentage="1" :width="width"></thumbnail>
+        </div>
+    </section>
+    <!-- fixme: 这个按钮要考虑放别的个位置让界面看起来好看点 =。= -->
+    <div>
+        <ui-button
+                class="add-item"
+                v-show="record !== select"
+                @click="openRecord">
+            <i class="icon-plus"></i>
+            {{t('REFACTOR.open_record')}}
+        </ui-button>
+    </div>
+</section>

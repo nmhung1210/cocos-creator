@@ -1,0 +1,35 @@
+.props {
+    flex: 1;
+    background: @color_dark_background;
+    overflow-y: auto;
+
+    & > .property {
+        display: flex;
+        line-height: @row_height;
+        padding: 0 10px;
+        font-size: @row_height / 2;
+        font-weight: lighter;
+
+        &:nth-child(even) {
+            background: @color_very_dark_background;
+        }
+
+        span {
+            flex: 1;
+        }
+
+        i {
+            line-height: @row_height;
+            cursor: pointer;
+            margin-left: 6px;
+            margin-right: 2px;
+        }
+    }
+
+    ui-button {
+       margin-top: 10px;
+       margin-left: 30px;
+       width: 200px;
+    }
+}
+

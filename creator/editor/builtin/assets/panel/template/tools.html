@@ -1,0 +1,23 @@
+<div class="tools">
+    <i class="fa fa-plus"
+        :title="t('HIERARCHY.tab.create')"
+        @click="createPopup"
+    ></i>
+    <i class="fa fa-sort-amount-desc"
+       :title="t('HIERARCHY.tab.sort')"
+       @click="showSortMenu"
+    ></i>
+    <ui-input
+        v-el:input
+        :placeholder="t('SHARED.search') + '...'"
+        :value="filter"
+        @confirm="onFilterAssets"
+        @focus="oInputnFocus"
+        @blur="onInputBlur"
+    ></ui-input>
+    <span class="fa fa-times-circle tool-cancel" v-if="filter" @click="emptyFilter"></span>
+    <i class="fa fa-search"
+        :title="t('HIERARCHY.tab.search')"
+        @click="searchPopup"
+    ></i>
+</div>

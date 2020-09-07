@@ -1,0 +1,8 @@
+<section class="phone">
+    <div class="title">{{t('runtime-dev-tools.phone_list')}}</div>
+    <div class="list">
+        <div v-for="item in list" :selected="isSelect(item)" @click="phoneClick(item)">
+            {{getPhoneName(item)}}
+        </div>
+    </div>
+</section>

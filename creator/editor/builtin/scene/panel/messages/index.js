@@ -1,0 +1,1 @@
+"use strict";const e=require("./editor"),r=require("./scene"),s=require("./selection"),t=require("./asset-db");let c={};Object.keys(e).forEach(r=>{c[`editor:${r}`]=e[r]}),Object.keys(r).forEach(e=>{c[`scene:${e}`]=r[e]}),Object.keys(s).forEach(e=>{c[`selection:${e}`]=s[e]}),Object.keys(t).forEach(e=>{c[`asset-db:${e}`]=t[e]}),module.exports=c;

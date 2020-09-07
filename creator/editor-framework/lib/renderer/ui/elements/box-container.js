@@ -1,0 +1,1 @@
+"use strict";const e=require("./utils"),t=require("../utils/resource-mgr"),i=require("../behaviors/focusable"),s=require("../behaviors/disable");module.exports=e.registerElement("ui-box-container",{behaviors:[i,s],style:t.getResource("theme://elements/box-container.css"),template:"\n    <content></content>\n  ",ready(){this._initFocusable(this),this._initDisable(!0)}});

@@ -1,0 +1,42 @@
+<div class="tab-create">
+    
+    <div class="wrap">
+        <ul>
+            <li
+                v-for="(index, item) in templates"
+                :hidden="!filterTemplate(item, filter)"
+                :active="index === selected"
+                @click="changeSelected(index)"
+            >
+                <div class="icon">
+                    <img
+                        :src="getTemplateIcon(item)"
+                    />
+                </div>
+                <div class="name">
+                    {{item.name}}
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="browser">
+        <div class="info">
+            {{info}}
+        </div>
+        <div class="operation">
+            <input
+                :value="path"
+                @keyup="_onUpdatePath"
+            />
+            <span class="browse"
+                    @click="selectPath"
+            >{{t('DASHBOARD.browse')}}</span>
+
+            <span class="create"
+                @click="createProject"
+            >{{t('DASHBOARD.create')}}</span>
+        </div>
+    </div>
+
+</div>

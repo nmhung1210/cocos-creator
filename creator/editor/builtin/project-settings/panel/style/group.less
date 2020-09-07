@@ -1,0 +1,65 @@
+.group {
+    width: 100%;
+    overflow: auto;
+
+    header {
+
+        ui-button {
+            vertical-align: middle;
+        }
+
+        span {
+            position: relative;
+            top: 2px;
+
+            &:last-child {
+                color: #999;
+            }
+
+            &:first-child {
+                font-size: 14px;
+                margin-right: 20px;
+                font-weight: bold;
+                color: inherit;
+            }
+        }
+    }
+
+    .group-list {
+        padding: 20px;
+
+        div {
+            margin-bottom: 8px;
+
+            span {
+                display: inline-block;
+                width: 60px;
+                margin-right: 10px;
+                color: #999;
+            }
+        }
+    }
+
+    .collision {
+        padding: 20px 0 10px 0;
+        overflow: auto;
+
+        & > table {
+            table-layout: fixed;
+            word-break:keep-all;
+            text-align: center;
+            font-size: 12px;
+            border-collapse: collapse;
+
+            td {
+                padding: 6px 10px;
+                color: #999;
+                width: 50px;
+                max-width: 50px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}

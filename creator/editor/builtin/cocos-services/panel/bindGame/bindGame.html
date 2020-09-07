@@ -1,0 +1,15 @@
+<div>
+    <back-home :show-to-link="false" @back-home="backHome"></back-home>
+    <div style="margin: 10px;">
+        <div class="section">
+            <div style="font-size: 24px; color: rgb(189, 189, 189);">
+                {{utils_t("bind_appid")}}
+            </div>
+            <div style="margin-top: 10px; margin-right: 30px;">
+                {{utils_t("bind_tips")}}
+            </div>
+        </div>
+        <div v-if="!isLogin" style='color:red;'>{{utils_t("nologin_tips")}}</div>
+        <select-game v-if="isLogin" @bind-game="bindGameLogic" @refresh-game="refreshGame" :games="games"></select-game>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+"use strict";const e=require("fire-fs"),s=require("fire-path");module.exports=class extends Editor.metas.asset{static version(){return"1.0.0"}static defaultType(){return"json"}import(t,r){e.readJson(t,"utf8",(e,i)=>{if(e)return r(e);let a=new cc.JsonAsset;a.name=s.basenameNoExt(t),a.json=i,this._assetdb.saveAssetToLibrary(this.uuid,a),r()})}};

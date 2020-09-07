@@ -1,0 +1,24 @@
+{
+    "name": "qtt-runtime",
+    "version": "0.0.1",
+    "description": "构建 CPK 扩展包",
+    "author": "Cocos Creator",
+    "main-menu": {},
+    "license": "ISC",
+    "simple-build-target": "build.js",
+    "profiles": {
+        "project": {
+            "tinyPackageServer": "",
+            "workerPath": "",
+            "useCustomCpkPath": false,
+            "outputCpkPath": "",
+            "packFirstScreenRes": false,
+            "deviceOrientation": "portrait",
+            "package": "",
+            "name": "",
+            "icon": "",
+            "versionName": "",
+            "versionCode": ""
+        }
+    }
+}

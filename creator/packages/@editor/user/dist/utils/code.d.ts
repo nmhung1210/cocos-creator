@@ -1,0 +1,21 @@
+export declare const code: {
+    '-1': string;
+    '0': string;
+    '101': string;
+    '102': string;
+    '103': string;
+    '301': string;
+    '302': string;
+    '304': string;
+    '305': string;
+    '403': string;
+    '405': string;
+    '406': string;
+    '407': string;
+    '408': string;
+    '409': string;
+    '410': string;
+    '420': string;
+    '701': string;
+    '799': string;
+};

@@ -1,0 +1,32 @@
+<div class="events"
+    :shadow="shadow"
+
+    @mousewheel="_onMouseWheel"
+    @mousedown="_onMouseDown"
+>
+    <div class="scope"
+        :style="updateDuration(offset, duration, sample, scale)"
+    ></div>
+
+    <template
+        v-for="frame in events"
+    >
+        <div class="key" draggable="true"
+            :hover="checkHover(frame)"
+            :style="queryEventStyle(offset, scale, frame)"
+
+            @mousedown="_onKeyMouseDown($event, frame)"
+            @dragstart="_onKeyDragStart($event, frame)"
+            @click="_onKeyClick($event, frame)"
+            @dblclick="_onKeyDBLClick($event, frame)"
+        ></div>
+    </template>
+
+    <template
+        v-for="item in virtualevents"
+    >
+        <div class="key v"
+            :style="queryEventStyle(offset, scale, item.frame + item.offset)"
+        ></div>
+    </template>
+</div>

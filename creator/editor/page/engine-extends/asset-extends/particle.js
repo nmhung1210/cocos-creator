@@ -1,0 +1,1 @@
+cc.ParticleAsset.prototype.createNode=function(e){var t=new cc.Node(this.name),c=t.addComponent(cc.ParticleSystem);return c.file=this,c.custom=!1,e(null,t)};

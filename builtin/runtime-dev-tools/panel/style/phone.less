@@ -1,0 +1,21 @@
+.phone {
+  padding: 5px;
+  line-height: 24px;
+  background: #333;
+  flex: 1;
+  .title {
+    text-align: center;
+    font-size: 1.3em;
+    border-bottom: 1px solid #474747;
+  }
+  .list {
+    & > div {
+      padding: 5px;
+      font-size: 1em;
+      border-bottom: 1px solid #474747;
+    }
+    & > div[selected] {
+      background: #059;
+    }
+  }
+}

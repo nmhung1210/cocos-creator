@@ -1,0 +1,11 @@
+<section class="home">
+    <section>
+        <details :resources="lastResources" v-ref:details></details>
+    </section>
+    <footer>
+        <div class="fr">
+            <ui-button @click="addClick">{{t('REFACTOR.add')}}</ui-button>
+            <ui-button @click="close">{{t('MESSAGE.cancel')}}</ui-button>
+        </div>
+    </footer>
+</section>

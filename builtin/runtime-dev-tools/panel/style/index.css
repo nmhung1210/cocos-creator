@@ -1,0 +1,97 @@
+@import url('app://node_modules/font-awesome/css/font-awesome.min.css');
+:host {
+  display: flex;
+}
+:host .home {
+  color: #bdbdbd;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  width: 100%;
+}
+:host .home .top {
+  flex: 3;
+  display: flex;
+  margin-bottom: 3px;
+}
+:host .home .fl {
+  float: left;
+}
+:host .home .fr {
+  float: right;
+}
+:host .home .tc {
+  text-align: center;
+}
+.main {
+  padding: 5px;
+  line-height: 24px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  flex: 3;
+  margin-left: 3px;
+}
+.main .title {
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  flex: 1;
+}
+.main .content {
+  flex: 6;
+}
+.console {
+  padding: 5px;
+  line-height: 1.5em;
+  overflow: scroll;
+  display: block;
+  background: #333;
+  user-select: initial;
+  flex: 2;
+}
+.console .warn {
+  color: #fd942b;
+}
+.console .error {
+  color: red;
+}
+.console .debug {
+  color: #10bc79;
+}
+.phone {
+  padding: 5px;
+  line-height: 24px;
+  background: #333;
+  flex: 1;
+}
+.phone .title {
+  text-align: center;
+  font-size: 1.3em;
+  border-bottom: 1px solid #474747;
+}
+.phone .list > div {
+  padding: 5px;
+  font-size: 1em;
+  border-bottom: 1px solid #474747;
+}
+.phone .list > div[selected] {
+  background: #059;
+}
+.info {
+  padding: 5px 15px;
+  line-height: 15px;
+  height: 15px;
+  text-align: right;
+}
+.warn {
+  color: #fd942b;
+}
+.error {
+  color: red;
+}
+.debug {
+  color: #10bc79;
+}

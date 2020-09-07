@@ -1,0 +1,224 @@
+<section class="slider">
+    <style>
+        .slider {
+            transform: translateX(100%);
+            position: absolute;
+            right: 0;
+            width: 240px;
+            height: 100%;
+            background: #eee;
+            padding-top: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+        .slider[active] {
+            transform: translateX(0);
+        }
+
+        .slider > header {
+            line-height: 40px;
+            padding: 0 15px;
+            line-height: 40px;
+            border-bottom: 1px solid #aaa;
+            font-size: 14px;
+        }
+
+        .slider > header > span.clear {
+            float: right;
+            color: blue;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .slider > .list {
+            overflow: auto;
+            flex: 1;
+        }
+
+        .slider > .list > li {
+            display: flex;
+            padding: 10px 15px;
+            cursor: default;
+        }
+
+        .slider > .list > li:hover {
+            background: #DDD;
+        }
+
+        .slider > .list > li > .info {
+            width: 136px;
+            line-height: 20px;
+        }
+
+        .slider > .list > li > .info > div {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .slider > .list > li > .info > .date {
+            color: #aaa;
+            text-indent: 2px;
+        }
+
+        .slider > .list > li > .oac {
+            width: 75px;
+            line-height: 40px;
+            text-align: right;
+            position: relative;
+            text-align: center;
+        }
+
+        .slider > .list > li > .oac {
+            width: 75px;
+            line-height: 40px;
+            text-align: right;
+            position: relative;
+            text-align: center;
+        }
+
+        .slider > .list > li > .oac > span {
+            display: inline;
+            position: relative;
+            top: -1px;
+        }
+
+        .slider > .list > li > .oac > i {
+            display: inline;
+            position: relative;
+            top: -1px;
+            padding: 4px;
+            cursor: pointer;
+        }
+
+        .slider > .list > li > .oac > .progress {
+            position: absolute;
+            left: 50%;
+            margin-left: -20px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #999;
+            border-radius: 22px;
+            animation: download-progress 5s linear infinite;
+        }
+
+        .slider > .list > li > .oac > .progress > i {
+            width: 4px;
+            height: 4px;
+            position: absolute;
+            top: -2px;
+            left: 17px;
+            border-radius: 4px;
+            background: #999;
+            display: block;
+            margin: 0;
+        }
+
+        .slider > .list > li > .oac > .string {
+            position: absolute;
+            left: 50%;
+            margin-left: -20px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+
+        @keyframes download-progress {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <!-- header -->
+    <header>
+        <span>{{ tr('silder.download_manager') }}</span>
+        <span class="clear"
+            @click="clear()"
+        >{{ tr('silder.clear') }}</span>
+    </header>
+
+    <ul class="list">
+
+        <li
+            v-for="item in list"
+        >
+            <div class="info">
+                <div>{{ lang === 'en' ? item.name_en : item.name}}</div>
+                <div class="date">{{getDate(item.timestamp)}}</div>
+            </div>
+
+            <!-- 正在下载，显示进度 -->
+            <div class="oac"
+                v-if="item.status == 'download'"
+            >
+                <span class="progress">
+                    <i></i>
+                </span>
+                <span class="string">{{Math.floor(item.progress*100) + '%'}}</span>
+            </div>
+
+            <!-- 下载失败失败 -->
+            <div class="oac"
+                v-if="item.status == 'error'"
+            >
+                <span>Failure</span>
+                <i class="fa fa-trash"
+                    @click="remove(item.production_id, item.version_id)"
+                ></i>
+            </div>
+
+            <!-- 下载完成 -->
+            <div class="oac"
+                v-if="item.status == 'finish'"
+            >
+                <!-- 显示安装和删除 -->
+                <template
+                    v-if="item.type == 33 || item.type == 35"
+                >
+                    <i class="fa fa-sign-in"
+                        @click="install(item.production_id, item.version_id)"
+                    ></i>
+                    <i class="fa fa-trash"
+                        @click="remove(item.production_id, item.version_id)"
+                    ></i>
+                </template>
+
+                <!-- 显示解压和删除 -->
+                <template
+                    v-else
+                >
+                    <i class="fa fa-files-o"
+                        @click="unzip(item.production_id, item.version_id)"
+                    ></i>
+                    <i class="fa fa-trash"
+                        @click="remove(item.production_id, item.version_id)"
+                    ></i>
+                </template>
+            </div>
+
+            <!-- 正在解压 -->
+            <div class="oac"
+                v-if="item.status == 'unzip'"
+            >
+                <span class="progress">
+                    <i></i>
+                </span>
+                <span class="string">Unzip</span>
+            </div>
+
+            <!-- 正在安装 -->
+            <div class="oac"
+                v-if="item.status == 'install'"
+            >
+                <span class="progress">
+                    <i></i>
+                </span>
+                <span class="string">Install</span>
+            </div>
+        </li>
+
+    </ul>
+</section>

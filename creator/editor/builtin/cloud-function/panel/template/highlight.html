@@ -1,0 +1,11 @@
+<div class="highlight" :style="style" :hidden="!show" :invalid='invalid'>
+    <header v-if="name" :invalid='invalid'>
+        <div class="title-item" >
+            <span class="asset-icon icon" :style="iconUrl"></span>
+            <span class="name">{{name}}</span>
+        </div>
+    </header>
+    <section :state="state" :style="cstyle">
+        <div class="line" :style="updateLineStyle(offset)"></div>
+    </section>
+</div>

@@ -1,0 +1,32 @@
+<div class="service">
+    <div class="props">
+        <ui-prop
+                name="{{T('PROJECT_SETTINGS.service.facebook')}}"
+                tooltip="{{T('PROJECT_SETTINGS.service.facebook_tooltip')}}">
+            <ui-checkbox v-value="facebook.enable"></ui-checkbox>
+        </ui-prop>
+
+        <template v-if="facebook.enable">
+            <ui-prop name="AppID">
+                <ui-input v-value="facebook.appID"></ui-input>
+            </ui-prop>
+
+            <ui-prop
+                    name="{{T('PROJECT_SETTINGS.service.facebook_live')}}"
+                    tooltip="{{T('PROJECT_SETTINGS.service.facebook_live_tooltip')}}">
+                <ui-checkbox v-value="facebook.live.enable"></ui-checkbox>
+            </ui-prop>
+
+            <ui-prop
+                    name="{{T('PROJECT_SETTINGS.service.facebook_audience_network')}}"
+                    tooltip="{{T('PROJECT_SETTINGS.service.facebook_audience_network_tooltip')}}">
+                <ui-checkbox v-value="facebook.audience.enable"></ui-checkbox>
+            </ui-prop>
+
+        </template>
+        <a class="jump-analytics"
+           v-on:click="_onJumpFacebook"
+        >{{T('PROJECT_SETTINGS.service.jump_web_site')}}</a>
+    </div>
+
+</div>

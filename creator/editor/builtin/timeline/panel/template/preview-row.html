@@ -1,0 +1,45 @@
+<div class="preview-row">
+
+        <template
+            v-if="display"
+        >
+            <div class="line"
+                v-for="line in lines"
+
+                @click="_onLineClick(line)"
+                :style="queryLineStyle(line.frame, line.length, scale, offset)"
+            ></div>
+        </template>
+    
+        <template
+            v-if="display"
+        >
+            <div class="key" draggable="true"
+                v-for="key in keys"
+
+                :style="queryKeyStyle(key.frame, scale, offset)"
+                :selected="checkSelected(key)"
+
+                @mousedown="_onKeyMouseDown($event, key)"
+                @mouseup="_onKeyMouseUp($event, key)"
+                @click="_onKeyClick($event)"
+                @dragstart="_onKeyDragStart($event, key)"
+            >
+                <div class="dot"></div>
+            </div>
+        </template>
+
+        <template
+            v-if="display"
+        >
+            <div class="key" preview
+                v-for="key in virtualkeys"
+
+                :style="queryVKeyStyle(key.frame, key.offset, scale, offset)"
+            >
+                <div class="dot"></div>
+            </div>
+        </template>
+    
+    </div>
+    

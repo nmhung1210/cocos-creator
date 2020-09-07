@@ -1,0 +1,17 @@
+{
+  "name": "preferences",
+  "version": "0.1.4",
+  "description": "Fireball Project Preferences",
+  "author": "Firebox Technology",
+  "main": "main.js",
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "i18n:MAIN_MENU.panel.preferences",
+    "width": 560,
+    "min-width": 580,
+    "height": 500,
+    "min-height": 500,
+    "save": false
+  }
+}

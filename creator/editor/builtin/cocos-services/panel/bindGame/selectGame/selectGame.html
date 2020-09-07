@@ -1,0 +1,25 @@
+<div>
+    <div style="display: flex; justify-content: space-between;">
+        <ui-select id="ui-select" class="large" style="width: calc(100% - 30px);" @confirm="selectChange"
+            v-value="defaultSelected">
+            <option selected="selected">{{utils_t("select_game_please")}}</option>
+            <optgroup :label="item.type" v-for="item in games">
+                <option v-for="game of item.lists" value="{{game.app_id+'-'+game.corporation_id}}">{{ game.game_name }}
+                </option>
+            </optgroup>
+        </ui-select>
+        <ui-button @click="handleRefreshGameLogic" class="black" style="margin-top: 0px; height:26px; width:28px;"><i
+                class="icon-arrows-cw" style="font-size:14px; margin-left: -9px;"></i></ui-button>
+    </div>
+    <div style="text-align: right;">
+        <ui-button @click="handleBindGameLogic" style="width:100px; margin-top:15px;" class="blue">
+            {{utils_t("associate")}}</ui-button>
+    </div>
+    <div @click="handleGotoLinkLogic"
+        style="text-align:right; height:28px; line-height:28px; overflow:hidden; margin-top:10px; cursor: pointer;">
+        {{utils_t("create_game")}}<i class="icon-link-ext"></i>
+    </div>
+    <ui-loader class="massive" v-show="isRefreshData">
+        <div style="margin-top:10px; font-size: 14px;">{{utils_t("reloading_data")}}</div>
+    </ui-loader>
+</div>

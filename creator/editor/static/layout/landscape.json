@@ -1,0 +1,70 @@
+{
+  "type": "dock-h",
+  "children": [
+    {
+      "type": "dock-v",
+      "children": [
+        {
+          "type": "panel",
+          "height": 300,
+          "active": 0,
+          "children": [
+            "hierarchy"
+          ]
+        },
+        {
+          "type": "panel",
+          "active": 0,
+          "children": [
+            "assets",
+            "cloud-function"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "dock-v",
+      "children": [
+        {
+          "type": "dock-h",
+          "children": [
+            {
+              "type": "panel",
+              "active": 0,
+              "children": [
+                "scene"
+              ]
+            },
+            {
+              "type": "panel",
+              "width": 200,
+              "active": 0,
+              "children": [
+                "node-library"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "height": 300,
+          "active": 0,
+          "children": [
+            "console",
+            "timeline",
+            "game-window"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "width": 300,
+      "active": 0,
+      "children": [
+        "inspector",
+        "cocos-services"
+      ]
+    }
+  ]
+}

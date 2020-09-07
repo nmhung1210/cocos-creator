@@ -1,0 +1,1 @@
+"use strict";const e=Editor.require("packages://scene/panel/tools/camera");module.exports={"center-nodes":function(o,s){e.adjustSceneToNodes(s)}};

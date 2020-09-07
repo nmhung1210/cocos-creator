@@ -1,0 +1,106 @@
+.edit-event {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: @index_mask + 1;
+    display: flex;
+
+    & > .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #444;
+        opacity: 0.9;
+        z-index: -1;
+    }
+
+    & > .event-tools {
+        width: 34px;
+        background: #222;
+        text-align: center;
+        padding: 10px 0;
+
+        & > i {
+            font-size: 14px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    }
+
+    & > .ul {
+        padding: 25px 10px;
+        display: flex;
+        margin: 0;
+        font-size: 14px;
+        overflow: auto;
+        white-space: nowrap;
+        flex: 1;
+
+        .title {
+            margin-bottom: 6px;
+        }
+
+        & > .line {
+            box-shadow: 0 0 14px 1px rgba(0,0,0,0.2);
+            width: 1px;
+            background: #111;
+            height: 100%;
+            display: block;
+        }
+
+        & > .li {
+            margin: 0;
+            list-style: none;
+            padding: 20px 20px 10px 20px;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+
+            .func {
+                margin-bottom: 6px;
+
+                .title {
+                    display: flex;
+                }
+
+                ui-input {
+                    margin-left: 9px;
+                    flex: 1;
+                }
+
+                & > .l {
+                    padding: 0 10px;
+                    text-align: right;
+                }
+
+                i {
+                    padding: 2px;
+                    cursor: pointer;
+
+                    &.fa-trash {
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+            }
+
+            .params {
+                overflow: auto;
+
+                & > div {
+                    margin-bottom: 5px;
+                    display: flex;
+
+                    ui-input, ui-num-input {
+                        width: 130px;
+                    }
+                }
+            }
+        }
+
+    }
+}

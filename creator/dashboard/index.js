@@ -1,0 +1,1 @@
+"use strict";exports.startup=function(t,i){require("./init")(t,i)};

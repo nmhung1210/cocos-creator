@@ -1,0 +1,84 @@
+<div class="section">
+  <h3>Standard</h3>
+
+  <ui-prop-table>
+    <template>
+      <ui-row name="Basic">
+        <ui-input class="fill" value="Foobar" placeholder="User Name"></ui-input>
+      </ui-row>
+
+      <ui-row name="Multiply Controls">
+        <div class="fill layout horizontal center-center">
+          <ui-checkbox>Enable</ui-checkbox>
+          <span style="width: 10px;"></span>
+          <ui-color value="#09f" class="flex-1"></ui-color>
+        </div>
+      </ui-row>
+
+      <ui-row name="End Justified">
+        <div class="fill layout horizontal end-justified">
+          <ui-button class="green">Start</ui-button>
+        </div>
+      </ui-row>
+
+      <ui-row name="Readonly" readonly>
+        <ui-input class="fill" value="Some Text"></ui-input>
+      </ui-row>
+
+      <ui-row name="Disabled" disabled>
+        <div class="fill layout horizontal center-center">
+          <ui-input class="flex-1"></ui-input>
+          <ui-button class="tiny">Apply</ui-button>
+        </div>
+      </ui-row>
+
+      <ui-row name="Tooltip"
+        tooltip="A container is a fixed width element that wraps your site's content. It remains a constant size and uses margin to center. Containers are the simplest way to center page content inside a grid."
+      >
+        <ui-num-input class="fill" value="400"></ui-num-input>
+      </ui-row>
+    </template>
+  </ui-prop-table>
+</div>
+
+<div class="section">
+  <h3>Debug</h3>
+
+  <ui-prop-table class="debug">
+    <template>
+      <ui-row name="very long">
+        <ui-input class="fill"></ui-input>
+      </ui-row>
+
+      <ui-row name="very very long">
+        <ui-num-input class="fill"></ui-num-input>
+      </ui-row>
+
+      <ui-row name="very very very long">
+        <ui-select class="fill"></ui-select>
+      </ui-row>
+
+      <ui-row name="very very very very long">
+        <ui-slider class="fill"></ui-slider>
+      </ui-row>
+    </template>
+  </ui-prop-table>
+</div>
+
+<div class="section">
+  <h3>3 Column</h3>
+
+  <ui-prop-table class="debug">
+    <template>
+      <ui-row name="Foo">
+        <ui-input class="fill"></ui-input>
+        <ui-checkbox></ui-checkbox>
+      </ui-row>
+
+      <ui-row name="Bar">
+        <ui-input class="fill"></ui-input>
+        <ui-checkbox></ui-checkbox>
+      </ui-row>
+    </template>
+  </ui-prop-table>
+</div>

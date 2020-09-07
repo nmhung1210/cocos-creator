@@ -1,0 +1,134 @@
+<div class="native">
+    
+    <ui-prop name="">
+        <div class="layout horizontal left">
+            <span> {{T('PREFERENCES.doc_link_title')}} </span>
+            <span class="link"
+            
+            >{{T('PREFERENCES.doc_link_name')}}</span>
+        </div>
+    </ui-prop>
+
+    <!-- 使用内置 JavaScript 引擎 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.use_default_js_engine')}}"
+        tooltip="{{T('PREFERENCES.native.use_default_js_engine')}}"
+    >
+        <ui-checkbox
+            v-value="native.useDefaultJsEngine"
+            @confirm="_onJavaScriptEngineChanged"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- JavaScript 引擎路径 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.js_engine_path')}}"
+        tooltip="{{T('PREFERENCES.native.js_engine_path')}}"
+    >
+        <ui-input class="flex-2"
+            v-disabled="native.useDefaultJsEngine"
+            v-value="native.jsEnginePath"
+        ></ui-input>
+        <ui-button class="small"
+            v-disabled="native.useDefaultJsEngine"
+            @click="choosePath('jsEnginePath')"
+        >···</ui-button>
+        <ui-button class="small"
+            v-disabled="native.useDefaultJsEngine"
+            @click="openPath('jsEnginePath')"
+        >{{T('SHARED.open')}}</ui-button>
+    </ui-prop>
+
+    <!-- 使用内置 Cocos2d-x 引擎 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.use_default_cpp_engine')}}"
+        tooltip="{{T('PREFERENCES.native.use_default_cpp_engine')}}"
+    >
+        <ui-checkbox
+            :value="native.useDefaultCppEngine"
+            @confirm="_onUseDefaultCppEngineChanged"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- Cocos2d-x 路径 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.cpp_engine_path')}}"
+        tooltip="{{T('PREFERENCES.native.cpp_engine_path')}}"
+    >
+        <ui-input class="flex-2"
+            v-disabled="native.useDefaultCppEngine"
+            v-value="native.cppEnginePath"
+        ></ui-input>
+        <ui-button class="small"
+            v-disabled="native.useDefaultCppEngine"
+            @click="choosePath('cppEnginePath')"
+        >
+            ···
+        </ui-button>
+        <ui-button class="small"
+            v-disabled="native.useDefaultCppEngine"
+            @click="openPath('cppEnginePath')"
+        >
+            {{T('SHARED.open')}}
+        </ui-button>
+    </ui-prop>
+
+    <!-- WechatGame 程序路径 -->
+    <ui-prop label-width='45'
+             name="{{T('PREFERENCES.native.wechatgame_app_path')}}"
+             tooltip="{{T('PREFERENCES.native.wechatgame_app_path')}}"
+    >
+        <ui-input class="flex-2"
+                  v-value="native.weChatPath"
+                  placeholder="wechatgame app path"
+        ></ui-input>
+        <ui-button class="small"
+                   v-on:confirm="choosePath('weChatPath')"
+        >···</ui-button>
+        <ui-button class="small"
+                   v-on:confirm="openPath('weChatPath')"
+        >{{T('SHARED.open')}}</ui-button>
+    </ui-prop>
+
+    <!-- NDK 路径 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.ndk_root')}}"
+        tooltip="{{T('PREFERENCES.ndk_root')}}"
+    >
+        <ui-input class="flex-2"
+            placeholder="{{T('PREFERENCES.ndk_placeholder')}}"
+            v-value="native.ndkPath"
+        ></ui-input>
+        <ui-button class="small"
+            @click="choosePath('ndkPath')"
+        >
+            ···
+        </ui-button>
+        <ui-button class="small"
+            @click="openPath('ndkPath')"
+        >
+            {{T('SHARED.open')}}
+        </ui-button>
+    </ui-prop>
+
+    <!-- Android SDK 路径 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.android_sdk_root')}}"
+        tooltip="{{T('PREFERENCES.android_sdk_root')}}"
+    >
+        <ui-input class="flex-2" placeholder="sdk-root"
+            v-value="native.sdkPath"
+        ></ui-input>
+        <ui-button class="small"
+            @click="choosePath('sdkPath')"
+        >
+            ···
+        </ui-button>
+        <ui-button class="small"
+            @click="openPath('sdkPath')"
+        >
+            {{T('SHARED.open')}}
+        </ui-button>
+    </ui-prop>
+
+</div>

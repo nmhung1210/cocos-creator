@@ -1,0 +1,50 @@
+<div class="module">
+  <div class="info">
+    <p>{{T('PROJECT_SETTINGS.module.info')}}</p>
+    <p>{{T('PROJECT_SETTINGS.module.warn')}}</p>
+  </div>
+
+  <section>
+    <div class="module-header">
+      <span style="width: 23px"></span>
+      <ui-checkbox
+        :checked="all"
+        v-on:confirm="_selectAll(!all)"
+      ></ui-checkbox>
+      <span class="name" style="margin-left: 20px">
+        {{T('PROJECT_SETTINGS.module.inquiry')}}
+      </span>
+    </div>
+
+    <div class="module-section">
+      <template
+        v-for="item in module">
+        <div
+          v-if="!item.hide" class="module-item">
+          <span class="checkbox">
+            <ui-checkbox
+              v-disabled="item.locked"
+              :checked="item.checked"
+              v-on:confirm="_selectModule(item, !item.checked)"
+            ></ui-checkbox>
+          </span>
+
+          <span class="name">{{item.name}}</span>
+
+          <ui-select
+            v-if="item.options.length > 1"
+            v-disabled="!item.checked"
+            v-value="item.currentIndex"
+            @confirm="_onSelectModule($event, item)">
+            <option
+              v-for="(index,value) in item.options"
+              :value="index"
+            >
+              {{value}}
+            </option>
+          </ui-select>
+        </div>
+      </template>
+    </div>
+  </section>
+</div>

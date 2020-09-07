@@ -1,0 +1,52 @@
+{
+    "name": "hierarchy",
+    "version": "0.1.5",
+    "description": "scene hierarchy viewer",
+    "author": "Creator",
+    "main": "main.js",
+    "main-menu": {
+        "i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.hierarchy": {
+            "icon": "icon.png",
+            "message": "hierarchy:open",
+            "accelerator": "CmdOrCtrl+4"
+        }
+    },
+    "panel": {
+        "main": "panel/index.js",
+        "popable": false,
+        "type": "dockable",
+        "title": "i18n:MAIN_MENU.panel.hierarchy",
+        "icon": "icon.png",
+        "width": 200,
+        "min-width": 200,
+        "min-height": 200,
+        "shortcuts": {
+            "ctrl+a": "selectAll",
+            "command+a": "selectAll",
+            "ctrl+f": "find",
+            "command+f": "find",
+            "f": "find",
+
+            "ctrl+c": "copy",
+            "command+c": "copy",
+            "ctrl+v": "paste",
+            "command+v": "paste",
+            "ctrl+d": "duplicate",
+            "command+d": "duplicate",
+            "command+backspace": "delete",
+            "ctrl+backspace": "delete",
+
+            "backspace": "delete",
+            "del": "delete",
+            "up": "up",
+            "down": "down",
+            "left": "left",
+            "right": "right",
+            "f2": "f2",
+            "enter": "f2",
+
+            "shift+up": "shiftUp",
+            "shift+down": "shiftDown"
+        }
+    }
+}

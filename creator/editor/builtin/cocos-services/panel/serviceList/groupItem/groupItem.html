@@ -1,0 +1,31 @@
+<div>
+  <div v-if="title !== ''"
+       :class="['groupItem', !isHover && 'disabled']">
+    <div style="display:flex;justify-content:space-between; padding: 8px;">
+      <img :src="group_icon"
+           :style="imgStyle"
+           class='img[src=""],img:not([src]){opacity: 0;}"' />
+      <div class="flex-1"
+           style="color: #BDBDBD; font-size: 18px; margin-left:4px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; ">
+        {{ title }}
+      </div>
+    </div>
+    <div id="service-item"
+         style="font-size:12px; color: #797979; margin: 5px 5px 0px 5px;">
+      <service-item v-for="service in group.services"
+                    style="margin-top: 5px;"
+                    @click.stop="handleServiceItemClick(service.service_id)"
+                    @mouseenter.self="isHover = false"
+                    @mouseleave.self="isHover = true"
+                    :key="service.service_id"
+                    :service="service" />
+    </div>
+  </div>
+  <div v-else>
+    <service-item style="margin-top: 5px;"
+                  v-for="service in group.services"
+                  @click.stop="handleServiceItemClick(service.service_id)"
+                  :key="service.service_id"
+                  :service="service" />
+  </div>
+</div>

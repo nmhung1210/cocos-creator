@@ -1,0 +1,30 @@
+<div id='sceneView' class='fit' tabIndex='-1'>
+  <!-- engine canvas -->
+  <canvas id="engine-canvas"></canvas>
+
+  <!-- grid -->
+  <scene-grid id="grid"
+    show-label-h
+    show-label-v
+  >
+  </scene-grid>
+
+  <!-- svg gizmos -->
+  <scene-gizmo id="gizmosView"></scene-gizmo>
+
+  <!-- help text -->
+  <pre id="helpText">
+    {{_T('SCENE.pan_hint')}}
+  </pre>
+
+  <!-- edit mode -->
+  <div id="editButtons" class="overlaying-buttons layout horizontal center" v-if="isInEditMode">
+    <img style="margin-right: 10px" :src="editModeIcon">
+    <ui-button @click="_onSaveEditMode">
+      {{_T('SHARED.save')}}
+    </ui-button>
+    <ui-button @click="_onCloseEditMode">
+      {{_T('SHARED.close')}}
+    </ui-button>
+  </div>
+</div>

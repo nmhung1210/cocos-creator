@@ -1,0 +1,43 @@
+@width_event_key: 5px;
+
+.events {
+    position: relative;
+    flex: 1;
+    background: @color_very_dark_background;
+
+    & > .scope {
+        height: 100%;
+        width: 0;
+        background: @color_dark_background;
+    }
+
+    & > .key {
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        left: -(@width_event_key - 1) / 2 - 1;
+        width: @width_event_key;
+        height: @width_event_key * 2 - 3;
+        background: #CCC;
+        z-index: @index_top;
+        border-radius: 4px 4px 0 0;
+        transition: left 0.2s, width 0.2s, height 0.2s, bottom 0.2s;
+
+        &:hover, &[hover], &.v {
+            width: @width_event_key + 2;
+            height: @width_event_key * 2;
+            left: -((@width_event_key - 1) / 2) - 2;
+        }
+    }
+
+    &[shadow] {
+
+        & > .key {
+            opacity: 0.2;
+
+            &.v {
+                opacity: 1;
+            }
+        }
+    }
+}

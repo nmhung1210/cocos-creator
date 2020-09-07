@@ -1,0 +1,20 @@
+<div class="highlight"
+    :style="style"
+    :hidden="!show"
+>
+    <header
+        v-if="name"
+    >
+        <span>{{name}}</span>
+    </header>
+
+    <section
+        :state="state"
+        :style="cstyle"
+    >
+        
+        <div class="line"
+            :style="updateLineStyle(offset)"
+        ></div>
+    </section>
+</div>

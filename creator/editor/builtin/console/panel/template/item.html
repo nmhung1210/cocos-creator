@@ -1,0 +1,48 @@
+<li class="item"
+    :style="onUpdateTransform(offset, fsize)"
+    :type="log.type"
+    :info="!log.fold"
+>
+    <div class="warp">
+        <div class="text">
+            <!-- 头部警告等图标以及展开图标 -->
+            <span>
+    
+                <i class="fa fa-times-circle"
+                    v-if="log.type==='error'"
+                ></i>
+                <i class="fa fa-warning"
+                    v-if="log.type==='warn'"
+                ></i>
+
+                <i class="fa fa-caret-down"
+                    v-if="log.infos.length && !log.fold"
+                    @click="onHideInfo"
+                ></i>
+                <i class="fa fa-caret-right"
+                    @click="onShowInfo"
+                    v-if="log.infos.length && log.fold"
+                ></i>
+            </span>
+            
+            <!-- 日志主体 -->
+            <span title="{{log.message}}">
+                {{log.message}}
+            </span>
+            
+        </div>
+        <span
+            v-if="log.num > 1"
+        >{{log.num}}</span>
+    </div>
+    <div class="info"
+        v-if="!log.fold"
+    >
+        <template
+            v-for="item in log.infos"
+            track-by="$index"
+        >
+            <pre>{{item.info}}<span class="path">{{item.path}}</span></pre>
+        </template>
+    </div>
+</li>

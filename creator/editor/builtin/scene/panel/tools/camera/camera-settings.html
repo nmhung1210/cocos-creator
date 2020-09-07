@@ -1,0 +1,73 @@
+<link rel='stylesheet' href='app://node_modules/font-awesome/css/font-awesome.min.css'>
+
+<style>
+    :host {
+        position: relative;
+        margin: 0px 10px;
+    }
+
+    .camera-settings-panel {
+        margin-top: 5px;
+        background: #474747;
+        position: absolute;
+        z-index: 999;
+
+        border: 1px solid #555;
+
+        color: #bdbdbd;
+        background-color: #474747;
+        box-shadow: 0 0 15px 2px rgba(0,0,0,0.5);
+        border-radius: 3px;
+        padding: 10px 6px;
+        right: 0px;
+        width: 250px;
+    }
+
+    .title {
+        margin-bottom: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding: 5px;
+    }
+
+    ui-num-input {
+        flex: auto;
+    }
+
+    .fa-caret-down {
+        margin-left: 5px;
+    }
+</style>
+
+<div>
+    <div style="cursor: pointer;" v-on:click="showSettings = !showSettings">
+        <i class="fa fa-video-camera" aria-hidden="true"></i>
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </div>
+    <div class="camera-settings-panel" v-if="showSettings">
+        <div>
+            <div class="title">2D Editor Camera</div>
+            <ui-prop label-width="50%" name="Navigation Speed">
+                <ui-num-input v-value="camera2D.speed" @confirm="_SettingsChanged"></ui-num-input>
+            </ui-prop>
+            <ui-prop label-width="50%" name="Near Clip">
+                <ui-num-input v-value="camera2D.nearClip" @confirm="_SettingsChanged"></ui-num-input>
+            </ui-prop>
+            <ui-prop label-width="50%" name="Far Clip">
+                <ui-num-input v-value="camera2D.farClip" @confirm="_SettingsChanged"></ui-num-input>
+            </ui-prop>
+        </div>
+        <div>
+            <div class="title">3D Editor Camera</div>
+            <ui-prop label-width="50%" name="Navigation Speed">
+                <ui-num-input v-value="camera3D.speed" @confirm="_SettingsChanged"></ui-num-input>
+            </ui-prop>
+            <ui-prop label-width="50%" name="Near Clip">
+                <ui-num-input v-value="camera3D.nearClip" @confirm="_SettingsChanged"></ui-num-input>
+            </ui-prop>
+            <ui-prop label-width="50%" name="Far Clip">
+                <ui-num-input v-value="camera3D.farClip" @confirm="_SettingsChanged"></ui-num-input>
+            </ui-prop>
+        </div>
+    </div>
+</div>

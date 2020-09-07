@@ -1,0 +1,10 @@
+<div id="oauth">
+    <ui-loader v-if="loading"></ui-loader>
+    <webview
+        class="flex1"
+        id="webview"
+        @did-start-loading="startLoading($event)"
+        @did-stop-loading="finishLoading($event)"
+        :src="url">
+    </webview>
+</div>

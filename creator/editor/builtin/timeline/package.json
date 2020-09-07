@@ -1,0 +1,40 @@
+{
+    "name": "timeline",
+    "version": "0.1.5",
+    "description": "A timeline editor",
+    "author": "Firebox Technology",
+    "main": "main.js",
+    "main-menu": {
+        "i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.timeline": {
+            "icon": "panel/icon.png",
+            "message": "timeline:open",
+            "accelerator": "CmdOrCtrl+6"
+        }
+    },
+    "panel": {
+        "main": "panel/index.js",
+        "popable": true,
+        "type": "dockable",
+        "title": "i18n:MAIN_MENU.panel.timeline",
+        "icon": "panel/icon.png",
+        "height": 300,
+        "min-width": 500,
+        "min-height": 240,
+        "engineSupport": true,
+        "shortcuts": {
+            "backspace": "deleteTheSelectedKeys",
+            "delete": "deleteTheSelectedKeys",
+            "del": "deleteTheSelectedKeys",
+            "left": "jumpPrevFrame",
+            "right": "jumpNextFrame",
+            "ctrl+left": "jumpFirstFrame",
+            "command+left": "jumpFirstFrame",
+            "ctrl+right": "jumpLastFrame",
+            "command+right": "jumpLastFrame",
+            "ctrl+c": "copyTheSelectedKeys",
+            "command+c": "copyTheSelectedKeys",
+            "ctrl+v": "pasteTheCopiedKeys",
+            "command+v": "pasteTheCopiedKeys"
+        }
+    }
+}

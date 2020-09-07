@@ -1,0 +1,14 @@
+{
+    "name": "bytedance-opendata",
+    "version": "1.0.0",
+    "description": "构建字节跳动平台",
+    "author": "Cocos Creator",
+    "main-menu": {},
+    "license": "ISC",
+    "simple-build-target": "build.js",
+    "profiles": {
+        "project": {
+            "orientation": "portrait"
+        }
+    }
+}

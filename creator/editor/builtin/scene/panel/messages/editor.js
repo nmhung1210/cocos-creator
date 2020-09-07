@@ -1,0 +1,1 @@
+"use strict";module.exports={dragstart(){this.$dropArea.hidden=!1},dragend(){this.$dropArea.hidden=!0},"project-profile-updated"(e){let r=Editor.Profile.load("project://project.json");_Scene.projectProfileUpdated(r)}};

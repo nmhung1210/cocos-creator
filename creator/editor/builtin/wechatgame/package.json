@@ -1,0 +1,19 @@
+{
+    "name": "wechatgame",
+    "version": "1.0.0",
+    "description": "构建微信平台",
+    "author": "Cocos Creator",
+    "main-menu": {},
+    "license": "ISC",
+    "simple-build-target": "build.js",
+    "profiles": {
+        "project": {
+            "appid": "wx6ac3f5090a6b99c5",
+            "orientation": "portrait",
+            "separate_engine": false,
+            "REMOTE_SERVER_ROOT": "",
+            "subContext": "",
+            "startSceneAssetBundle": false
+        }
+    }
+}

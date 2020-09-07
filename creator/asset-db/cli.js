@@ -1,0 +1,1 @@
+var r=require("commander"),e=require("./index"),s=require("repl"),o=require("./package.json");r.version(o.version).option("--dev","Run in development mode"),r.usage("[options] <library ...>"),r.parse(process.argv);var t=r.args.length>0?r.args[0]:"library",a=new e({cwd:process.cwd(),library:t});s.start({prompt:"asset-db> ",input:process.stdin,output:process.stdout}).context.db=a;

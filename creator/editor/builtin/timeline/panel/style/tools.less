@@ -1,0 +1,39 @@
+.tools {
+    flex: 1;
+    padding: 0 6px;
+    position: relative;
+
+    & > i {
+        line-height: 30px;
+        padding: 0 2px;
+        cursor: pointer;
+        width: 16px;
+        text-align: center;
+    }
+
+    & > span {
+        font-family: serif;
+        font-size: 10px;
+        width: 40px;
+        position: absolute;
+        background: #252526;
+        border: 1px solid #1f1f20;
+        box-shadow: inset 0 0 1px 1px rgb(64, 64, 65);
+        color: #949495;
+        padding: 2px 6px;
+        text-align: right;
+        top: 6px;
+        right: 5px;
+    }
+    
+    &[allow] {
+
+        & > i {
+    
+            &:first-child {
+                position: relative;
+                z-index: @index_record;
+            }
+        }
+    }
+}

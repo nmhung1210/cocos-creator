@@ -1,0 +1,87 @@
+<div style="margin:10px; height: 90%;"
+     @click="handleEmptyAreaClick">
+  <style>
+    .pop-menu-item {
+      white-space: nowrap;
+      color: rgb(51, 51, 51);
+      font-style: normal;
+      height: 20px;
+      width: 100%;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      border-bottom: 1px solid rgb(51, 51, 51);
+    }
+
+    .pop-menu-item.bottom {
+      border-bottom: none;
+    }
+
+    .pop-menu-item:hover {
+      background-color: #bdbdbd;
+    }
+
+    .pop-menu-item.top:hover {
+      background-color: #bdbdbd;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+
+    .pop-menu-item.bottom:hover {
+      background-color: #bdbdbd;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  </style>
+  <div style="margin-top: 10px;"
+       class="section">
+    <div style="display: flex; justify-content: flex-start; width: 100%;">
+      <div style="color: #BDBDBD; font-size: 24px; text-overflow: ellipsis; overflow: hidden; ">{{ game.name }}
+      </div>
+    </div>
+    <div style="margin-top:4px; color: rgb(127, 127, 127); display: flex; justify-content: flex-start; width: 100%;">
+      {{`AppID : ${game.appid}`}}&nbsp;&nbsp;
+      <i @click.stop="handlePopMenuClick"
+         class="icon-menu"
+         style="position: relative; color: rgb(189, 189, 189); cursor: pointer; margin-top: 2px;">
+        <div id="menu"
+             :style="menuStyle">
+          <div @click="handleBindGameLogic"
+               v-if="!hasBindGame"
+               class="pop-menu-item top">
+            {{utils_t("bind_appid")}}
+          </div>
+          <div @click="handleUnbindGameLogic"
+               v-if="hasBindGame"
+               class="pop-menu-item top">
+            {{utils_t("unassociate")}}
+          </div>
+          <div @click="handleSwitchGameLogic"
+               v-if="hasBindGame"
+               class="pop-menu-item">
+            {{utils_t("switch_appid")}}
+          </div>
+          <div @click="handleGotoAccountCenterLogic"
+               class="pop-menu-item bottom">
+            {{utils_t("account_center")}}
+          </div>
+        </div>
+      </i>
+      <div v-if="devmode"
+           @click="exitDevMode"
+           style="font-size: 13px; min-width: 85px; margin-left: 5px; color: #FC932B; cursor: pointer; margin-top: -1px;">
+        {{ utils_t("exit_devmode") }}</div>
+    </div>
+    <div style="margin-top:10px; color: rgb(127, 127, 127);">
+      {{utils_t("integrate_tips")}}
+    </div>
+  </div>
+  <div style="margin-bottom: 10px; margin-top: 10px;">
+    <div v-for="group in groups"
+         style="margin-top: 10px;"
+         :key="group.services[0].service_id">
+      <group-item @service-item-click="handleServiceItemClick"
+                  :group="group" />
+    </div>
+  </div>
+</div>

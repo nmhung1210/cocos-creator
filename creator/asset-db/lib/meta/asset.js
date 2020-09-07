@@ -1,0 +1,1 @@
+"use strict";const s=require("./raw-asset");module.exports=class extends s{useRawfile(){return!1}dests(){return[this._assetdb._uuidToImportPathNoExt(this.uuid)+".json"]}import(s,t){this._assetdb.copyAssetToLibrary(this.uuid,s),t&&t()}static defaultType(){return"asset"}};

@@ -1,0 +1,14 @@
+{
+    "name": "wechatgame-opendata",
+    "version": "1.0.0",
+    "description": "构建微信平台",
+    "author": "Cocos Creator",
+    "main-menu": {},
+    "license": "ISC",
+    "simple-build-target": "build.js",
+    "profiles": {
+        "project": {
+            "orientation": "portrait"
+        }
+    }
+}

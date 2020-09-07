@@ -1,0 +1,1 @@
+"use strict";"use stirct";exports.network=require("./network");

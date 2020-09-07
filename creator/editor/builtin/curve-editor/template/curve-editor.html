@@ -1,0 +1,23 @@
+<div class="curve-editor">
+        <ui-num-input class="multiplier" :value="multiplier" @confirm="onMulti"></ui-num-input>
+        <div class="canvas-wrap" @mousewheel="onMouseWheel">
+            <!-- 网格线/坐标轴层 -->
+            <canvas v-el:grid-canvas class="canvas"></canvas>
+            <!-- 曲线绘制层 -->
+            <canvas v-el:main-canvas class="canvas"></canvas>
+            <!-- 控制辅助线层 -->
+            <canvas v-el:control-canvas class="canvas"></canvas>
+        </div>
+        <!-- 工具栏 -->
+        <div class="toolbar" v-el:tools @click="onTools">
+            <!-- <span class="iconfont icon-setting" @click="onShowPresets"></span> -->
+        </div>
+        <!-- 预设菜单 -->
+        <div class="presets" v-if="showPresets">
+            <div class="header">Presets</div>
+            <div class="canvas-wrap" v-el:presets>
+    
+            </div>
+        </div>
+    </div>
+

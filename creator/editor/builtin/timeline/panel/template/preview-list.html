@@ -1,0 +1,53 @@
+<div class="preview-list" draggable="true"
+    :shadow="shadow"
+
+    @mousewheel="_onMouseWheel"
+    @mousedown="_onMouseDown"
+    @dragstart="_onDragStart"
+    @click="_onClick"
+>
+
+    <template class="property"
+        v-for="item in hierarchy"
+    >
+        <preview-row
+            :size="size"
+
+            :offset="offset"
+            :scale="scale"
+            :clip="clip"
+            :node="item"
+            :sample="sample"
+
+            :box="box"
+
+            :selected="selected"
+        ></preview-row>
+    </template>
+    
+    <div class="missing-title"
+        v-if="mnodes && mnodes.length"
+    >{{t('lost_data')}}</div>
+    <template
+        v-for="item in mnodes"
+    >
+        <preview-row
+            :size="size"
+
+            :offset="offset"
+            :scale="scale"
+            :clip="clip"
+            :node="item"
+            :sample="sample"
+
+            :box="box"
+
+            :selected="selected"
+        ></preview-row>
+    </template>
+
+    <div class="box"
+        :style="box_style"
+    ></div>
+
+</div>

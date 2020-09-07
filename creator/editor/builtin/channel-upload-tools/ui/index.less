@@ -1,0 +1,136 @@
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+#upload-panel {
+    padding: 0 20px;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    overflow-y: auto;
+
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list {
+        flex: 1;
+    }
+
+    .btn-area {
+        border-top: 1px solid #666;
+        display: flex;
+        justify-content: flex-end;
+        height: 40px;
+        margin: 0 10px;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
+    .config-description {
+        word-break: break-all;
+    }
+}
+
+#info-panel {
+    flex-direction: column;
+    display: flex;
+    flex: 1;
+
+    .login-tips {
+        margin-left: 5px;
+        background: #323232;
+        padding: 4px;
+        border-radius: 5px;
+    }
+
+    .info {
+        flex: 1;
+
+        .login-area {
+            padding-bottom: 8px;
+            border-bottom: 1px solid #666;
+        }
+
+        .info-area {
+            padding-top: 8px;
+        }
+
+        .description-prop {
+            height: 55px;
+        }
+    }
+
+    .agreement {
+        padding: 10px 0;
+
+        .agreement-link {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+
+}
+
+.upload {
+    background-color: rgba(55, 55, 55, 1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: #7f7f7f;
+    padding: 10px;
+
+    .info-title {
+        font-weight: bold;
+        font-size: 15px;
+        color: #bdbdbd;
+    }
+
+    .history-text {
+        float: right;
+        cursor: pointer;
+    }
+
+    .info-block {
+
+
+        .progress {
+            height: 10px;
+            width: 100%;
+        }
+    }
+
+    .block-upload {
+        line-height: 20px;
+    }
+
+    .history {
+        .history-info {
+            padding: 10px 0;
+        }
+
+        .history-info:not(:last-child) {
+            border-bottom: 1px solid #666;
+        }
+
+        .history-info:first-child {
+            border-top: 1px solid #666;
+        }
+    }
+}

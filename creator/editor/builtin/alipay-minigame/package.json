@@ -1,0 +1,16 @@
+{
+    "name": "alipay-minigame",
+    "version": "0.0.1",
+    "description": "构建支付宝小游戏工程",
+    "author": "Cocos Creator",
+    "main-menu": {},
+    "license": "ISC",
+    "simple-build-target": "build.js",
+    "profiles": {
+        "project": {
+            "deviceOrientation": "portrait",
+            "remoteUrl": "",
+            "startSceneAssetBundle": false
+        }
+    }
+}

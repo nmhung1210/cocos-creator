@@ -1,0 +1,43 @@
+.service {
+    flex: 1;
+    display: flex;
+    position: relative;
+    flex-direction:column;
+
+    .props {
+        position: relative;
+        overflow: auto;
+    }
+
+    .jump-analytics {
+        position: absolute;
+        right: 0;
+        top: 3px;
+        padding: 4px;
+        cursor: pointer;
+    }
+
+    ui-prop {
+
+        & /deep/ .label {
+            width: 35%;
+        }
+    }
+
+    .optional {
+        margin: 8px;
+        background: #333;
+        border-radius: 4px;
+        padding: 12px;
+
+        p {
+            margin: 0 0 12px 0;
+        }
+
+        span {
+            margin: 6px 0 0 12px;
+            display: inline-block;
+            color: #797979;
+        }
+    }
+}

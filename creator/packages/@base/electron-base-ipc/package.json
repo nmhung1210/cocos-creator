@@ -1,0 +1,46 @@
+{
+  "_from": "@base/electron-base-ipc@^1.0.0",
+  "_id": "@base/electron-base-ipc@1.1.4",
+  "_inBundle": false,
+  "_integrity": "sha1-1pcaUtfBZNeUSXjBr3cB+aF2it8=",
+  "_location": "/@base/electron-base-ipc",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@base/electron-base-ipc@^1.0.0",
+    "name": "@base/electron-base-ipc",
+    "escapedName": "@base%2felectron-base-ipc",
+    "scope": "@base",
+    "rawSpec": "^1.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.0"
+  },
+  "_requiredBy": [
+    "/@base/electron-profile"
+  ],
+  "_resolved": "http://192.168.52.114:7001/@base/electron-base-ipc/download/@base/electron-base-ipc-1.1.4.tgz",
+  "_shasum": "d6971a52d7c164d7944978c1af7701f9a1768adf",
+  "_spec": "@base/electron-base-ipc@^1.0.0",
+  "_where": "/Users/nantas/jenkins/workspace/Creator_2D/fireball/mac/fireball/dist/CocosCreator.app/Contents/Resources/app/node_modules/@base/electron-profile",
+  "author": "",
+  "bundleDependencies": false,
+  "dependencies": {
+    "v-electron-channel": "0.0.1"
+  },
+  "deprecated": false,
+  "description": "在 electron 的 ipc 基础上，简单的封装一层，同进程内使用事件转发，减少 ipc 数据量。并增加发送回调等方法。",
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "spectron": "^3.8.0",
+    "vue": "^2.5.16"
+  },
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "name": "@base/electron-base-ipc",
+  "scripts": {
+    "start": "electron",
+    "test": "mocha"
+  },
+  "version": "1.1.4"
+}

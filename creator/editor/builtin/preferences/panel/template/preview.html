@@ -1,0 +1,122 @@
+<div class="preview">
+    <!-- 自动刷新 -->
+    <ui-prop label-width="40"
+        name="{{T('PREFERENCES.auto_refresh')}}"
+        tooltip="{{T('PREFERENCES.auto_refresh')}}"
+    >
+        <ui-checkbox
+            v-value="preview.autoRefresh"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- 预览使用浏览器 -->
+    <ui-prop label-width="40"
+        name="{{T('PREFERENCES.preview_browser')}}"
+        tooltip="{{T('PREFERENCES.preview_browser')}}"
+    >
+        <ui-select
+            v-value="preview.previewBrowser"
+        >
+            <option value="default">{{T('PREFERENCES.default')}}</option>
+            <option
+                v-for="item in preview.previewBrowserList"
+                v-value="item.value"
+            >{{item.text}}</option> 
+        </ui-select>
+        <ui-button class="small"
+            @click="chooseBrowser"
+        >
+            {{T('PREFERENCES.browse')}}
+        </ui-button>
+        <ui-button class="small"
+            v-disabled="preview.previewBrowser === 'default'"
+            @click="removeBrowser"
+        >
+            {{T('PREFERENCES.remove')}}
+        </ui-button>
+    </ui-prop>
+
+    <!-- 内置模拟器路径 -->
+    <ui-prop label-width="40"
+        name="{{T('PREFERENCES.simulator_root')}}"
+        tooltip="{{T('PREFERENCES.simulator_root')}}"
+    >
+        <ui-input readonly
+            v-value="preview.simulatorPath"
+        ></ui-input>
+        <ui-button class="small"
+            @click="openSimulatorDir"
+        >
+            {{T('SHARED.open')}}
+        </ui-button>
+    </ui-prop>
+
+    <!-- 模拟器横竖屏设置 -->
+    <ui-prop label-width="40"
+        name="{{T('PREFERENCES.simulator_device_orientation')}}"
+        tooltip="{{T('PREFERENCES.simulator_device_orientation')}}"
+    >
+        <ui-select
+            :value="preview.isLandscape"
+            @change="onLandscapeChanged($event)"
+        >
+            <option
+                v-for="item in orientationList"
+                v-value=item.value
+            >{{item.text}}</option> 
+        </ui-select>
+    </ui-prop>
+
+    <!-- 模拟器分辨率设置 -->
+    <ui-prop label-width="40"
+        name="{{T('PREFERENCES.simulator_resolution')}}"
+        tooltip="{{T('PREFERENCES.simulator_resolution')}}"
+    >
+        <ui-select style="width: 100%"
+            v-value="preview.resolution"
+            @change="onResolutionChange(preview.resolution)"
+        >
+             <option
+                v-for="item in preview.resolutionList"
+                v-value="item.value"
+            >{{item.title}}</option> 
+        </ui-select>
+    </ui-prop>
+
+    <!-- 自定义分辨率设置 -->
+    <ui-prop label-width="40"
+        name="{{T('PREFERENCES.customize_resolution')}}"
+        tooltip="{{T('PREFERENCES.customize_resolution')}}"
+    >
+        <span>{{T('PREFERENCES.width')}}: </span>
+        <ui-num-input
+            v-value="preview.customizeSize.width"
+            @change="onCustomizeSizeChange"
+        ></ui-num-input>
+        <span>{{T('PREFERENCES.height')}}: </span>
+        <ui-num-input
+            v-value="preview.customizeSize.height"
+            @change="onCustomizeSizeChange"
+        ></ui-num-input>
+    </ui-prop>
+
+    <!-- 启动模拟器调试 -->
+    <ui-prop label-width="40"
+             name="{{T('PREFERENCES.simulator_debugger')}}"
+             tooltip="{{T('PREFERENCES.simulator_debugger_tooltip')}}"
+    >
+        <ui-checkbox
+                v-value="preview.simulatorDebugger"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- 启动模拟器在main.js 等待调试链接 -->
+    <ui-prop v-if="preview.simulatorDebugger" label-width="40"
+             name="{{T('PREFERENCES.simulator_wait_for_connect')}}"
+             tooltip="{{T('PREFERENCES.simulator_wait_for_connect_tooltip')}}"
+    >
+        <ui-checkbox
+                v-value="preview.simulatorWaitForConnect"
+        ></ui-checkbox>
+    </ui-prop>
+</div>

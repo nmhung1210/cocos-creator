@@ -1,0 +1,41 @@
+<div class="upload">
+    <div>
+        <span class="info-title">{{t('huawei_title')}}</span>
+        <span class="history-text" @click="toggleClick">{{historyTips}}</span>
+    </div>
+    <div v-if="uploading" class="mt5 info-block block-upload">
+        <div class="version">
+            <span>{{t('version')}}:</span>
+            <span>{{info.config.version}}</span>
+        </div>
+        <div class="description">
+            <span>{{t('description')}}:</span>
+            <span class="config-description">{{info.config.description}}</span>
+        </div>
+        <div class="progress-area mt10">
+            <div class="progress-info">{{progressTips}}</div>
+            <ui-progress class="progress mt5" v-value="uploadProgress"></ui-progress>
+        </div>
+        <div v-if="showBtns" class="mt10">
+            <!-- <ui-button class="black">{{btnStatus}}</ui-button>-->
+            <ui-button @click="cancelClick" class="black">{{t('cancel')}}</ui-button>
+            <ui-button @click="returnClick" class="black">{{t('return')}}</ui-button>
+        </div>
+    </div>
+    <div v-if="toggle" class="history mt10">
+        <div class="history-info" v-for="item in history">
+            <div class="time">
+                <span>{{t('upload_time')}}：</span>
+                <span>{{formatTime(item.time)}}</span>
+            </div>
+            <div class="version">
+                <span>{{t('version')}}：</span>
+                <span>{{item.version}}</span>
+            </div>
+            <div class="description">
+                <span>{{t('description')}}：</span>
+                <span>{{item.description}}</span>
+            </div>
+        </div>
+    </div>
+</div>

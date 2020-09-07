@@ -1,0 +1,48 @@
+{
+  "name": "cloud-function",
+  "version": "0.0.1",
+  "description": "1",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.panel.title/i18n:cloud-function.title": {
+      "message": "cloud-function:open"
+    }
+  },
+  "private": true,
+  "panel": {
+    "main": "panel/index.js",
+    "icon": "icon.png",
+    "type": "dockable",
+    "title": "i18n:cloud-function.title",
+    "width": 300,
+    "min-width": 200,
+    "min-height": 400,
+    "engineSupport": true,
+    "shortcuts": {
+      "ctrl+c": "copyFile",
+      "command+c": "copyFile",
+      "ctrl+v": "pasteFile",
+      "command+v": "pasteFile",
+      "ctrl+a": "selectAll",
+      "command+a": "selectAll",
+      "ctrl+f": "find",
+      "command+f": "find",
+      "del": "delete",
+      "up": "up",
+      "down": "down",
+      "left": "left",
+      "right": "right",
+      "f2": "f2",
+      "enter": "f2",
+      "command+backspace": "delete",
+      "shift+up": "shiftUp",
+      "shift+down": "shiftDown"
+    }
+  },
+  "dependencies": {
+    "@cloudbase/manager-node": "^2.3.4",
+    "compressing": "^1.5.0",
+    "request": "^2.88.0"
+  }
+}

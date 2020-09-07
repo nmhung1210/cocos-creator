@@ -1,0 +1,17 @@
+{
+  "name": "curve-editor",
+  "version": "0.1",
+  "description": "Curve Editor",
+  "author": "Yanna",
+  "main": "main.js",
+  "panel": {
+    "main": "panel/curve-editor.js",
+    "type": "dockable",
+    "title": "i18n:CURVE_EDITOR.title",
+    "engineSupport": true,
+    "width": 500,
+    "min-width": 325,
+    "height": 500,
+    "min-height": 325
+  }
+}

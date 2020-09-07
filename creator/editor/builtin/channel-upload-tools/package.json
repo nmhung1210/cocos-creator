@@ -1,0 +1,27 @@
+{
+    "name": "channel-upload-tools",
+    "version": "1.0.0",
+    "description": "",
+    "author": "Cocos Creator",
+    "main": "main.js",
+    "panel": {
+        "main": "ui/index.js",
+        "type": "dockable",
+        "title": "i18n:channel-upload-tools.title",
+        "width": 520,
+        "min-width": 520,
+        "height": 400,
+        "min-height": 400,
+        "save": false
+    },
+    "panel.oauth": {
+        "main": "oauth/index.js",
+        "type": "dockable",
+        "title": "i18n:channel-upload-tools.oauth_panel",
+        "width": 775,
+        "min-width": 600,
+        "height": 710,
+        "min-height": 400,
+        "save": false
+    }
+}

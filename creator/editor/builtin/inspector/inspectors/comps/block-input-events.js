@@ -1,0 +1,1 @@
+"use strict";Vue.component("cc-block-input-events",{template:"\n    <div :style=\"cssBlock\">\n      {{T('COMPONENT.block_input_events.brief_help')}}\n    </div>\n  ",data:()=>({cssBlock:{backgroundColor:"#333",border:"1px solid #666",borderRadius:"3px",margin:"10px",padding:"10px"}}),props:{target:{twoWay:!0,type:Object}},methods:{T:Editor.T}});

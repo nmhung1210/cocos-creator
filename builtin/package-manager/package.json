@@ -1,0 +1,25 @@
+{
+  "name": "package-manager",
+  "version": "0.1.4",
+  "description": "A simple package debugger",
+  "author": "Firebox Technology",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.developer.title/Package Manager": {
+      "icon": "panel/icon.png",
+      "message": "package-manager:open"
+    }
+  },
+  "panel": {
+    "main": "panel/package-manager.js",
+    "type": "dockable",
+    "title": "Package Manager",
+    "icon": "panel/icon.png",
+    "width": 500,
+    "height": 800,
+    "min-width": 500,
+    "shortcuts": {
+      "command+f": "focusOnSearch"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Creator Dashboard</title>
+    <script data-pace-options='{ "ajax": false, "restartOnPushState": false, "restartOnRequestAfter": false }' src="app://node_modules/pace-js-amd-fix/pace.js"></script>
+    <link href="app://node_modules/pace-js-amd-fix/themes/red/pace-theme-center-simple.css" rel="stylesheet">
+    <link rel="stylesheet" href="app://node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./panel/style/main.css">
+    <script src="app://node_modules/vue/dist/vue.min.js"></script>
+
+    <style>
+      login-frame {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="dashboard">
+      <window-header></window-header>
+      <ui-loader v-show="loading"></ui-loader>
+      <tabs
+        :tab="tab"
+        :filter="filter"
+        :tutorial="tutorial"
+        :hasreadnews="hasreadnews"
+        :shouldreadnews="shouldreadnews"
+      ></tabs>
+
+      <tab-project
+        v-if="tab === 'project'"
+        :projects="projects"
+        :filter="filter"
+        :isloggedin="isloggedin"
+        :skip="skip"
+      ></tab-project>
+
+      <tab-create
+        v-if="tab === 'create'"
+        :templates="templates"
+        :filter="filter"
+      ></tab-create>
+
+      <tab-news
+        v-if="tab === 'news'"
+        :hasreadnews="hasreadnews"
+        :shouldreadnews="shouldreadnews"
+        :news_msg_time="news_msg_time"
+        :news_category_url="news_category_url"
+      ></tab-news>
+
+      <tab-help
+        v-if="tab === 'help'"
+      ></tab-help>
+
+      <window-footer
+        :message="error"
+      ></window-footer>
+
+      <!-- "
+      @status-changed="_onStatusChanged($event)"
+       -->
+      <login-frame
+        :loading="loading"
+        :hidden="isloggedin === true || isloggedin === null || skip"
+        @login="_onLogin($event)"
+      ></login-frame>
+    </div>
+  </body>
+  <script>
+    // 禁止 electron 显示安全提示
+    window.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
+    Editor.User = require('../share/user');
+    require('./panel/index.js');
+  </script>
+</html>

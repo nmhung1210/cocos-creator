@@ -1,0 +1,41 @@
+<div @mouseenter.self='setItemHover(true)'
+     @mouseleave.self='setItemHover(false)'>
+  <ui-hint class="bottom"
+           :style="hintStyle"
+           v-el:tips
+           position="20px">
+    {{service.service_name}}
+  </ui-hint>
+  <div :class="['serviceItem', service.hovered && 'hovered', hasGroup && 'hasGroup']">
+    <div :style='headerStyle'>
+      <div style="display: flex; justify-content: flex-start; width: calc(100% - 50px)">
+        <img v-if="!hasGroup"
+             :src="service.service_icon"
+             :style="imgStyle"
+             class='img[src=""],img:not([src]){opacity: 0;}"' />
+        <div :style="titleStyle"
+             @mouseenter.self='enter'
+             @mouseleave.self='leave'>
+          {{ service.service_name }}
+        </div>
+      </div>
+      <img v-if="service.enable && hasUpdate"
+           :src="getRealPath('update.png')"
+           style="width: 16px; height: 16px; margin-top: 5px; margin-right: 4px;" />
+      <div
+           style="background: rgb(31, 31, 31); border-radius: 3px; text-align: center; min-width: 50px; width: 50px; height: 18px; padding: 2px; margin-top: 3px;">
+        <div v-if="service.enable"
+             style="color: #FC932B;">
+          {{utils_t("enable")}}
+        </div>
+        <div v-else
+             style="color: #717171;">
+          {{utils_t("disenable")}}
+        </div>
+      </div>
+    </div>
+    <div :style="contentStyle">
+      {{ title }}
+    </div>
+  </div>
+</div>

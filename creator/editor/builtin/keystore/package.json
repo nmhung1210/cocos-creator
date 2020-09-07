@@ -1,0 +1,16 @@
+{
+  "name": "keystore",
+  "version": "0.1.4",
+  "description": "Fireball Project Keystore Creator",
+  "author": "Firebox Technology",
+  "main": "main.js",
+  "panel": {
+    "main": "panel/keystore.js",
+    "type": "dockable",
+    "title": "i18n:MAIN_MENU.panel.keystore",
+    "width": 500,
+    "min-width": 325,
+    "height": 400,
+    "min-height": 400
+  }
+}

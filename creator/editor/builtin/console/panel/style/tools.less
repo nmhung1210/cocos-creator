@@ -1,0 +1,70 @@
+.tools {
+
+    padding: 4px;
+    box-sizing: border-box;
+
+    i {
+        padding: 4px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    * {
+        vertical-align: middle; // fix overflow: hidden on ui-input
+    }
+
+    span {
+        display: inline-block;  // fix overflow: hidden on ui-input
+    }
+
+    .icon-block {
+        color: #e77576;
+        display: inline-block;  // fix overflow: hidden on ui-input
+
+        &:hover {
+            color: #ffa7a8;
+            background: #b54344;
+        }
+    }
+
+    .icon-doc-text {
+        color: #bdbdbd;
+        display: inline-block;  // fix overflow: hidden on ui-input
+
+        &:hover {
+            color: #d1d1d1;
+            background: #585858;
+        }
+    }
+
+    .more {
+        float: right;
+        position: relative;
+
+        i {
+            outline: none;
+        }
+
+        .options {
+            position: absolute;
+            padding: 8px 10px 0 10px;
+            top: 19px;
+            right: 0px;
+            width: 100px;
+            background: #333;
+            border: 1px solid #222;
+            z-index: 99;
+            display: none;
+
+            ui-checkbox {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            &[active] {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<div class="window-header"
+    :mac="mac"
+>
+    <template
+        v-if="mac"
+    >
+        <img src="./static/img/logo_white.png" />
+        <span>{{version}}</span>
+    </template>
+    <template
+        v-else
+    >
+        <div class="logo">
+            <img src="./static/img/logo_white.png" />
+        </div>
+    
+        <div class="title">
+            <span>{{version}}</span>
+        </div>
+    
+        <div class="buttons">
+            <span
+                @click="minimize"
+            >
+                <img src="./static/img/ctrl-windows-min.png" />
+            </span>
+            <span disabled>
+                <img src="./static/img/ctrl-windows-max.png" />
+            </span>
+            <span
+                @click="close"
+            >
+                <img src="./static/img/ctrl-windows-close.png" />
+            </span>
+        </div>
+    </template>
+</div>

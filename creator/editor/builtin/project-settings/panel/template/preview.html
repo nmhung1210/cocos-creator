@@ -1,0 +1,130 @@
+<div class="preview">
+
+    <!--初始运行场景-->
+    <ui-prop
+        name="{{T('PROJECT_SETTINGS.preview.start_scene')}}"
+        tooltip="{{T('PROJECT_SETTINGS.preview.start_scene')}}"
+    >
+        <ui-select
+            v-value="project.scene"
+        >
+            <option
+                v-for="item in sceneList"
+                :value="item.value"
+            >{{item.text}}</option>
+        </ui-select>
+    </ui-prop>
+
+    <ui-prop
+        name="{{T('PROJECT_SETTINGS.preview.preview_port')}}"
+    >
+        <!--Port should be >= 1024 and < 65536-->
+        <ui-num-input type="int" min="1024" max="65535" v-value="project.port"></ui-num-input>
+    </ui-prop>
+
+    <ui-section>
+        <div class="header">{{T('PROJECT_SETTINGS.preview.section_canvas')}}</div>
+
+        <!--设计分辨率-->
+        <ui-prop
+            name="{{T('PROJECT_SETTINGS.preview.design_resolution')}}"
+            tooltip="{{T('PROJECT_SETTINGS.preview.design_resolution')}}"
+        >
+            <span>{{T('PROJECT_SETTINGS.preview.width')}}:</span>
+            <ui-num-input class="resolution"
+                v-value="project.resolutionWidth"
+            ></ui-num-input>
+            <span>{{T('PROJECT_SETTINGS.preview.height')}}:</span>
+            <ui-num-input class="resolution"
+                v-value="project.resolutionHeight"
+            ></ui-num-input>
+        </ui-prop>
+        
+        <!--适配屏幕宽度-->
+        <ui-prop
+            name="{{T('PROJECT_SETTINGS.preview.fit_width')}}"
+            tooltip="{{T('PROJECT_SETTINGS.preview.fit_width')}}"
+        >
+            <ui-checkbox
+                v-value="project.fitWidth"
+            ></ui-checkbox>
+        </ui-prop>
+
+        <!--适配屏幕高度-->
+        <ui-prop
+            name="{{T('PROJECT_SETTINGS.preview.fit_height')}}"
+            tooltip="{{T('PROJECT_SETTINGS.preview.fit_height')}}"
+        >
+            <ui-checkbox
+                v-value="project.fitHeight"
+            ></ui-checkbox>
+        </ui-prop>
+    </ui-section>
+
+    <!--模拟器设置类型-->
+    <ui-prop
+        name="{{T('PROJECT_SETTINGS.preview.simulatorSettingType')}}"
+        tooltip="{{T('PROJECT_SETTINGS.preview.simulatorSettingType')}}"
+    >
+        <ui-select
+            v-value="simulator.type"
+        >
+            <option
+                v-for="item in simulatorTypes"
+                :value="item.value"
+            >{{item.title}}</option>
+        </ui-select>
+    </ui-prop>
+
+    <template
+        v-if="simulator.type !== 'global'"
+    >
+        <!--项目模拟器横竖屏 -->
+        <ui-prop
+            name="{{T('PREFERENCES.simulator_device_orientation')}}"
+            tooltip="{{T('PREFERENCES.simulator_device_orientation')}}"
+        >
+            <ui-select
+                v-value="simulator.direction"
+            >
+                <option
+                    v-for="item in orientationList"
+                    :value="item.value"
+                >{{item.title}}</option>
+            </ui-select>
+        </ui-prop>
+
+        <!--模拟器分辨率设置-->
+        <ui-prop
+            name="{{T('PREFERENCES.simulator_resolution')}}"
+            tooltip="{{T('PREFERENCES.simulator_resolution')}}"
+        >
+            <ui-select
+                v-value="simulator.resolution"
+                v-on:confirm="_setResolutionSize"
+            >
+                <option
+                    v-for="item in simulator.resolutionList"
+                    :value="item.index"
+                >{{item.title}}</option>
+            </ui-select>
+        </ui-prop>
+
+        <!--自定义分辨率设置-->
+        <ui-prop
+            name="{{T('PREFERENCES.customize_resolution')}}"
+            tooltip="{{T('PREFERENCES.customize_resolution')}}"
+        >
+                <span>{{T('PREFERENCES.width')}}:</span>
+                <ui-num-input class="resolution"
+                    v-value="simulator.width"
+                    v-on:change="_setCustomResolution"
+                ></ui-num-input>
+                <span>{{T('PREFERENCES.height')}}:</span>
+                <ui-num-input class="resolution"
+                    v-value="simulator.height"
+                    v-on:change="_setCustomResolution"
+                ></ui-num-input>
+        </ui-prop>
+    </template>
+</div>

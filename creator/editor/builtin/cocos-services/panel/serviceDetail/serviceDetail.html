@@ -1,0 +1,165 @@
+<div>
+  <div style="position: fixed; width: 100%; top: 0px; z-index: 999;">
+    <back-home :show-to-link="service.service_type!=0"
+               @back-home="backHome"></back-home>
+  </div>
+  <ui-hint class="top"
+           :style="styHint"
+           position="20px">{{utils_t("current_ver_upgrade")}}</ui-hint>
+  <!-- 服务更新以及切换版本 -->
+  <div :style="sty"
+       v-if="showUpdate">
+    <div style="font-size: 20px; color: rgb(189, 189, 189);">
+      {{ service.service_name }}
+    </div>
+    <div
+         style="font-size: 12px; color: rgb(127, 127, 127); margin-bottom: 10px; border-bottom: 1px solid gray; padding-bottom: 5px;">
+      {{ (hasUpdate && jumpUpdate ? utils_t("new_ver") : "ver") + " : " + serviceVersion}}
+    </div>
+    <div v-html="upgrade"></div>
+    <!-- 服务更新 -->
+    <div v-if="hasUpdate && jumpUpdate">
+      <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-left: calc(100% - 180px);">
+        <ui-button @click="confrimUpdate"
+                   class="blue"
+                   style="width:80px; white-space: nowrap;">
+          {{ utils_t("update_now") }}
+        </ui-button>
+        <ui-button @click="cancelUpdate"
+                   class="gray"
+                   style="width:80px; white-space: nowrap;">
+          {{ utils_t("btn_cancel") }}
+        </ui-button>
+      </div>
+    </div>
+    <!-- 切换版本 -->
+    <div v-else>
+      <div
+           style="font-size: 20px; color: rgb(189, 189, 189); border-bottom: 1px solid gray; padding-bottom: 5px; margin-top: 20px;">
+        {{ utils_t("history_ver") }}
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-top: 10px; margin-bottom: 10px;">
+        <ui-select id="ui-select"
+                   style="width: calc(100% - 60px);"
+                   v-value="defaultSelected"
+                   @confirm="selectChange">
+          <option selected="selected">{{
+            utils_t("select_version_please")
+          }}</option>
+          <option v-for="version of service.package_versions"
+                  value="{{ version }}">{{ version }}</option>
+        </ui-select>
+        <ui-button @click="switchVersion"
+                   class="blue"
+                   :disabled="!enableButton"
+                   style="width:60px; white-space: nowrap;">{{ utils_t("btn_switch") }}</ui-button>
+      </div>
+      <div>{{ utils_t("switch_tips") }}</div>
+    </div>
+  </div>
+
+  <div style="margin: 10px; padding-top: 25px; overflow-x: hidden; overflow-y: auto;"
+       v-else>
+    <!-- 服务基本信息以及开启按钮 -->
+    <div style="height: 24px; display: flex; justify-content: space-between;">
+      <div style="font-size: 20px; color: rgb(189, 189, 189);">
+        {{ service.service_name }}<br />
+        <div style="font-size: 12px; color: rgb(127, 127, 127); display: flex; margin-top: 3px;">
+          <div @click="versionClick"
+               style="cursor: pointer;"
+               @mouseenter="enter"
+               @mouseleave="leave">
+            ver : {{ serviceVersion }}
+          </div>
+          <div @click="updateClick"
+               v-if="hasUpdate"
+               style="margin-left: 5px;  display: flex; cursor: pointer;">
+            <img :src="getRealPath('update.png')"
+                 style="width: 16px; height: 16px;" />
+            <div style="line-height: 15px; margin-left: 2px; color:#bdbdbd; ">
+              {{ utils_t("have_new") }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <input class="switch switch-anim"
+             type="checkbox"
+             style="margin-top: 5px;"
+             @change="handleEnabelServiceLogic"
+             :checked="enable" />
+    </div>
+    <div style="margin-top: 30px; color: rgb(153, 153, 153); font-size: 12px;">
+      {{ service.service_desc }}
+    </div>
+    <!-- 服务跳转相关 -->
+    <div style="margin-top: 20px; font-size: 11px; display: flex; justify-content: space-between; color: rgb(153, 153, 153);"
+         v-if="service.service_guide_url || service.service_dev_url || service.service_sample_url"
+         class="section">
+      <ui-button style="white-space: nowrap; flex: 1; max-width: 100px;"
+                 @click="handleGotoLinkLogic('guide')"
+                 v-if="service.service_guide_url">
+        {{ utils_t("use_guide") }}<i class="icon-link-ext"></i>
+      </ui-button>
+      <ui-button style="white-space: nowrap; flex: 1; max-width: 100px;"
+                 @click="handleGotoLinkLogic('dev')"
+                 v-if="service.service_dev_url">
+        {{ utils_t("dashboard") }}<i class="icon-link-ext"></i>
+      </ui-button>
+      <ui-button style="white-space: nowrap; flex: 1; max-width: 100px;"
+                 @click="handleGotoLinkLogic('sample')"
+                 v-if="service.service_sample_url">
+        {{ utils_t("demo_project") }}<i class="icon-link-ext"></i>
+      </ui-button>
+    </div>
+    <!-- 计费规则 -->
+    <div v-if="service.service_price.length > 0">
+      <div class="section"
+           style="font-size: 14px; color: rgb(201, 201, 201); margin-top: 20px">
+        {{ utils_t("service_price") }}
+      </div>
+      <div style="color: rgb(153, 153, 153); width: 100%;"
+           v-html="service.service_price"></div>
+    </div>
+    <!-- 支持平台 -->
+    <div class="section"
+         style="font-size: 14px; color: rgb(201, 201, 201); margin-top: 20px">
+      {{ utils_t("support_platform") }}
+    </div>
+    <div class="group"
+         style="color: rgb(153, 153, 153);">
+      <div v-for="item in service.support_platform"
+           :key="item">
+        <ui-hint class="left"
+                 style="font-size: 10px;">{{ item }}</ui-hint>
+      </div>
+    </div>
+    <!-- style="background: #333333; border: 1px solid #232323; border-radius: 5px; padding: 10px; margin-top: 10px;" -->
+    <!-- 服务插件内控件显示，主要包括参数配置，服务提示信息，服务参数保存 -->
+    <div v-if="enable"
+         style="padding-top: 20px;">
+      <component v-if="enable"
+                 :is="componentName"
+                 :params="params"
+                 :service="service"
+                 @save-param="handleSaveParamLogic">
+      </component>
+    </div>
+    <!-- 下载安装服务时的加载项 -->
+    <ui-loader class="massive"
+               v-show="isDownloadServicePackage">
+      <div style="margin-top:10px; font-size: 14px;">{{ downloadTip }}</div>
+    </ui-loader>
+    <ui-loader class="massive"
+               v-show="isOpenService">
+      <div style="margin-top:10px; font-size: 14px;">{{ openServiceTip }}</div>
+    </ui-loader>
+  </div>
+  <div style="position: fixed; width: 100%; height: 100%; top: 0px; z-index: 1000"
+       v-if="confirmProtocol">
+    <confirm :message="service.service_protocol"
+             :okbtnstring="utils_t('open_service_btn')"
+             :cancelbtnstring="utils_t('btn_cancel')"
+             @confirm-result="handleProtocol">
+    </confirm>
+  </div>
+</div>

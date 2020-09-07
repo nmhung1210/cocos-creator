@@ -1,0 +1,56 @@
+<div class="thumbnail" draggable="true"
+    @mousedown="_onMouseDown"
+    @mouseleave="_onMouseLeave($event)"
+    @mousewheel="_onMouseWheel($event)"
+    @dragstart="_onDragStart($event)"
+>
+    <div class="cache"
+        v-el:cache
+    ></div>
+
+    <div class="list"
+        @mousemove="_onMouseMove($event)"
+    >
+        <google-instant-games-grid show-label-h
+            v-el:grid
+        ></google-instant-games-grid>
+        
+        <div class="screenshots">
+            <template
+                v-for="index in length"
+            >
+                <img
+                    :src="querySrc(index)"
+                    :style="queryImgStyle(imgw, index, offset)"
+                />
+            </template>
+        </div>
+    </div>
+
+    <div class="pointer-wrap">
+        <div class="wrap">
+
+            <div class="pointer"
+                v-if="mpointerx >= 0"
+                :style="`transform: translateX(${mpointerx}px);`"
+            >
+                <span class="head fa fa-caret-down"></span>
+                <span class="body"></span>
+            </div>
+
+            <div class="pointer start"
+                :style="`transform: translateX(${offset}px);`"
+            >
+                <span class="head fa fa-caret-down"></span>
+                <span class="body"></span>
+            </div>
+
+            <div class="pointer end"
+                :style="`transform: translateX(${(ms * spacing + 4) * percentage + offset}px);`"
+            >
+                <span class="head fa fa-caret-down"></span>
+                <span class="body"></span>
+            </div>
+        </div>
+    </div>
+</div>

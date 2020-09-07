@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Editor Window</title>
+    <script type="text/javascript" src="app://node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+      Vue.config.devtools = false;  // hide log of "Vue Devtools"
+    </script>
+    
+    <link rel="stylesheet" href="app://node_modules/font-awesome/css/font-awesome.min.css">
+
+    <script>
+        (() => {
+            let params = decodeURIComponent(window.location.hash);
+            params = params.slice(1);
+            let engineSupport = false;
+            try {
+                params = JSON.parse(params);
+                params.hasOwnProperty('engineSupport') && (engineSupport = params.engineSupport);
+            } catch (e) {
+                //            Editor.warn('parse panel params fail', e);
+            }
+
+            let page = Editor.require("app://editor/page/index.js");
+            page.init(engineSupport);
+            window.updateEngineSupport = function (support) {
+                //当且仅当之前是 false 改成 true 的时候需要改变
+                if (engineSupport !== support && !engineSupport) {
+                    page.initEngineSupport();
+                }
+            }
+        })();
+
+    </script>
+  </head>
+
+  <body>
+    <ui-main-dock class="fit"></ui-main-dock>
+  </body>
+</html>

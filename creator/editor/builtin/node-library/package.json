@@ -1,0 +1,34 @@
+{
+    "name": "node-library",
+    "version": "0.1.0",
+    "description": "Editor Framework Node Library",
+    "author": "Creator",
+    "build": false,
+    "main": "./main.js",
+    "main-menu": {
+        "i18n:MAIN_MENU.panel.title/i18n:node-library.title": {
+            "icon": "panel/icon.png",
+            "accelerator": "CmdOrCtrl+5",
+            "message": "node-library:open"
+        }
+    },
+    "panel": {
+        "main": "panel/index.js",
+        "icon": "./panel/icon.png",
+        "popable": true,
+        "type": "dockable",
+        "title": "i18n:node-library.title",
+        "width": 300,
+        "height": 480,
+        "min-width": 260,
+        "min-height": 260
+    },
+    "profiles": {
+        "local": {
+            "user": null
+        },
+        "global": {
+            "prefabZoom": 1
+        }
+    }
+}

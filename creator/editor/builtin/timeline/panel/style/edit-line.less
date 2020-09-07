@@ -1,0 +1,89 @@
+.edit-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: @index_mask + 1;
+    display: flex;
+
+    & > .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #444;
+        opacity: 0.95;
+        z-index: -1;
+    }
+
+    & > .line-tools {
+        width: 34px;
+        background: #222;
+        text-align: center;
+        padding: 10px 0;
+
+        & > i {
+            font-size: 14px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    }
+
+    & > .ease {
+        background: #303030;
+        width: 110px;
+        text-align: center;
+
+        & > div {
+            cursor: pointer;
+            padding: 6px 20px;
+            transition: background-color 0.2s, color 0.2s;
+
+            &:hover, &[active] {
+                background: #999;
+                color: #333;
+            }
+        }
+    }
+
+    & > .class {
+        background: #393939;
+        width: 80px;
+        text-align: center;
+
+        & > div {
+            cursor: pointer;
+            padding: 6px 20px;
+            transition: background-color 0.2s, color 0.2s;
+
+            &:hover, &[active] {
+                background: #777;
+                color: #ccc;
+            }
+        }
+    }
+
+    & > .bezier {
+        display: flex;
+        margin: 0;
+        font-size: 14px;
+        overflow: auto;
+        white-space: nowrap;
+        flex: 1;
+        position: relative;
+
+        & > svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            & > .control {
+                cursor: pointer;
+            }
+        }
+    }
+}

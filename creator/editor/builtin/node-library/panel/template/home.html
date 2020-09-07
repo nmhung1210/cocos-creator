@@ -1,0 +1,35 @@
+<div class="node-library">
+
+    <header>
+        <div
+            v-for="(index,name) in tabs"
+            v-show="index !== 1 || !hideCloud"
+            :active="index === tab"
+            @click="changeTab(index)"
+        >{{name}}</div>
+    </header>
+
+    <section>
+
+        <ui-drop-area droppable="asset"
+            @drop-area-move="onDropAreaMove"
+            @drop-area-accept="onDropAreaAccept"
+        >
+            <classification
+                v-for="item in list"
+                :classify="item"
+                :zoom="zoom"
+            ></classification>
+        </ui-drop-area>
+    </section>
+
+    <footer>
+        <ui-slider
+            min="0.6"
+            max="1.5"
+            step="0.1"
+            :value="zoom"
+            @change="onZoomChanged"
+        ></ui-slider>
+    </footer>
+</div>

@@ -1,0 +1,30 @@
+{
+    "name": "google-instant-games",
+    "version": "0.0.1", 
+    "description": "Google Instant Games",
+    "author": "Cocos Creator",
+    "main": "main.js",
+    "panel": {
+        "main": "panel/index.js",
+        "type": "dockable",
+        "title": "i18n:MAIN_MENU.panel.google_instant_games_refactor",
+        "icon": "icon.png",
+        "width": 900,
+        "height":600,
+        "min-width": 450,
+        "min-height": 400,
+        "shortcuts": {
+            "command+s": "save"
+        }
+    },
+    "panel.manual": {
+        "main": "panel/manualPanel.js",
+        "type": "dockable",
+        "title": "i18n:MAIN_MENU.panel.google_instant_games_manual",
+        "icon": "icon.png",
+        "width": 900,
+        "height":600,
+        "min-width": 450,
+        "min-height": 400
+    }
+}

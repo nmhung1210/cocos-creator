@@ -1,0 +1,1 @@
+参考文档：[插件脚本](https://docs.cocos.com/creator/manual/zh/scripting/plugin-scripts.html)

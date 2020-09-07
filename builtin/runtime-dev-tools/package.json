@@ -1,0 +1,22 @@
+{
+    "name": "runtime-dev-tools",
+    "version": "0.0.1",
+    "description": "Runtime runner",
+    "author": "Cocos Creator",
+    "main": "main.js",
+    "panel": {
+        "save": false,
+        "main": "panel/index.js",
+        "type": "dockable",
+        "title": "i18n:runtime-dev-tools.title",
+        "icon": "icon.png",
+        "width": 900,
+        "height": 600,
+        "min-width": 450,
+        "min-height": 400,
+        "engineSupport": false,
+        "shortcuts": {
+            "command+s": "save"
+        }
+    }
+}

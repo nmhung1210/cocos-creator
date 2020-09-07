@@ -1,0 +1,46 @@
+{
+    "name": "assets",
+    "version": "0.0.1",
+    "description": "1",
+    "author": "Cocos Creator",
+    "main": "main.js",
+    "main-menu": {
+        "i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.assets": {
+            "icon": "icon.png",
+            "accelerator": "CmdOrCtrl+2",
+            "message": "assets:open"
+        }
+    },
+    "panel": {
+        "icon":"icon.png",
+        "main": "panel/index.js",
+        "type": "dockable",
+        "title": "i18n:MAIN_MENU.panel.assets",
+        "width": 200,
+        "min-width": 200,
+        "min-height": 200,
+        "engineSupport": true,
+        "shortcuts": {
+            "ctrl+c": "copyFile",
+            "command+c": "copyFile",
+            "ctrl+v": "pasteFile",
+            "command+v": "pasteFile",
+            "ctrl+a": "selectAll",
+            "command+a": "selectAll",
+            "ctrl+f": "find",
+            "command+f": "find",
+
+            "del": "delete",
+            "up": "up",
+            "down": "down",
+            "left": "left",
+            "right": "right",
+            "f2": "f2",
+            "enter": "f2",
+            "command+backspace": "delete",
+
+            "shift+up": "shiftUp",
+            "shift+down": "shiftDown"
+        }
+    }
+}

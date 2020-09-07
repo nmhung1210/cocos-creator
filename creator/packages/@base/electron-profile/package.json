@@ -1,0 +1,45 @@
+{
+  "_from": "@base/electron-profile@1.0.15",
+  "_id": "@base/electron-profile@1.0.15",
+  "_inBundle": false,
+  "_integrity": "sha1-sqwC9e/UIw8JVTVZWenGRKQGYjo=",
+  "_location": "/@base/electron-profile",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@base/electron-profile@1.0.15",
+    "name": "@base/electron-profile",
+    "escapedName": "@base%2felectron-profile",
+    "scope": "@base",
+    "rawSpec": "1.0.15",
+    "saveSpec": null,
+    "fetchSpec": "1.0.15"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://192.168.52.114:7001/@base/electron-profile/download/@base/electron-profile-1.0.15.tgz",
+  "_shasum": "b2ac02f5efd4230f0955355959e9c644a406623a",
+  "_spec": "@base/electron-profile@1.0.15",
+  "_where": "/Users/nantas/jenkins/workspace/Creator_2D/fireball/mac/fireball/dist/CocosCreator.app/Contents/Resources/app",
+  "author": "",
+  "bundleDependencies": false,
+  "dependencies": {
+    "@base/electron-base-ipc": "../electron-base-ipc",
+    "fs-extra": "^6.0.1"
+  },
+  "deprecated": false,
+  "description": "electron 配置文件功能",
+  "devDependencies": {
+    "electron": "^1.8.7"
+  },
+  "license": "ISC",
+  "main": "index.js",
+  "name": "@base/electron-profile",
+  "scripts": {
+    "start": "electron",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.15"
+}

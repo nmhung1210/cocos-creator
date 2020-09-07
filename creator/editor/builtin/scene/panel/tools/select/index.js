@@ -1,0 +1,1 @@
+const e=require("../camera"),o=require("./2d"),n=require("./3d");let u={};["onMouseDown","onMouseWheel","onMouseMove","onMouseLeave","onMouseUp","onKeyDown","onKeyUp"].forEach(function(r){u[r]=function(u){return e.is2D?o[r]&&o[r](u):n[r]&&n[r](u)}}),module.exports=u;

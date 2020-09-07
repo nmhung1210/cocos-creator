@@ -1,0 +1,14 @@
+{
+  "type": "dock-v",
+  "children": [
+    {
+      "type": "panel",
+      "height": 300,
+      "active": 0,
+      "children": [
+        "console",
+        "tester"
+      ]
+    }
+  ]
+}

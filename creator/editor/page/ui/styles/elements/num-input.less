@@ -1,0 +1,319 @@
+@element: 'num-input';
+@import (multiple) 'theme.less';
+
+@import url('theme://globals/fontello.css');
+
+@input-padding-right: 0.5em;
+@spin-transition-time: 0.15s;
+
+:host {
+  display: inline-flex;
+  position: relative;
+  box-sizing: border-box;
+
+  flex-direction: row;
+
+  width: auto;
+  margin: 0 0.25em 0 0;
+  outline: none;
+
+  cursor: default;
+  overflow: hidden;  // 外框是圆角，input 不是，所以要把 input 超出圆角的部分隐藏
+
+  border-radius: @border_radius;
+  border: 1px solid @border_color;
+}
+
+:host(:last-child) {
+  margin-right: 0;
+}
+
+input {
+  font-family: @tweak_font;
+
+  border: none;
+  margin: 0;
+  padding: 0 @input-padding-right;
+  width: 100%;
+
+  display: inline-block;
+  outline: none;
+
+  //box-shadow: inset 0 0 3px 1px rgba(0,0,0,0.3);
+
+  background: @bg_color;
+  color: @text_color;
+  transition: padding-right @spin-transition-time, margin-right @spin-transition-time;
+}
+
+input:focus {
+  color: @text_color_focus;
+}
+
+input::-webkit-input-placeholder {
+  font-style: italic;
+  color: @placeholder_text_color;
+}
+
+input::selection {
+  color: white;
+  background: @select_color;
+}
+
+.spin-wrapper {
+  .layout-vertical();
+
+  outline: 0;
+  box-sizing: border-box;
+  color: @spin_icon_color;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 0;
+  transition: width @spin-transition-time;
+}
+
+.spin {
+  flex: 1;
+  justify-content: center;
+
+  text-align: center;
+  background-color: @spin_bg_color;
+
+  cursor: pointer;
+}
+
+.spin:hover {
+  color: @border_color_hover;
+}
+
+.spin[pressed] {
+  color: @focus_color;
+  background-color: @spin_bg_color - 20%;
+}
+
+.spin-div {
+  flex: none;
+  border-top: 1px solid #353535;
+}
+
+.spin.up {
+  //border-top-right-radius: @border_radius;
+}
+
+.spin.down {
+  //border-bottom-right-radius: @border_radius;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  width: 0.8em;
+}
+
+:host(:hover) {
+  border-color: @border_color_hover;
+}
+
+:host([focused]) {
+  border-color: @focus_color;
+  .spin-wrapper {
+
+  }
+}
+
+:host([unnavigable]) {
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.23);
+}
+
+:host([is-disabled]) {
+  pointer-events: none;
+  // border-color: @border_color - 50%;
+
+  input {
+    color: @text_color_disable;
+    background: @bg_color + 20%;
+  }
+  .spin-wrapper {
+    width: 0
+  }
+}
+
+:host([readonly]) {
+  .spin-wrapper {
+    width: 0
+  }
+}
+
+/*-------------------
+        Size
+--------------------*/
+
+:host(.mini) {
+  input {
+    font-size: @mini;
+    height: (@mini - 0.2) * 2 - 0.016666em;
+  }
+  .spin-wrapper {
+    font-size: @mini - 0.2;
+  }
+}
+:host(.mini:hover) {
+  input {
+    padding-right: (@mini - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@mini - 0.2) * 1.25;  // 保持 100% width 不变，box-sizing 这里无效
+  }
+  .spin-wrapper {
+    width: (@mini - 0.2) * 1.25;
+  }
+}
+
+:host(.tiny) {
+  input {
+    font-size: @tiny;
+    height: (@tiny - 0.2) * 2 - 0.016666em;
+  }
+  .spin-wrapper {
+    font-size: @tiny - 0.2;
+  }
+}
+:host(.tiny:hover) {
+  input {
+    padding-right: (@tiny - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@tiny - 0.2) * 1.25;
+  }
+  .spin-wrapper {
+    width: (@tiny - 0.2) * 1.25;
+  }
+}
+
+:host(.small) {
+  input {
+    font-size: @small;
+    height: (@small - 0.2) * 2 - 0.016666em;
+  }
+  .spin-wrapper {
+    font-size: @small - 0.2;
+  }
+}
+:host(.small:hover) {
+  input {
+    padding-right: (@small - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@small - 0.2) * 1.25;
+  }
+  .spin-wrapper {
+    width: (@small - 0.2) * 1.25;
+  }
+}
+
+:host {
+  input {
+    font-size: @medium;
+    height: (@medium - 0.2) * 2 - 0.016666em;     // 模拟 spin 按钮的行高
+  }
+  .spin-wrapper {
+    font-size: @medium - 0.2;
+  }
+}
+:host(:hover) {
+  input {
+    padding-right: (@medium - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@medium - 0.2) * 1.25;
+  }
+  .spin-wrapper {
+    width: (@medium - 0.2) * 1.25;
+  }
+}
+
+:host(.large) {
+  input {
+    font-size: @large;
+    height: (@large - 0.2) * 2 - 0.016666em;
+  }
+  .spin-wrapper {
+    font-size: @large - 0.2;
+  }
+}
+:host(.large:hover) {
+  input {
+    padding-right: (@large - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@large - 0.2) * 1.25;
+  }
+  .spin-wrapper {
+    width: (@large - 0.2) * 1.25;
+  }
+}
+
+:host(.big) {
+  input {
+    font-size: @big;
+    height: (@big - 0.2) * 2 - 0.016666em;
+  }
+  .spin-wrapper {
+    font-size: @big - 0.2;
+  }
+}
+:host(.big:hover) {
+  input {
+    padding-right: (@big - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@big - 0.2) * 1.25;
+  }
+  .spin-wrapper {
+    width: (@big - 0.2) * 1.25;
+  }
+}
+
+:host(.huge) {
+  input {
+    font-size: @huge;
+    height: (@huge - 0.2) * 2 - 0.016666em;
+  }
+  .spin-wrapper {
+    font-size: @huge - 0.2;
+  }
+}
+:host(.huge:hover) {
+  input {
+    padding-right: (@huge - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@huge - 0.2) * 1.25;
+  }
+  .spin-wrapper {
+    width: (@huge - 0.2) * 1.25;
+  }
+}
+
+:host(.massive) {
+  input {
+    font-size: @massive;
+    height: (@massive - 0.2) * 2 - 0.016666em;
+  }
+  .spin-wrapper {
+    font-size: @massive - 0.2;
+  }
+}
+:host(.massive:hover) {
+  input {
+    padding-right: (@massive - 0.2) * 1.25;
+    margin-right: @input-padding-right - (@massive - 0.2) * 1.25;
+  }
+  .spin-wrapper {
+    width: (@massive - 0.2) * 1.25;
+  }
+}
+
+:host([invalid]) {
+  .type {
+    color: @red;
+    border-color: @red;
+  }
+  
+  input {
+    background: @red;
+  }
+  
+  .name {
+    background: @red;
+  }
+}

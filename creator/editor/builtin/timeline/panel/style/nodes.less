@@ -1,0 +1,85 @@
+.nodes {
+    flex: 1;
+    background: @color_dark_background;
+    overflow-y: auto;
+    position: relative;
+
+    & > .node {
+        line-height: @row_height;
+        padding: 0 10px;
+        font-size: @row_height / 2;
+        font-weight: lighter;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+        display: flex;
+        color:#ccc;
+
+        &.m {
+            color: #9a2121;
+
+            &[selected] {
+                color: #e65959;
+            }
+
+            &[state='1'] {
+                color: #bdbdbd;
+            }
+        }
+
+        &[state='1'] {
+            color: #bdbdbd;
+            text-indent: 0 !important;
+        }
+
+        & > i {
+            position: absolute;
+            right: 4px;
+            padding: 4px;
+            top: 2px;
+            color: #ccc;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        &:nth-child(even) {
+            background: @color_very_dark_background;
+        }
+
+        &[selected] {
+            background: #005499;
+        }
+
+        &[disabled] {
+          color: #999999;
+          pointer-events: none;
+          text-decoration:line-through;
+        }
+
+        &:hover {
+            & > i {
+                opacity: 1;
+            }
+        }
+
+        & > input {
+            background: transparent;
+            border: none;
+            line-height: 24px;
+            padding: 0;
+            outline: none;
+            flex: 1;
+            font-size: 12px;
+            color: #bdbdbd;
+        }
+    }
+
+    & > .missing-title {
+        text-indent: 20px;
+        font-size: 8px;
+        line-height: 14px;
+        background: #290c0c;
+    }
+}

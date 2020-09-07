@@ -1,0 +1,84 @@
+.details {
+  padding: 20px;
+  flex: 1;
+  line-height: 24px;
+  overflow: auto;
+  margin-top: 10px;
+  border-top: 1px solid #666666;
+
+  .tl {
+    text-align: left;
+  }
+  .hide {
+    display: none;;
+  }
+
+  & > div {
+    display: flex;
+    padding-left: 13px;
+  }
+
+  .asset-icon {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+  }
+
+  .title {
+    flex: 3;
+  }
+
+  .files {
+    flex: 2;
+  }
+
+  .size {
+    flex: 2;
+  }
+
+  & > ui-section {
+    display: flex;
+    & > .list {
+      padding: 15px;
+      flex: 1;
+
+      table {
+        width: 100%;
+        font-size: 12px;
+        line-height: 24px;
+        border-collapse: collapse;
+        table-layout: fixed;
+        word-break: break-all;
+
+        td {
+          padding: 2px 8px;
+          border: 1px solid #777;
+          text-align: center;
+
+          &:first-child {
+            text-align: left;
+          }
+
+          & > span {
+            display: inline-block;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .t1 {
+          width: 40%;
+        }
+      }
+    }
+  }
+}

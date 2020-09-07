@@ -1,0 +1,1 @@
+cc.js.mixin(cc.SpriteAtlas.prototype,{createNode(e){var t=new cc.Node(this.name),r=t.addComponent(cc.Sprite),c=this.getSpriteFrames();return c.length>0&&(r.spriteFrame=c[0]),e(null,t)}});

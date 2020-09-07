@@ -1,0 +1,102 @@
+<style>
+@import url('app://node_modules/font-awesome/css/font-awesome.min.css');
+body {
+    display: flex;
+}
+
+body > section {
+    display: flex;
+    flex: 1;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+body > section > header {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    background: #eee;
+    line-height: 30px;
+    width: 100%;
+    color: #888;
+    font-size: 14px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    z-index: 99;
+}
+
+body > section > header i {
+    padding: 0 3px;
+    margin: 0 2px;
+    cursor: pointer;
+    line-height: inherit !important;
+}
+
+header > .left {
+    flex: 1;
+}
+
+webview {
+    flex: 1;
+    padding-top: 30px;
+    background: #eee;
+    color: #888;
+}
+
+webview[ignore] {
+    pointer-events: none;
+}
+</style>
+
+<section class="content"
+    @click.stop="show.slider = false"
+>
+    <header>
+        <div class="left">
+            
+            <i class="fa fa-arrow-left"
+                @click="goBack()"
+            ></i>
+            <i class="fa fa-arrow-right"
+                @click="goForward()"
+            ></i>
+            <i class="fa fa-refresh"
+                @click="reload()"
+            ></i>
+            <i class="fa fa-home"
+                @click="goHome()"
+            ></i>
+            
+        </div>
+        <div class="right">
+            <!-- <i class="fa fa-puzzle-piece"></i> -->
+            <i class="fa fa-download"
+                @click.stop="show.slider = true"
+            ></i>
+        </div>
+    </header>
+
+    <webview src=""
+        :ignore="show.slider"
+    ></webview>
+
+    <slider
+        :active="show.slider"
+        :list="list"
+        @click.stop
+    ></slider>
+</section>
+
+
+<script>
+    const panel = Editor.require('packages://store/panel/index.js');
+    panel.ready();
+</script>

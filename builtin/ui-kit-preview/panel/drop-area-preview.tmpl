@@ -1,0 +1,109 @@
+<style>
+  ui-drop-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    outline: none;
+
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    margin: 15px;
+
+    border: 5px dotted #666;
+
+    color: #888;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  ui-drop-area[multi] {
+    border: 5px dotted #660;
+    color: #880;
+  }
+
+  ui-drop-area[drag-hovering] {
+    border-color: #090;
+    color: #090;
+  }
+
+  ui-drop-area.nested {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    height: 100px;
+  }
+
+  .drag-area {
+    border: 1px solid #666;
+    box-shadow: inset 0 0 8px 2px rgba(0,0,0,0.2);
+    background: #333;
+  }
+
+  .drag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    outline: none;
+
+    width: 20px;
+    height: 20px;
+
+    padding: 15px;
+    margin: 15px;
+
+    background: #900;
+
+    color: black;
+    font-weight: bold;
+
+    border: 1px solid #f00;
+    border-radius: 3px;
+  }
+
+  .drag:hover {
+    border: 1px solid #0f0;
+    background: #090;
+  }
+</style>
+
+<div class="section">
+  <h3>Drag Items</h3>
+  <div class="flex-1 layout horizontal drag-area">
+    <div id="foo" class="drag" draggable="true">foo</div>
+    <div id="bar" class="drag" draggable="true">bar</div>
+    <div id="multi" class="drag" draggable="true">foo(s)</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Standard</h3>
+
+  <div class="group">
+    <ui-drop-area droppable="file">file</ui-drop-area>
+    <ui-drop-area droppable="file" multi>file(s)</ui-drop-area>
+  </div>
+
+  <div class="group">
+    <ui-drop-area droppable="foo">foo</ui-drop-area>
+    <ui-drop-area droppable="foo" multi>foo(s)</ui-drop-area>
+    <ui-drop-area droppable="bar">bar</ui-drop-area>
+    <ui-drop-area droppable="foo,bar">foo,bar</ui-drop-area>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Nested</h3>
+
+  <ui-drop-area class="nested" droppable="foo,bar" multi>
+    <ui-drop-area droppable="foo">foo</ui-drop-area>
+    <ui-drop-area droppable="bar">bar</ui-drop-area>
+  </ui-drop-area>
+</div>

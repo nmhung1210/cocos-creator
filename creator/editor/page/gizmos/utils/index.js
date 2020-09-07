@@ -1,0 +1,1 @@
+"use strict";require("../gizmo-config").isCreator2x?module.exports=require("./2d"):module.exports=require("./3d");

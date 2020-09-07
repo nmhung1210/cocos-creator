@@ -1,0 +1,37 @@
+{
+  "_from": "@editor/user@0.0.6",
+  "_id": "@editor/user@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha1-tGOciGGeNq4PmWb3X/VG5p41hv4=",
+  "_location": "/@editor/user",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@editor/user@0.0.6",
+    "name": "@editor/user",
+    "escapedName": "@editor%2fuser",
+    "scope": "@editor",
+    "rawSpec": "0.0.6",
+    "saveSpec": null,
+    "fetchSpec": "0.0.6"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://192.168.52.114:7001/@editor/user/download/@editor/user-0.0.6.tgz",
+  "_shasum": "b4639c88619e36ae0f9966f75ff546e69e3586fe",
+  "_spec": "@editor/user@0.0.6",
+  "_where": "/Users/nantas/jenkins/workspace/Creator_2D/fireball/mac/fireball/dist/CocosCreator.app/Contents/Resources/app",
+  "author": "",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "",
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "name": "@editor/user",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.6"
+}

@@ -1,0 +1,78 @@
+<div class="flex-2">
+    <!-- 是否使用本地设置 -->
+    <ui-prop label-width="45"
+        name="{{T('PROJECT_SETTINGS.engine.use_global')}}"
+        tooltip="{{T('PROJECT_SETTINGS.engine.use_global')}}"
+    >
+        <ui-checkbox
+            v-value="engine.useGlobalSetting"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- 使用内置 JavaScript 引擎 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.use_default_js_engine')}}"
+        tooltip="{{T('PREFERENCES.native.use_default_js_engine')}}"
+    >
+        <ui-checkbox
+            v-disabled="engine.useGlobalSetting"
+            v-value="engine.useDefaultJsEngine"
+            @confirm="_onJavaScriptEngineChanged"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- JavaScript 引擎路径 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.js_engine_path')}}"
+        tooltip="{{T('PREFERENCES.native.js_engine_path')}}"
+    >
+        <ui-input class="flex-2"
+            v-disabled="engine.useGlobalSetting || engine.useDefaultJsEngine"
+            v-value="engine.jsEnginePath"
+        ></ui-input>
+        <ui-button class="small"
+            v-disabled="engine.useGlobalSetting || engine.useDefaultJsEngine"
+            @click="choosePath('jsEnginePath')"
+        >···</ui-button>
+        <ui-button class="small"
+            v-disabled="engine.useGlobalSetting || engine.useDefaultJsEngine"
+            @click="openPath('jsEnginePath')"
+        >
+            {{T('SHARED.open')}}
+        </ui-button>
+    </ui-prop>
+
+    <!-- 使用内置 Cocos2d-x 引擎 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.use_default_cpp_engine')}}"
+        tooltip="{{T('PREFERENCES.native.use_default_cpp_engine')}}"
+    >
+        <ui-checkbox
+            v-disabled="engine.useGlobalSetting"
+            v-value="engine.useDefaultCppEngine"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- Cocos2d-x 路径 -->
+    <ui-prop label-width='45'
+        name="{{T('PREFERENCES.native.cpp_engine_path')}}"
+        tooltip="{{T('PREFERENCES.native.cpp_engine_path')}}"
+    >
+        <ui-input class="flex-2"
+            v-disabled="engine.useGlobalSetting || engine.useDefaultCppEngine"
+            v-value="engine.cppEnginePath"
+        ></ui-input>
+        <ui-button class="small"
+            v-disabled="engine.useGlobalSetting || engine.useDefaultCppEngine"
+            @click="choosePath('cppEnginePath')"
+        >
+            ···
+        </ui-button>
+        <ui-button class="small"
+            v-disabled="engine.useGlobalSetting || engine.useDefaultCppEngine"
+            @click="openPath('cppEnginePath')"
+        >
+            {{T('SHARED.open')}}
+        </ui-button>
+    </ui-prop>
+</div>

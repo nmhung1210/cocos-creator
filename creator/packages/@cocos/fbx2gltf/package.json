@@ -1,0 +1,46 @@
+{
+  "_from": "@cocos/fbx2gltf@1.0.5",
+  "_id": "@cocos/fbx2gltf@1.0.5",
+  "_inBundle": false,
+  "_integrity": "sha512-pNYPePEtTpZIDBSAy9hmfbOCbH+pDuolAsNwGE+lcXJa/uq6f/Tp5B7Cbf+Z5JX+v+FNuW3uZw5dWQtPNXgh4w==",
+  "_location": "/@cocos/fbx2gltf",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@cocos/fbx2gltf@1.0.5",
+    "name": "@cocos/fbx2gltf",
+    "escapedName": "@cocos%2ffbx2gltf",
+    "scope": "@cocos",
+    "rawSpec": "1.0.5",
+    "saveSpec": null,
+    "fetchSpec": "1.0.5"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@cocos/fbx2gltf/-/fbx2gltf-1.0.5.tgz",
+  "_shasum": "1475b07e3cbd4841a9c74c63f4d3d905e1121b08",
+  "_spec": "@cocos/fbx2gltf@1.0.5",
+  "_where": "/Users/nantas/jenkins/workspace/Creator_2D/fireball/mac/fireball/dist/CocosCreator.app/Contents/Resources/app",
+  "author": "",
+  "bundleDependencies": false,
+  "dependencies": {
+    "rimraf": "^2.6.2"
+  },
+  "deprecated": false,
+  "description": "This is a git branch which behaves like a git mirror of NPM package [@cocos/fbx2gltf](https://www.npmjs.com/package/@cocos/fbx2gltf). Note this is not same as NPM package [fbx2gltf](https://www.npmjs.com/package/fbx2gltf).",
+  "devDependencies": {
+    "download": "^7.1.0",
+    "fs-extra": "^8.1.0"
+  },
+  "license": "BSD",
+  "main": "index.js",
+  "name": "@cocos/fbx2gltf",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {},
+  "version": "1.0.5"
+}

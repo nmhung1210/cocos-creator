@@ -1,0 +1,43 @@
+{
+    "name": "xiaomi-runtime",
+    "version": "0.0.1",
+    "description": "构建 rpk 扩展包",
+    "author": "Cocos Creator",
+    "main-menu": {},
+    "license": "ISC",
+    "simple-build-target": "build-runtime.js",
+    "panel": {
+        "main": "panel/certificate.js",
+        "type": "dockable",
+        "title": "certificate",
+        "width": 520,
+        "min-width": 520,
+        "height": 400,
+        "min-height": 400
+    },
+    "panel.qrcode": {
+        "main": "panel/scanCode.js",
+        "type": "dockable",
+        "title": "preview",
+        "width": 400,
+        "height": 300
+    },
+    "profiles": {
+        "project": {
+            "package": "",
+            "name": "",
+            "icon": "",
+            "versionName": "",
+            "versionCode": "",
+            "minPlatformVersion": "",
+            "deviceOrientation": "portrait",
+            "logLevel": "log",
+            "tinyPackageServer": "",
+            "useDebugKey": true,
+            "privatePath": "",
+            "certificatePath": "",
+            "disabledMode": "disabled is-disabled",
+            "startSceneAssetBundle": false
+        }
+    }
+}

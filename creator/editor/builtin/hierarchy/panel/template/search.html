@@ -1,0 +1,14 @@
+<div class="search" draggable="true"
+    @dragstart="onDragStart"
+    @dragend="onDragEnd"
+>
+    <ul>
+        <template
+            v-for="node in nodes"
+        >
+            <node
+                :node="node"
+            ></node>
+        </template>
+    </ul>
+</div>

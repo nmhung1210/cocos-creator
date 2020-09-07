@@ -1,0 +1,189 @@
+@element: 'select';
+@import (multiple) 'theme.less';
+
+:host {
+  display: inline-flex;
+  position: relative;
+  box-sizing: border-box;
+
+  outline: none;
+  flex: none;
+  flex-direction: row;
+
+  margin: 0 0.25em 0 0;
+  width: auto;
+  min-width: 20px;
+  border: 1px solid @border_color;
+  border-bottom-color: @border_bottom_color;
+  border-radius: @border_radius;
+
+  cursor: pointer;
+  background-color: @bg_color;
+  //background-image: linear-gradient(@bg_top_color, @bg_bottom_color);
+}
+
+:host(:last-child) {
+  margin-right: 0;
+}
+
+select {
+  font-family: @page_font;
+  /* font-weight: @font_weight; */
+
+  -webkit-appearance: none;
+  display: flex;
+  flex: 1;
+  outline: none;
+
+  border: 0;
+  margin: 0;
+
+  padding: 0 1.8em 2px 0.8em;
+
+  text-decoration: none;
+  text-overflow: ellipsis;
+
+  cursor: pointer;
+  color: @text_color;
+  background: none;
+
+  width: 100%;
+}
+
+select option {
+  color: @text_color;
+  background: @bg_color;
+}
+
+select optgroup {
+  color: @text_color;
+  background: @bg_color + 10%;
+}
+
+// 自己画下拉列表的箭头
+:host::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  right: 0.8em;
+  pointer-events: none;
+
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 7px solid @text_color;
+  margin-top: -3px;
+}
+
+:host(:hover) {
+  //background-image: linear-gradient(@bg_top_color + 10%, @bg_bottom_color + 10%);
+  border-color: @border_color_hover;
+
+  select {
+    color: @text_color_hover;
+  }
+
+  &::after {
+    border-top-color: @text_color_hover;
+  }
+}
+
+:host([focused]) {
+  border-color: @focus_color;
+}
+
+:host([unnavigable]) {
+  border-color: @el_border_color;
+}
+
+:host([is-disabled]) {
+  pointer-events: none;
+
+  border-color: @el_border_color + 20%;
+  //background-image: linear-gradient(@bg_top_color - 10%, @bg_bottom_color - 10%);
+
+  select {
+    color: @text_color - 90%;
+  }
+
+  &::after {
+    border-top-color: @text_color - 90%;
+  }
+}
+
+/*-------------------
+        Size
+--------------------*/
+
+:host(.mini) {
+  height: initial;        // reset adjustment for normal size
+  select {
+    font-size: @mini;
+    align-items: initial; // reset adjustment for normal size
+  }
+}
+:host(.mini)::after {
+  right: 0.5em;
+}
+
+:host(.tiny) {
+  height: initial;        // reset adjustment for normal size
+  select {
+    font-size: @tiny;
+    align-items: initial; // reset adjustment for normal size
+  }
+}
+:host(.tiny)::after {
+  right: 0.6em;
+}
+
+:host(.small) {
+  height: initial;        // reset adjustment for normal size
+  select {
+    font-size: @small;
+    align-items: initial; // reset adjustment for normal size
+  }
+}
+
+:host {
+  height: 21px;           // 确保 Windows 中英混排时垂直居中（SimSun + Segoe UI）
+                          // 这会导致默认的控件尺寸无法拉伸，因此将 height 设置在控件的 host 上，这样才能明确反应拉伸情况
+  select {
+    font-size: @medium;
+    align-items: flex-end;// 确保 Windows 中英混排时垂直居中（SimSun + Segoe UI）
+  }
+}
+
+:host(.large) {
+  height: initial;        // reset adjustment for normal size
+  select {
+    font-size: @large;
+    align-items: initial; // reset adjustment for normal size
+  }
+}
+
+:host(.big) {
+  height: initial;        // reset adjustment for normal size
+  select {
+    font-size: @big;
+    align-items: initial; // reset adjustment for normal size
+  }
+}
+
+:host(.huge) {
+  height: initial;        // reset adjustment for normal size
+  select {
+    font-size: @huge;
+    align-items: initial; // reset adjustment for normal size
+  }
+}
+
+:host(.massive) {
+  height: initial;        // reset adjustment for normal size
+  select {
+    font-size: @massive;
+    align-items: initial; // reset adjustment for normal size
+  }
+}

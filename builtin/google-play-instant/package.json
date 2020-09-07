@@ -1,0 +1,11 @@
+{
+    "name": "google-play-instant",
+    "version": "0.0.1",
+    "description": "Google Play Instant Importer",
+    "author": "Cocos Creator",
+    "main": "main.js",
+    "reload":{
+        "ignore":["**/*"]
+    }
+  }
+  

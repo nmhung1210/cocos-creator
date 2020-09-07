@@ -1,0 +1,15 @@
+<ui-drop-area class="classification">
+    <div class="name">
+        {{_t(classify.name)}}
+    </div>
+
+    <ul>
+        <prefab
+            v-for="item in classify.prefab"
+            :prefab="item"
+            :zoom="zoom"
+        ></prefab>
+
+        <br clear="both" />
+    </ul>
+</ui-drop-area>

@@ -1,0 +1,277 @@
+<html>
+
+<head>
+    <title>Cocos Creator</title>
+
+    <!-- Vue -->
+    <script type="text/javascript" src="app://node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.config.devtools = false;  // hide log of "Vue Devtools"
+    </script>
+
+    <!-- Pace -->
+    <link href="static/css/pace-theme-center-simple.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="app://node_modules/font-awesome/css/font-awesome.min.css">
+
+    <!-- 页面样式 -->
+    <link rel="stylesheet" href="./lib/windows/static/style/base.css">
+    <link rel="stylesheet" href="./lib/windows/static/style/main.css">
+    <link rel="stylesheet" href="./lib/windows/static/style/header.css">
+    <link rel="stylesheet" href="./lib/windows/static/style/section.css">
+    <link rel="stylesheet" href="./lib/windows/static/style/footer.css">
+</head>
+
+<body class="layout vertical">
+
+    <!-- 启动前的进度条页面 -->
+    <div id="launch" class="layout vertical fit">
+        <span class="flex-1"></span>
+        <img class="logo" src="static/img/logo-with-text.png" />
+        <div class="status status-load-info"></div>
+        <span class="flex-1"></span>
+        <div class="copyright">
+            &copy 2020 Xiamen Yaji All rights reserved. <span>Privacy Policy</span>
+        </div>
+    </div>
+
+    <!-- 登录框 -->
+    <login-frame id="login" loading></login-frame>
+
+    <!-- 头部按钮栏 -->
+    <header id="toolbar">
+
+        <!-- 按钮栏 -->
+        <div class="buttons">
+            <!-- transform 按钮 -->
+            <div>
+                <i class="fa fa-arrows"
+                    :title="_t('SCENE.translate_gizmo')"
+                    :active="transform === 0"
+                    @click="_onChangeTransform($event, 0)"
+                ></i>
+                <i class="fa fa-refresh"
+                    :title="_t('SCENE.rotate_gizmo')"
+                    :active="transform === 1"
+                    @click="_onChangeTransform($event, 1)"
+                ></i>
+                <i class="fa fa-arrows-alt"
+                    :title="_t('SCENE.scale_gizmo')"
+                    :active="transform === 2"
+                    @click="_onChangeTransform($event, 2)"
+                ></i>
+                <i class="fa fa-object-group"
+                    :title="_t('SCENE.rect_gizmo')"
+                    :active="transform === 3"
+                    :enable="!is2DEditMode"
+                    @click="_onChangeTransform($event, 3)"
+                ></i>
+            </div>
+
+            <!-- layout 按钮 -->
+            <div>
+                <img src="static/img/tools-pivot.png"
+                    class="pixelated"
+                    :title="_t('SCENE.pivot')"
+                    :active="layout === 0"
+                    @click="_onChangeLayout($event, 0)"
+                >
+                <img src="static/img/tools-center.png"
+                    class="pixelated"
+                    :title="_t('SCENE.center')"
+                    :active="layout === 1"
+                    @click="_onChangeLayout($event, 1)"
+                >
+            </div>
+
+            <!-- gizmo 按钮 -->
+            <div>
+                <img src="static/img/tools-local.png"
+                    class="pixelated"
+                    :title="_t('SCENE.local_gizmo')"
+                    :active="gizmo === 0"
+                    @click="_onChangeGizmo($event, 0)"
+                >
+                <img src="static/img/tools-global.png"
+                    class="pixelated"
+                    :title="_t('SCENE.global_gizmo')"
+                    :active="gizmo === 1"
+                    @click="_onChangeGizmo($event, 1)"
+                >
+            </div>
+
+            <!-- 切换场景 2D/3D 编辑模式 -->
+
+            <div>
+                <i :title="_t('SCENE.edit_mode')"
+                    :active="is2DEditMode"
+                    @click="_onChangeEditMode($event, 0)"
+                    class="edit-mode"
+                >
+                    3D
+                </i>
+            </div>
+        </div>
+
+        <!-- 预览栏 -->
+        <div class="preview">
+            <ui-select
+                :value="platform"
+                @change="_onValueChange($event, 'platform')"
+            >
+                <option
+                    v-for="item in platforms"
+                    :value="item.value"
+                >{{item.text}}</option>
+            </ui-select>
+            <div>
+                <i class="fa fa-play"
+                    @click="_onPreviewStart($event)"
+                ></i>
+                <i class="fa fa-rotate-right"
+                    @click="_onPreviewRefresh($event)"
+                    :platform='platform'
+                    :enable="platform==='simulator'"
+                ></i>
+            </div>
+        </div>
+
+        <!-- 信息栏 -->
+        <div class="info">
+            <div class="im-info-area" v-html="imHtml"></div>
+            <ui-button class="small"
+                :title="_t('EDITOR_MAIN.open_app')"
+                @click="_onOpenApp($event)"
+            >
+                <i class="fa fa-folder-open"></i>
+                {{_t('EDITOR_MAIN.open_app_button')}}
+            </ui-button>
+            
+            <ui-button class="small"
+                :title="_t('EDITOR_MAIN.open_project')"
+                @click="_onOpenProject($event)"
+            >
+                <i class="fa fa-folder-open"></i>
+                {{_t('EDITOR_MAIN.open_project_button')}}
+            </ui-button>
+
+            <div>
+
+                <div class="qrcode"
+                    v-show="qr"
+                >
+                    <div v-el:qrcode></div>
+                    <span>{{_t('EDITOR_MAIN.preview_url')}}</span>
+                </div>
+
+                <span
+                    @mouseenter="_onSwitchQR($event, true)"
+                    @mouseleave="_onSwitchQR($event, false)"
+                >{{url}}</span>
+                <i class="fa fa-wifi"></i>
+                <span
+                    :title="_t('EDITOR_MAIN.connected_count')"
+                >{{connected}}</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 布局元素位置 -->
+    <section></section>
+
+    <!-- 底部状态栏 -->
+    <footer id="status">
+        <div class="status">
+            <i class="fa fa-retweet"
+                :state="state.compile"
+            ></i>
+            <i class="fa fa-database"
+                :state="state.db"
+            ></i>
+            <i class="fa fa-eye"
+                :state="state.watch"
+            ></i>
+        </div>
+
+        <div class="content"
+            :error="log && (log.type === 'failed' || log.type === 'error')"
+            :warn="log && log.type === 'warn'"
+        >
+            <i class="fa fa-times-circle"
+                v-if="log && (log.type === 'failed' || log.type === 'error')"
+            ></i>
+            <i class="fa fa-warning"
+                v-if="log && log.type === 'warn'"
+            ></i>
+
+            <span
+                v-if="log && log.text"
+                @click="_onDumpConsole($event)"
+            >{{log.text}}</span>
+        </div>
+        <div class="version">{{version}}</div>
+    </footer>
+
+    <!-- 启动流程 -->
+    <script>
+        (() => {
+            let launch = require('./lib/windows/static/script/launch');
+            const jsbAdapterBuilder = require('./share/build-jsb-adapter');
+            const $info = document.querySelector('.status-load-info');
+            $info.innerText = Editor.T('EDITOR_MAIN.building_engine');
+
+            const {ipcRenderer} = require('electron');
+            ipcRenderer.on('update-loading-tips', (event, tips) => {
+                $info.innerText = tips;
+            });
+
+            ipcRenderer.on('reload-page', async() => {
+                await rebuildEngine();
+                await rebuildJsbAdapter();
+                await loadEditor();
+            });
+
+            ipcRenderer.on('load-editor', async() => {
+                await loadEditor();
+            });
+
+            let loadEditor = async function () {
+
+                //因为有提前打开了window，导致两边的i18n不一致，所以需要同步一遍
+                Editor.i18n.updatePhrases();
+                $info.innerText = Editor.T('EDITOR_MAIN.loading') + '...';
+
+                // await launch.scene();
+                // await launch.dock();
+                //
+                // await launch.header();
+                // await launch.footer();
+                // await launch.golbal();
+                // await launch.pace();
+
+                //看了下逻辑，跟顺序没什么关系，一起加载了，以提节省加载时间
+                await Promise.all([launch.initProfile(),launch.scene(), launch.dock(), launch.header(), launch.footer(), launch.golbal(), launch.pace()]);
+
+                const $lunch = document.getElementById('launch');
+                $lunch.remove();
+                Editor.Ipc.sendToAll('editor:ready');
+            };
+
+            // rebuild engine 只需要在刷新编辑器的时候运行
+            let rebuildEngine = async function () {
+                $info.innerText = Editor.T('EDITOR_MAIN.building_engine');
+                await launch.compile();
+            }
+            let rebuildJsbAdapter = async function () {
+                await jsbAdapterBuilder.prebuild({
+                    rootPath: Editor.remote.url('packages://jsb-adapter'),
+                    dstPath: Editor.remote.url('packages://jsb-adapter/bin'),
+                });
+            };
+        })();
+
+    </script>
+</body>
+
+</html>

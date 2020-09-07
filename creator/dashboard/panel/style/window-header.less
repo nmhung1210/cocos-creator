@@ -1,0 +1,55 @@
+.window-header {
+    position: relative;
+    padding: 0 26px;
+    height: 56px;
+    line-height: 56px;
+    border-bottom: 2px #664d46 solid;
+    -webkit-app-region: drag;
+    z-index: 10;
+
+    .logo {
+        float: left;
+        height: 100%;
+
+        img {
+            margin: 12px 10px 12px 0;
+            height: 30px;
+        }
+    }
+
+    .title {
+        float: left;
+        font-size: 16px;
+    }
+
+    .buttons {
+        float: right;
+        height: 100%;
+
+        span {
+            padding: 2px;
+            margin: 0 6px;
+            cursor: pointer;
+            -webkit-app-region: no-drag;
+
+            &[disabled] {
+                opacity: 0.4;
+                cursor: default;
+            }
+        }
+    }
+
+    &[mac] {
+        height: 36px;
+        line-height: 38px;
+        text-align: center;
+        font-size: 14px;
+
+        img {
+            height: 20px;
+            position: relative;
+            top: 4px;
+            margin-right: 4px;
+        }
+    }
+}

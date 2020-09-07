@@ -1,0 +1,13 @@
+{
+    "name": "huawei-agc",
+    "version": "1.0.0",
+    "description": "",
+    "author": "Cocos Creator",
+    "simple-build-target": "build.js",
+    "profiles": {
+        "project": {
+            "REMOTE_SERVER_ROOT": "",
+            "configSelected": "0"
+        }
+    }
+}

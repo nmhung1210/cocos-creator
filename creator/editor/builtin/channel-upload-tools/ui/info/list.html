@@ -1,0 +1,6 @@
+<div>
+    <upload-item v-for="item in platforms" :platform="item" :info.sync="info" :page.sync="page"></upload-item>
+    <div class="btn-area">
+        <ui-button v-on:confirm="openBuilder" class="green">{{t('close')}}</ui-button>
+    </div>
+</div>

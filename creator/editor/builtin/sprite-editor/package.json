@@ -1,0 +1,18 @@
+{
+  "name": "sprite-editor",
+  "version": "0.1",
+  "description": "Sprite Editor",
+  "author": "Bill Zhang",
+  "main": "main.js",
+  "panel": {
+    "main": "panel/sprite-editor.js",
+    "type": "dockable",
+    "title": "i18n:SPRITE_EDITOR.title",
+    "engineSupport": true,
+    "width": 500,
+    "min-width": 325,
+    "height": 500,
+    "min-height": 325,
+    "save": false
+  }
+}

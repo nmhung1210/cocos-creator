@@ -1,0 +1,72 @@
+<div class="tools">
+
+    <!-- 清空日志 -->
+    <i class="icon-block"
+        @click="onClearAll"
+    ></i>
+
+    <!-- 打开日志文件 -->
+    <i class="icon-doc-text"
+        @click="onOpenLogFile"
+    ></i>
+
+    <!-- 过滤文本 -->
+    <ui-input
+        @change="onFilterChanged"
+    ></ui-input>
+
+    <!-- 是否开启正则匹配模式 -->
+    <ui-checkbox
+        @change="onRegularChanged"
+    >{{t('regex')}}</ui-checkbox>
+
+    <!-- 显示日志类型 -->
+    <ui-select
+        @change="onTypeChanged"
+    >
+        <option value="all">All</option>
+        <option value="log">Log</option>
+        <option value="success">Success</option>
+        <option value="failed">Failed</option>
+        <option value="info">Info</option>
+        <option value="warn">Warn</option>
+        <option value="error">Error</option>
+    </ui-select>
+
+    <!-- 字号 -->
+    <span>
+        <i class="fa fa-text-width"></i>
+        <ui-select
+            :value="fsize"
+            @change="onFontSizeChanged"
+        >
+            <option
+                v-for="num in sizes"
+                :value="num"
+            >{{num}}</option>
+        </ui-select>
+    </span>
+
+    <!-- 按钮 -->
+    <span class="more">
+        <i class="fa fa-caret-square-o-down"
+            @click="showOptions"
+            @mouseout="hideOptions"
+        ></i>
+        <div class="options"
+            :active="options"
+            @mouseover="showOptions"
+            @mouseout="hideOptions"
+        >
+            <ui-checkbox
+                :checked="collapse"
+                @confirm="onCollapseChanged"
+            >{{t('collapse')}}</ui-checkbox>
+            <ui-checkbox
+                :checked="aclear"
+                @confirm="onAutoClearChanged"
+            >{{t('clear_on_play')}}</ui-checkbox>
+        </div>
+    </span>
+
+</div>

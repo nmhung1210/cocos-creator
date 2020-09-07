@@ -1,0 +1,17 @@
+<div class="hierarchy">
+
+  <tools :filter="filter"></tools>
+
+  <div class="asset-container"
+       tabindex="-1">
+    <ui-loader v-show="loading"
+               class="transparent">{{loadingTips}}</ui-loader>
+    <nodes v-ref:nodes
+           v-show="!filter"
+           :length="length"></nodes>
+  </div>
+
+  <div class="current-path">
+    <span>{{currentPath}}</span>
+  </div>
+</div>

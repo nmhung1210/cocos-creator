@@ -1,0 +1,114 @@
+@import './_define.less';
+
+@spacing: 12px;
+
+.tab-create {
+    flex: 1;
+    background: @active-background-color;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+
+    .wrap {
+        flex: 1;
+        overflow: auto;
+
+        ul {
+            margin: 0;
+            padding: @spacing 0 @spacing @spacing;
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+            margin: 0 @spacing @spacing 0;
+            list-style: none;
+            width: 236px;
+            height: 180px;
+            border: 1px solid #666;
+            cursor: default;
+
+            .icon {
+                height: 126px;
+                border-bottom: 1px solid #666;
+                background: #1c1c1c;
+                position: relative;
+
+                img {
+                    margin: 23px 54px;
+                }
+
+                &:hover {
+                    .mask {
+                        opacity: 0.4;
+                    }
+
+                    .button {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .name {
+                padding: 0 15px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 53px;
+                text-align: center;
+                font-size: 14px;
+                background: #333;
+            }
+
+            &:hover {
+                border-color: #888;
+            }
+
+            &[active] {
+                border-color: #ed7461;
+            }
+        }
+        }
+    }
+
+    .browser {
+        padding: 30px 50px;;
+        border-top: 1px solid #666;
+
+        .info {
+            line-height: 24px;
+        }
+
+        .operation {
+            display: flex;
+            margin: 25px 0 10px 0;
+            padding-right: 30px;
+
+            span {
+                padding: 8px 20px;
+                background: @button-background-color;
+                color: @button-text-color;
+                cursor: pointer;
+                border-radius: 2px;
+
+            }
+
+            .browse {
+                border-radius: 0 2px 2px 0px;
+            }
+
+            .create {
+                margin-left: 15px;
+            }
+
+            input {
+                flex: 1;
+                padding: 8px;
+                background: none;
+                border: 1px solid #666;
+                border-right: none;
+                color: #999;
+                background: #333;
+            }
+        }
+    }
+}

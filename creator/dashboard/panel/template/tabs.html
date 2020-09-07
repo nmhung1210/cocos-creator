@@ -1,0 +1,66 @@
+<div class="tabs">
+
+    <ul>
+        <li
+            :active="tab === 'project'"
+            @click="changeTab('project')"
+        >
+            <span>
+                {{t('DASHBOARD.recent_project')}}
+            </span>
+        </li>
+        <li
+            :active="tab === 'create'"
+            @click="changeTab('create')"
+        >
+            <span>
+                {{t('DASHBOARD.new_project')}}
+            </span>
+        </li>
+        <li
+            :active="tab === 'open'"
+            @click="changeTab('open')"
+        >
+            <span>
+                {{t('DASHBOARD.open_other')}}...
+            </span>
+        </li>
+        <li
+            :active="tab === 'news'"
+            @click="changeTab('news')"
+        >
+            <span>
+                {{t('DASHBOARD.news.title')}}
+                <i class="dot"
+                    v-if="getNewsRemind(hasreadnews, shouldreadnews)"
+                ></i>
+            </span>
+        </li>
+        <li
+            :active="tab === 'help'"
+            @click="changeTab('help')"
+        >
+            <span>
+                {{t('DASHBOARD.help.title')}}
+                <i class="dot"
+                    v-if="tutorial"
+                ></i>
+            </span>
+        </li>
+    </ul>
+
+    <div class="search"
+        v-if="tab === 'project' || tab === 'create'"
+    >
+        <div class="input">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input placeholder="Search"
+                :value="filter"
+                @keyup="changeFilter"
+            ></input>
+        </div>
+        <div class="img">
+            <img class="avatar" src="./static/img/avatar.jpg">
+        </div>		
+    </div>
+</div>

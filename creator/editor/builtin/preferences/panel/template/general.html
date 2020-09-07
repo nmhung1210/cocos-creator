@@ -1,0 +1,109 @@
+<div class="general">
+
+    <!-- 编辑器语言 -->
+    <ui-prop label-width="50"
+        name="{{T('PREFERENCES.language')}}"
+        tooltip="{{T('PREFERENCES.language')}}"
+    >
+        <ui-select
+            v-value="general.language"
+        >
+             <option
+                v-for="item in languageList"
+                v-value="item.value"
+             >{{item.text}}</option> 
+        </ui-select>
+    </ui-prop>
+
+    <!-- 层级管理器节点树展开/折叠状态 -->
+    <ui-prop label-width="50"
+        name="{{T('PREFERENCES.node_tree')}}"
+        tooltip="{{T('PREFERENCES.node_tree')}}"
+    >
+        <ui-select
+            v-value="general.nodeState"
+        >
+             <option
+                v-for="item in nodeStateLsit"
+                v-value="item.value"
+             >{{item.text}}</option> 
+        </ui-select>
+    </ui-prop>
+
+    <!-- 选择本机 ip 地址 -->
+    <ui-prop label-width="50"
+        name="{{T('PREFERENCES.ip')}}"
+        tooltip="{{T('PREFERENCES.ip')}}"
+    >
+        <ui-select
+            v-value="general.ip"
+        >
+            <option value="1">{{T('PREFERENCES.auto')}}</option>
+            <option
+                v-for="item in ipList"
+                v-value="item.value"
+            >{{item.text}}</option> 
+        </ui-select>
+    </ui-prop>
+
+    <!-- 构建日志是否在控制台显示 -->
+    <ui-prop label-width="50"
+        name="{{T('PREFERENCES.build_console_log')}}"
+        tooltip="{{T('PREFERENCES.build_console_log')}}"
+    >
+        <ui-checkbox
+            v-value="general.log"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- meta 备份是否确认 -->
+    <ui-prop label-width="50"
+        name="{{T('PREFERENCES.meta_backup_dialog')}}"
+        tooltip="{{T('PREFERENCES.meta_backup_dialog')}}"
+    >
+        <ui-checkbox
+            v-value="general.metaBackupDialog"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <!-- 导入图片时自动剪裁 -->
+    <ui-prop label-width="50"
+        name="{{T('PREFERENCES.trim_imported_image')}}"
+        tooltip="{{T('PREFERENCES.trim_imported_image')}}"
+    >
+        <ui-checkbox
+            v-value="general.autoTrimImage"
+       ></ui-checkbox>
+    </ui-prop>
+
+    <!-- 默认开启 prefab 自动同步模式 -->
+    <ui-prop label-width="50"
+        name="{{T('PREFERENCES.auto_sync_prefab')}}"
+        tooltip="{{T('PREFERENCES.auto_sync_prefab')}}"
+    >
+        <ui-checkbox
+            v-value="general.autoSyncPrefab"
+       ></ui-checkbox>
+    </ui-prop>
+
+    <!-- 浮点属性步进精度 -->
+    <ui-prop label-width="50"
+             name="{{T('PREFERENCES.step')}}"
+             tooltip="{{T('PREFERENCES.step')}}"
+    >
+        <ui-num-input step=0.1
+                      v-value="general.step"
+        ></ui-num-input>
+    </ui-prop>
+
+    <!-- http 代理服务器 -->
+    <ui-prop label-width="50"
+             name="{{T('PREFERENCES.http_proxy')}}"
+             tooltip="{{T('PREFERENCES.http_proxy_desc')}}"
+    >
+        <ui-input
+                  v-value="general.httpProxy"
+                  placeholder="{{T('PREFERENCES.http_proxy_placeholder')}}"
+        ></ui-input>
+    </ui-prop>
+</div>

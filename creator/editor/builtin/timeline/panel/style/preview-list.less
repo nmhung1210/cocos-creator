@@ -1,0 +1,110 @@
+.preview-list {
+    flex: 1;
+    background: @color_dark_background;
+    overflow: hidden;
+    position: relative;
+
+    .key {
+        width: @dot_size;
+        height: @dot_size;
+        position: absolute;
+        top: @row_height / 2 - @dot_size / 2;
+        left: -@dot_size / 2;
+        z-index: 3;
+        cursor: pointer;
+
+        & > .dot {
+            width: @dot_size;
+            height: @dot_size;
+            border-radius: @dot_size / 4;
+            background: @color_key;
+            transform: rotate(45deg);
+            transition: background-color 0.3s;
+        }
+
+        &:hover {
+
+            & > .dot {
+                background: @color_key_hover;
+                transform: rotate(45deg) scale(1.2);
+            }
+        }
+        
+        &[selected] {
+
+            & > .dot {
+                background: @color_key_hover;
+            }
+        }
+
+        &[preview] {
+            opacity: 0.3;
+
+            & > .dot {
+                background: @color_key;
+            }
+        }
+    }
+
+    .line {
+        height: @dot_size - 2;
+        position: absolute;
+        top: @row_height / 2 - (@dot_size - 2) / 2;
+        left: 0;
+        background: @color_line;
+        transition: background-color 0.3s;
+        z-index: @index_pointer;
+
+        &:hover {
+            background: @color_line_hover;
+        }
+    }
+
+    & > .preview-row {
+        height: @row_height;
+        position: relative;
+
+        &:nth-child(even) {
+            background: @color_very_dark_background
+        }
+    }
+
+    &[shadow] {
+    
+        .key, .line {
+            opacity: 0.2;
+
+            &:hover, &[selected] {
+
+                & > .dot {
+                    background: @color_key;
+                }
+            }
+
+            &[preview] {
+                opacity: 1;
+            }
+        }
+    }
+
+    & > .missing-title {
+        text-indent: 20px;
+        font-size: 8px;
+        line-height: 14px;
+        background: #290c0c;
+        z-index: @index_top;
+        position: relative;
+    }
+
+    & > .box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid @color_key * 1.5;
+        background: @color_key * 0.6;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: @index_top;
+    }
+}

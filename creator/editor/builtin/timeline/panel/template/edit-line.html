@@ -1,0 +1,90 @@
+<div class="edit-line">
+    <div class="background"></div>
+
+    <div class="line-tools">
+        <i class="fa fa-remove"
+            @click="_onCloseClick"
+        ></i>
+        <i class="fa fa fa-floppy-o"
+            @click="save"
+        ></i>
+    </div>
+
+    <div class="ease">
+        <template 
+            v-for="(name,type) in types"
+        >
+            <div
+                :active="name === ease"
+                @click="_onEaseClick(name)"
+            >{{name}}</div>
+        </template>
+    </div>
+
+    <div class="class">
+        <template 
+            v-for="(name,type) in types[ease]"
+        >
+            <div
+                :active="name === class"
+                @click="_onClassClick(name)"
+            >{{name}}</div>
+        </template>
+    </div>
+
+    <div class="bezier">
+        <svg
+            @mousewheel="_onSvgMouseWheel"
+        >
+            <line
+                v-for="(index,line) in hlines"
+                :x1="line.x1"
+                :y1="line.y1"
+                :x2="line.x2"
+                :y2="line.y2"
+                :stroke="index!==0&&index!==hlines.length-1 ? '#2D2D2D' : '#666'"
+                :fill="index!==0&&index!==hlines.length-1 ? '#2D2D2D' : '#666'"
+                stroke-width="1"
+            ></line>
+            <line
+                v-for="line in vlines"
+                :x1="line.x1"
+                :y1="line.y1"
+                :x2="line.x2"
+                :y2="line.y2"
+                stroke="#2D2D2D"
+                fill="#2D2D2D"
+                stroke-width="1"
+            ></line>
+
+            <path
+                :d="bezier"
+                stroke-width="2"
+                stroke="#279DFF"
+                fill="none"
+            ></path>
+
+            <line
+                v-for="circle in controls"
+                :x1="circle.x"
+                :y1="circle.y"
+                :x2="circle.lx"
+                :y2="circle.ly"
+                stroke="#666"
+                fill="#666"
+                stroke-width="1"
+            ></line>
+            <circle class="control"
+                v-for="circle in controls"
+                :cx="circle.x"
+                :cy="circle.y"
+                r="4"
+                fill="#666"
+                stroke="#666"
+                stroke-width="1"
+
+                @mousedown="_onControlPointMouseDown(circle)"
+            ></circle>
+        </svg>
+    </div>
+</div>

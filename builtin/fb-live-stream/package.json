@@ -1,0 +1,8 @@
+{
+    "name": "fb-live-stream",
+    "version": "0.0.1",
+    "description": "Facebook SDK Importer",
+    "author": "Cocos Creator",
+    "main": "main.js"
+  }
+  

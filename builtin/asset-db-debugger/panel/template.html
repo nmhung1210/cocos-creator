@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="app://node_modules/font-awesome/css/font-awesome.min.css">
+<div id='toolBar' class='layout horizontal center'>
+    <ui-button id='btn-refresh' @click='_onRefreshClick'>
+        <i class="fa fa-rotate-right"></i>
+    </ui-button>
+    <ui-select v-el:selectbox @change='_onSelectedChanged'>
+        <option value='URL to UUID'>URL to UUID</option>
+        <option value='UUID to URL'>UUID to URL</option>
+    </ui-select>
+    <ui-input id='search-box' placeholder='Search URL...' v-value='searchValue'></ui-input>
+</div>
+<div class="view">
+    <table>
+        <thead>
+            <tr>
+                <th>{{keyName}}</th>
+                <th>{{valueName}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for='item in filter(infoList, searchValue)'>
+                <td class="key">{{item.key}}</td>
+                <td class="value">{{item.value}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

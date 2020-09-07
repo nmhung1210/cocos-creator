@@ -1,0 +1,33 @@
+{
+  "name": "scene",
+  "version": "0.1.4",
+  "description": "A scene editor",
+  "author": "Firebox Technology",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.scene": {
+      "icon": "panel/icon.png",
+      "accelerator": "CmdOrCtrl+1",
+      "message": "scene:open"
+    }
+  },
+  "panel": {
+    "main": "panel/scene.js",
+    "popable": false,
+    "type": "dockable",
+    "title": "i18n:MAIN_MENU.panel.scene",
+    "icon": "panel/icon.png",
+    "width": "auto",
+    "height": "auto",
+    "suppressCloseWarning": true
+  },
+  "profiles": {
+    "local": {
+      "designWidth": 640,
+      "designHeight": 480
+    }
+  },
+  "tests": [
+    "test/basic.html"
+  ]
+}

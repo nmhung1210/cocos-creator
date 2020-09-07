@@ -1,0 +1,28 @@
+<li class="prefab" draggable="true"
+    @dragstart="onDragStart"
+    @dragend="onDragEnd"
+
+    @mouseUp="onMouseUp"
+>
+    <div class="img">
+        <img
+            :style="img"
+            :src="queryIcon(prefab, time)"
+        />
+    </div>
+
+    <input
+        v-if="rename"
+        :style="text"
+        :value="prefab.name"
+
+        v-input-init="onInputInit"
+        @blur="onInputBlur"
+        @keyup="onInputKeyUp"
+    />
+    <span
+        v-else
+        :style="text"
+        :title="prefab.name"
+    >{{prefab.name}}</span>
+</li>

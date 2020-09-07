@@ -1,0 +1,45 @@
+<div class="editor">
+
+    <!--外部脚本编辑器-->
+    <ui-prop label-width="32"
+        name="{{T('PREFERENCES.external_script_editor')}}"
+        tooltip="{{T('PREFERENCES.external_script_editor')}}"
+    >
+        <ui-select
+            v-value="editor.customizeScriptEditor"
+        >
+            <option value="default">{{T('PREFERENCES.internal')}}</option>
+            <option
+                v-for="item in editor.sctiptEditorList"
+                v-value="item.value"
+            >{{item.text}}</option>
+        </ui-select>
+        <ui-button class="small"
+            @click="chooseScriptEditor"
+        >
+            {{T('PREFERENCES.browse')}}
+        </ui-button>
+        <ui-button class="small"
+            v-if="editor.customizeScriptEditor && editor.customizeScriptEditor !== 'default'"
+            @click="removeScriptEditor"
+        >
+            {{T('PREFERENCES.remove')}}
+        </ui-button>
+    </ui-prop>
+
+    <!--外部图片编辑器-->
+    <ui-prop label-width="32"
+        name="{{T('PREFERENCES.external_picture_editor')}}"
+        tooltip="{{T('PREFERENCES.external_picture_editor')}}"
+    >
+        <ui-input class="flex-2"
+            v-value="editor.customizePictureEditor"
+            placeholder="{{T('PREFERENCES.picture_editor_placeholder')}}"
+        ></ui-input>
+        <ui-button class="small"
+            @click="choosePictureEditor"
+        >
+            {{T('PREFERENCES.browse')}}
+        </ui-button>
+    </ui-prop>
+</div>

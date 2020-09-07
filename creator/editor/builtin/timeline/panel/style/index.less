@@ -1,0 +1,229 @@
+@import url('app://node_modules/font-awesome/css/font-awesome.min.css');
+
+@color_dark_background: #333;
+@color_very_dark_background: #262626;
+@color_key: #3EA6F9;
+@color_key_hover: @color_key * 3;
+@color_line: @color_key * 0.5;
+@color_line_hover: @color_key * 0.2;
+
+@row_height: 24px;
+@dot_size: 10px;
+
+@index_chart: 1;
+@index_pointer: 2;
+@index_top: 3;
+@index_mask: 4;
+@index_record: 5;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    & > section {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            width: 260px;
+
+            & > .row-1 {
+                border-right: 1px solid #111;
+            }
+            & > .row-2 {
+                border-right: 1px solid #111;
+                overflow: hidden;
+            }
+            & > .row-3 {
+                display: flex;
+                background: #454545;
+                padding: 0 6px 0 20px;
+                line-height: 24px;
+
+                & > span {
+                    flex: 1;
+                }
+
+                & > i {
+                    padding: 0 4px;
+                    cursor: pointer;
+                    line-height: 24px;
+                }
+            }
+            & > .row-4 {
+                border-right: 1px solid #111;
+                overflow: hidden;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+
+            & > .chart {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                padding-top: 20px;
+                box-sizing: border-box;
+                overflow: hidden;
+                pointer-events: none;
+
+                & > timeline-grid {
+                    z-index: @index_chart;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            & > .pointer {
+                position: absolute;
+                top: 18px;
+                left: -2px;
+                height: 100%;
+                width: 1px;
+                padding: 0 2px;
+                z-index: @index_pointer;
+                cursor: ew-resize;
+
+                i {
+                    position: absolute;
+                    top: -5px;
+                    left: -1px;
+                }
+
+                span{
+                    display: inline-block;
+                    width: 1px;
+                    height: 100%;
+                    background: red;
+                }
+
+                &[ignore] {
+                    pointer-events: none;
+                }
+            }
+
+            & > .row-3 {
+                display: flex;
+                background: #454545;
+                line-height: 24px;
+
+                & > span {
+                    white-space: nowrap;
+                    line-height: 24px;
+                    margin-right: 10px;
+        
+                    &:first-child {
+                        flex: 1;
+                    }
+        
+                    & > ui-num-input {
+                        width: 50px;
+                    }
+                }
+            }
+        }
+ 
+        .row-1 {
+            display: flex;
+            height: 30px;
+            border-bottom: 1px solid #111;
+        }
+
+        .row-2 {
+            display: flex;
+            flex: 1;
+            border-bottom: 1px solid #111;
+            overflow: hidden;
+        }
+
+        .row-3 {
+            display: flex;
+            height: 24px;
+            border-bottom: 1px solid #111;
+            z-index: @index_top;
+        }
+
+        .row-4 {
+            display: flex;
+            flex: 1;
+            border-bottom: 1px solid #111;
+            overflow: hidden;
+        }
+
+    }
+
+    & > footer {
+        padding: 4px 10px;
+        display: flex;
+
+        span {
+            white-space: nowrap;
+            line-height: 20px;
+            margin-right: 10px;
+
+            &:first-child {
+                flex: 1;
+            }
+
+            & > ui-num-input {
+                width: 50px;
+            }
+        }
+    }
+
+    & > .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: @index_mask;
+
+        & > .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.6;
+        }
+
+        & > .content {
+            z-index: @index_mask + 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 18px;
+
+            & > div {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+
+                & > ui-button {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+@import './tools.less';
+@import './events.less';
+@import './nodes.less';
+@import './props.less';
+@import './preview-list.less';
+@import './prop-list.less';
+@import './edit-event.less';
+@import './edit-line.less';

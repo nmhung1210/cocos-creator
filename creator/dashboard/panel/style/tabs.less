@@ -1,0 +1,76 @@
+@import './_define.less';
+
+.tabs {
+    display: flex;
+    background: #333;
+    
+    ul {
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 56px;
+        line-height: 56px;
+
+        li {
+            list-style: none;
+            width: 130px;
+            text-align: center;
+            cursor: pointer;
+
+            &[active] {
+                background: @active-background-color;
+            }
+
+            span {
+                position: relative;
+            }
+
+            i.dot {
+                position: absolute;
+                top: -2px;
+                right: -14px;
+                display: block;
+                width: 6px;
+                height: 6px;
+                border-radius: 3px;
+                background: red;
+            }
+        }
+    }
+
+    .search {
+        width: 300px;
+        display: flex;
+        padding: 12px 0 11px 0;
+
+        .input {
+            border-radius: 20px;
+            background: #282828;
+
+            i {
+                color: #666;
+                font-size: 16px;
+                margin-left: 14px;
+            }
+
+            input {
+                color: #666;
+                border: none;
+                background: none;
+                font-size: 14px;
+                padding: 8px 20px 8px 10px;
+            }
+        }
+
+        .img {
+            margin-left: 15px;
+
+            img {
+                width: 30px;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+        }
+    }
+}

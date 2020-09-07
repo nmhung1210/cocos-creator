@@ -1,0 +1,58 @@
+<div>
+
+    <header>
+        <h3>
+            {{T('EXPORT_ASSET.title')}}
+        </h3>
+        <div class="layout horizontal content title">
+            <p class="asset-name"
+               title="{{T('EXPORT_ASSET.asset')}}"
+            >
+                {{T('EXPORT_ASSET.asset')}}
+            </p>
+            <ui-asset class="asset-scene"
+                      empty
+                      v-value="assetUuid"
+                      v-on:confirm="onAssetChanged">
+            </ui-asset>
+            <ui-button class="btn-brower blue"
+                       v-on:confirm="onChooseScene">
+                {{T('EXPORT_ASSET.select_path')}}
+            </ui-button>
+        </div>
+    </header>
+
+    <section>
+        <ui-box-container class="flex-1 shadow layout vertical content export-box">
+            <h3 style="opacity:0.5"
+                v-show="!_showContent()">
+                {{T('EXPORT_ASSET.content_tips')}}
+            </h3>
+            <ui-loader class="massive"
+                       v-show="_showLoadBar()"
+            >
+                Loading
+            </ui-loader>
+            <package-asset-item v-if="_showContent()"
+                                v-bind:tree="assetTree"
+            >
+            </package-asset-item>
+        </ui-box-container>
+    </section>
+
+    <footer class="layout horizontal content">
+        <ui-checkbox unnavigable class="btn-selectAll"
+                     v-value="selectAll"
+                     v-on:confirm="onSelectAll"
+        >
+            {{T('EXPORT_ASSET.all')}}
+        </ui-checkbox>
+        <ui-button class="btn-export blue"
+                   v-on:confirm="onExport"
+                   v-disabled="_isExportDisabled()"
+        >
+            {{T('EXPORT_ASSET.export')}}
+        </ui-button>
+    </footer>
+
+</div>

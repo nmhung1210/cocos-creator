@@ -1,0 +1,15 @@
+{
+  "name": "project-importer",
+  "version": "0.1.0",
+  "description": "Other Projects Importer",
+  "author": "Chukong Inc.",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.file.title/i18n:MAIN_MENU.file.import_project/i18n:MAIN_MENU.file.import_studio": {
+      "message": "project-importer:open-studio"
+    },
+    "i18n:MAIN_MENU.file.title/i18n:MAIN_MENU.file.import_project/i18n:MAIN_MENU.file.import_builder": {
+      "message": "project-importer:open-builder"
+    }
+  }
+}

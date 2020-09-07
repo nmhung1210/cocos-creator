@@ -1,0 +1,238 @@
+<section>
+
+    <div class="left">
+        <div class="row-1">
+            <tools
+                :allow="state >= 3"
+                :frame="frame"
+                :sample="sample"
+                :record="record"
+                :paused="paused"
+            ></tools>
+        </div>
+
+        <div class="row-2">
+            <nodes
+                :node="node"
+                :hierarchy="hierarchy"
+                :mnodes="mnodes"
+                :clip="clip"
+            ></nodes>
+        </div>
+
+        <div class="row-3">
+            <span>
+                {{t('property_title')}}
+            </span>
+        </div>
+
+        <div class="row-4">
+            <props
+                :props="props"
+                :node="node"
+                :clip="clip"
+                :selected="selected"
+            ></props>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="pointer"
+            :style="queryPinterStyle(offset, frame, scale)"
+            :ignore="ignore_pointer"
+
+            @mousedown="_onPointerMouseDown"
+        >
+            <i class="fa fa-caret-down"></i>
+            <span></span>
+        </div>
+
+        <div class="chart">
+            <timeline-grid
+                v-el:grid
+                show-label-h
+            ></timeline-grid>
+        </div>
+
+        <div class="row-1">
+            <events
+                :clip="clip"
+                :frame="frame"
+                :offset="offset"
+                :scale="scale"
+                :sample="sample"
+                :duration="duration"
+                :event="event"
+            ></events>
+        </div>
+
+        <div class="row-2">
+            <preview-list
+                :height="height"
+                :width="width"
+
+                :hierarchy="hierarchy"
+                :mnodes="mnodes"
+                :offset="offset"
+                :scale="scale"
+                :node="node"
+                :clip="clip"
+                :sample="sample"
+
+                :selected="selected"
+            ></preview-list>
+        </div>
+
+        <div class="row-3">
+            <span></span>
+            <span>
+                WrapMode:
+                <ui-select class="tiny"
+                    :value="mode"
+                    @confirm="_onModeChanged"
+                >
+                    <option value="0">Default</option>
+                    <option value="1">Normal</option>
+                    <option value="2">Loop</option>
+                    <option value="22">PingPong</option>
+                    <option value="36">Reverse</option>
+                    <option value="38">LoopReverse</option>
+                    <option value="54">PingPongReverse</option>
+                </ui-select>
+            </span>
+        </div>
+
+        <div class="row-4">
+            <prop-list
+                :offset="offset"
+                :scale="scale"
+                :props="props"
+                :node="node"
+                :clip="clip"
+                :sample="sample"
+
+                :selected="selected"
+            ></prop-list>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <span>
+        Clip:
+        <ui-select class="small" style="width: 220px"
+            :value="clip && clip.name"
+            @confirm="_onClipChanged"
+        >
+            <option
+                v-for="item in clips"
+            >{{item.name}}</option>
+        </ui-select>
+    </span>
+    <span
+        v-else
+    ></span>
+
+    <span>
+        Sample: <ui-num-input step="1" min="1" max="240"
+            :value="sample"
+            @confirm="_onSampleChanged"
+        ></ui-num-input>
+    </span>
+
+    <span>
+        Speed: <ui-num-input step="0.1" min="0.1" max="1000"
+            :value="speed"
+            @confirm="_onSpeedChanged"
+        ></ui-num-input>
+    </span>
+
+    <span>
+        Duration: {{duration.toFixed(2)}}s ({{(duration / speed).toFixed(2)}}s)
+    </span>
+</footer>
+
+<section class="mask"
+    v-if="!record"
+>
+    <div class="background"></div>
+
+    <div class="content">
+        <template
+            v-if="state === -1"
+        >
+            <div>
+                <span>{{t('loading')}}</span>
+            </div>
+        </template>
+
+        <template
+            v-if="state === 0"
+        >
+            <div>
+                <span>
+                    {{t('need_select_node')}}
+                </span>
+            </div>
+        </template>
+
+        <template
+            v-if="state === 1"
+        >
+            <div>
+                <span>
+                    {{t('need_animation_component')}}
+                </span>
+                <br />
+                <ui-button
+                    @click="_onAddAnimationComponentClick"
+                >
+                    {{t('add_animation_component')}}
+                </ui-button>
+            </div>
+        </template>
+
+        <template
+            v-if="state === 2"
+        >
+            <div>
+                <span>
+                    {{t('need_animation_clip')}}
+                </span>
+                <br />
+                <ui-button
+                    @click="_onCreateClipClick"
+                >
+                    {{t('add_animation_clip')}}
+                </ui-button>
+            </div>
+        </template>
+
+        <template
+            v-if="state === 3"
+        >
+            <div>
+                <span>{{t('need_start_record')}}</span>
+            </div>
+        </template>
+
+    </div>
+</section>
+
+<edit-event
+    v-if="event !== -1"
+    :event="event"
+    :clip="clip"
+></edit-event>
+
+<edit-line
+    v-if="eline"
+    :width="width"
+    :height="height"
+    :eline="eline"
+></edit-line>
+
+<canvas hidden
+    v-el:game
+></canvas>

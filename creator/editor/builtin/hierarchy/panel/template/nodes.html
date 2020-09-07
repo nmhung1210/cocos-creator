@@ -1,0 +1,30 @@
+<ui-drop-area class="nodes" tabindex="-1" draggable="true" droppable="node,asset,cloud-function" multi
+    v-init="nodes"
+    :focused="focused"
+    @scroll="onScroll"
+    @focus="onFocus"
+    @blur="onBlur"
+
+    @dragstart="onDragStart"
+    @dragover="onDragOver"
+    @dragend="onDragEnd"
+
+    @drop-area-move="onDropAreaMove"
+    @drop-area-accept="onDropAreaAccept"
+
+    @mousedown="onMouseDown"
+>
+    <ul
+        :style="uh"
+    >
+        <node
+            v-for="node in list"
+            :node="node"
+            :start="start"
+        ></node>
+    </ul>
+
+    <highlight
+        :y="y"
+    ></highlight>
+</ui-drop-area>

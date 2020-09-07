@@ -1,0 +1,219 @@
+<h2>{{t('MAIN_MENU.panel.build')}}</h2>
+
+<header>
+    <div class="progress">
+        <ui-progress
+                class="blue small"
+                v-value="buildProgress"
+        ></ui-progress>
+        <div class="state" v-bind:state="buildState">
+            <span>{{buildState}}</span>
+        </div>
+    </div>
+    <ui-button class="tiny"
+               v-if="isNative"
+               v-on:confirm="_onOpenCompileLogFile"
+               title="{{t('BUILDER.open_compile_file')}}"
+    >
+        <i class="fa fa-file-code-o"></i>
+    </ui-button>
+</header>
+
+<section>
+    <ui-prop name="{{t('BUILDER.title')}}">
+        <ui-input class="flex-1" v-value="project.title"></ui-input>
+    </ui-prop>
+
+    <ui-prop name="{{t('BUILDER.platform')}}">
+        <ui-select class="flex-1" v-value="actualPlatform">
+            <template v-for="item in platforms">
+                <option v-value="item.value">{{item.text}}</option>
+            </template>
+        </ui-select>
+    </ui-prop>
+
+    <ui-prop name="{{t('BUILDER.build_path')}}">
+        <div class="flex-1 layout horizontal center">
+            <ui-input class="flex-2" v-value="local.buildPath"></ui-input>
+            <ui-button class="tiny" v-on:confirm="_onChooseDistPathClick">
+                ···
+            </ui-button>
+            <ui-button class="tiny" v-on:confirm="_onShowInFinderClick">
+                {{t('SHARED.open')}}
+            </ui-button>
+        </div>
+    </ui-prop>
+
+    <ui-prop name="{{t('BUILDER.start_scene')}}">
+        <ui-select class="flex-1" v-value="project.startScene">
+            <template v-for="item in scenesInList">
+                <option v-if="item.checked" v-value="item.value">{{item.text}}</option>
+            </template>
+        </ui-select>
+    </ui-prop>
+
+    <ui-prop name="{{t('BUILDER.scenes')}}" auto-height>
+        <div class="flex-1 layout center fix-width">
+            <ui-box-container class="shadow height-limited">
+
+                <li class="layout horizontal center" v-for="item in scenesInList">
+                    <ui-checkbox class="flex-1"
+                                 v-disabled="project.startScene===item.value||item.text.startsWith('db://assets/resources/')"
+                                 v-value="item.checked"
+                    >
+                        {{item.text}}
+                    </ui-checkbox>
+                    <i class="fa fa-star" v-if="project.startScene===item.value"></i>
+                </li>
+
+            </ui-box-container>
+            <ui-checkbox v-on:confirm="_onSelectAllCheckedChanged" v-value="all">
+                {{t('BUILDER.select_all')}}
+            </ui-checkbox>
+        </div>
+    </ui-prop>
+
+    <ui-prop
+            name="{{t('BUILDER.main_compression_type')}}"
+            tooltip="{{t('INSPECTOR.folder.compression_type_tooltip')}}"
+    >
+        <ui-select v-value="project.mainCompressionType" @change='_mainCompressionTypeChanged'>
+            <template v-for="item in compressionTypes">
+                <option v-if="isCompressionTypeVisible(item.value)" v-value="item.value" title="{{item.title}}">{{item.text}}</option>
+            </template>
+        </ui-select>
+    </ui-prop>
+
+    <ui-prop
+            name="{{t('BUILDER.main_is_remote')}}"
+            tooltip="{{t('INSPECTOR.folder.is_remote_bundle_tooltip')}}"
+            type="boolean" 
+            v-if="supportRemoteMain"
+            v-readonly='isRemoteBundleReadonly'
+            v-value="project.mainIsRemote" 
+    >
+    </ui-prop>
+
+    <ui-prop
+            name="{{t('BUILDER.merge_asset.inline_SpriteFrames')}}"
+            tooltip="{{t('BUILDER.merge_asset.inline_SpriteFrames_tooltip')}}"
+            v-if="!isNative&&project.mainCompressionType==='default'"
+    >
+        <ui-checkbox v-value="project.inlineSpriteFrames"></ui-checkbox>
+    </ui-prop>
+    <ui-prop
+            name="{{t('BUILDER.merge_asset.inline_SpriteFrames')}}"
+            tooltip="{{t('BUILDER.merge_asset.inline_SpriteFrames_tooltip')}}"
+            v-if="isNative&&project.mainCompressionType==='default'"
+            v-disabled="project.optimizeHotUpdate"
+    >
+        <ui-checkbox value="false"
+                     v-if="project.optimizeHotUpdate"
+        ></ui-checkbox>
+        <ui-checkbox v-value="project.inlineSpriteFrames_native"
+                     v-if="!project.optimizeHotUpdate"
+        ></ui-checkbox>
+    </ui-prop>
+
+    <ui-prop
+            name="{{t('BUILDER.merge_asset.optimize_hot_update')}}"
+            tooltip="{{t('BUILDER.merge_asset.optimize_hot_update_tooltip')}}"
+            v-if="isNative&&project.mainCompressionType==='default'"
+    >
+        <ui-checkbox v-value="project.optimizeHotUpdate"></ui-checkbox>
+    </ui-prop>
+
+    <!--todo:使用component需要传入的参数都一样不然会报一个warning，虽然没有影响但是看着不美观，所以统一参数，anysdk不需要的组件自己不要理他就好了-->
+    <component v-bind:local="local"
+               v-bind:project="project"
+               v-bind:anysdk="anysdk"
+               :is="local.actualPlatform">
+    </component>
+
+    <ui-prop name="MD5 Cache" tooltip="{{t('BUILDER.md5Cache_tooltip')}}">
+        <ui-checkbox v-value="project.nativeMd5Cache" v-if="isNative && !isRuntime"></ui-checkbox>
+        <ui-checkbox v-value="project.md5Cache" v-if="!(isNative && !isRuntime)"></ui-checkbox>
+    </ui-prop>
+
+    <ui-prop name="{{t('BUILDER.debug')}}">
+        <ui-checkbox v-value="local.debug"></ui-checkbox>
+    </ui-prop>
+
+    <ui-prop name="{{t('BUILDER.source_map')}}">
+        <ui-checkbox v-value="local.sourceMaps"></ui-checkbox>
+    </ui-prop>
+</section>
+
+<footer>
+    <div class="build-btn-area">
+        <template v-if="local.platform === 'android-instant'">
+            <ui-checkbox v-value="project['android-instant'].skipRecord">{{t('BUILDER.skip_record')}}</ui-checkbox>
+            <ui-button :disabled="project['android-instant'].skipRecord"
+                       class="green"
+                       v-on:confirm="_onRecordClick"
+                       v-if="task!=='record'"
+            >
+                {{t('BUILDER.record')}}
+            </ui-button>
+            <ui-button
+                    class="green"
+                    v-on:confirm="_onStopRecordClick"
+                    v-if="task==='record'"
+            >
+                {{t('BUILDER.stop_record')}}
+            </ui-button>
+            <i class="fa fa-arrow-right"></i>
+            <ui-button :disabled="project['android-instant'].skipRecord"
+                       class="green"
+                       v-on:confirm="_onRefactorClick">
+                {{t('BUILDER.refactor')}}
+            </ui-button>
+        </template>
+    </div>
+    <div class="build-btn-area mt5">
+        <ui-checkbox v-value="local.buildScriptsOnly">{{t('BUILDER.build_script_only')}}</ui-checkbox>
+        <ui-button
+                class="green"
+                v-on:confirm="_onBuildClick"
+                v-disabled="buildState!=='idle'&&buildState!=='ready'&&buildState!=='completed'&&buildState!=='failed'"
+        >{{t('BUILDER.build')}}</ui-button>
+
+        <template v-if="needCompile">
+            <i class="fa fa-arrow-right"></i>
+            <ui-button
+                    class="green"
+                    v-on:confirm="_onCompileClick"
+                    v-if="task!=='compile'"
+            >
+                {{t('BUILDER.compile')}}
+            </ui-button>
+            <ui-button
+                    class="green"
+                    v-on:confirm="_onStopCompileClick"
+                    v-else
+            >
+                {{t('BUILDER.stop_compile')}}
+            </ui-button>
+        </template>
+
+        <template v-if="needPlayBtn">
+            <i class="fa fa-arrow-right"></i>
+            <ui-button
+                    class="green"
+                    v-on:confirm="_onPreviewClick"
+                    v-if="needPlayBtn"
+            >
+                {{t('BUILDER.play')}}
+            </ui-button>
+        </template>
+        <template v-if="needUpload">
+            <i class="fa fa-arrow-right"></i>
+            <ui-button
+                    class="green"
+                    v-on:confirm="_onUploadClick"
+            >
+                {{t('BUILDER.upload')}}
+            </ui-button>
+        </template>
+    </div>
+</footer>

@@ -1,0 +1,65 @@
+{
+  "init_cfg": {
+    "consolePort": 6050,
+    "debugPort": 5086,
+    "entry": "main.js",
+    "height": 640,
+    "isLandscape": true,
+    "isWindowTop": false,
+    "name": "Simulator",
+    "uploadPort": 6060,
+    "width": 960
+  },
+  "simulator_screen_size": [
+    {
+      "height": 320,
+      "title": "iPhone 3Gs (480x320)",
+      "width": 480
+    },
+    {
+      "height": 640,
+      "title": "iPhone 4 (960x640)",
+      "width": 960
+    },
+    {
+      "height": 640,
+      "title": "iPhone 5 (1136x640)",
+      "width": 1136
+    },
+    {
+      "height": 750,
+      "title": "iPhone 6 (1334x750)",
+      "width": 1334
+    },
+    {
+      "height": 1080,
+      "title": "iPhone 6 Plus (1920x1080)",
+      "width": 1920
+    },
+    {
+      "height": 768,
+      "title": "iPad (1024x768)",
+      "width": 1024
+    },
+    {
+      "height": 1536,
+      "title": "iPad Retina (2048x1536)",
+      "width": 2048
+    },
+    {
+      "height": 480,
+      "title": "Android (800x480)",
+      "width": 800
+    },
+    {
+      "height": 480,
+      "title": "Android (854x480)",
+      "width": 854
+    },
+    {
+      "height": 720,
+      "title": "Android (1280x720)",
+      "width": 1280
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+"use strict";module.exports=class{create3DNode(e){}createMesh(e){}addMeshToNode(e,t,a={}){}setMeshColor(e,t){}getMeshColor(e){}setNodeOpacity(e,t){}getNodeOpacity(e){}getRaycastResults(e,t,a){}getModel(e){}updateVBAttr(e,t,a){}getBoudingBox(e){}getRootBoneNode(e){}getRootBindPose(e){}getCameraData(e){}setCameraData(e,t){}getLightData(e){}setLightData(e,t){}};

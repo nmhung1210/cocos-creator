@@ -1,0 +1,62 @@
+{
+  "name": "editor-framework",
+  "version": "0.7.0",
+  "description": "A simple framework for making panel based applications.",
+  "homepage": "https://github.com/cocos-creator/editor-framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cocos-creator/editor-framework.git"
+  },
+  "author": "Firebox Technology",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cocos-creator/editor-framework/issues"
+  },
+  "scripts": {
+    "build": "node ./tasks/build-css.js",
+    "build:dev": "node ./tasks/build-css.js --dev",
+    "build:dist": "node ./tasks/build-dist.js",
+    "build:native": "node ./tasks/build-native.js",
+    "build:node-inspector": "node ./tasks/build-node-inspector.js",
+    "clear": "sh ./tasks/remove-settings.sh",
+    "start": "node ./tasks/run-dev.js",
+    "start:no-dev": "node ./tasks/run.js",
+    "start:node-inspector": "node ./tasks/run-node-inspector.js",
+    "test": "node ./tasks/run-tests.js"
+  },
+  "dependencies": {
+    "@base/electron-profile": "^1.0.5",
+    "async": "^2.1.0",
+    "chalk": "^1.1.1",
+    "chokidar": "^1.6.0",
+    "chroma-js": "^1.2.0",
+    "diff": "^3.0.0",
+    "find-up": "^2.0.0",
+    "fire-fs": "^0.2.4",
+    "fire-path": "^0.1.9",
+    "fire-url": "^0.1.7",
+    "globby": "^6.0.0",
+    "highlight.js": "^9.4.0",
+    "js-yaml": "^3.6.0",
+    "lodash": "^4.17.4",
+    "mousetrap": "^1.6.0",
+    "node-polyglot": "^2.0.0",
+    "remarkable": "^1.7.0",
+    "semver": "^5.3.0",
+    "sinon": "^1.17.3",
+    "tap": "^7.1.0",
+    "tap-mocha-reporter": "electron-utils/tap-mocha-reporter#d3c1a0d",
+    "winston": "^2.2.0",
+    "yargs": "^6.2.0"
+  },
+  "devDependencies": {
+    "devtron": "^1.4.0",
+    "electron": "1.6.0",
+    "electron-packager": "8.0.0",
+    "less": "^2.7.0",
+    "less-plugin-clean-css": "^1.5.1"
+  },
+  "nativeModules": [
+    "chokidar"
+  ]
+}

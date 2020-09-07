@@ -1,0 +1,75 @@
+@element: 'tabs';
+@import (multiple) 'theme.less';
+
+@import url('theme://globals/fontello.css');
+
+:host {
+  position: relative;
+  display: inline-block;
+  /* contain: content; CAN NOT USE THIS */
+
+  background-color: rgba(235, 235, 235, 0.04);
+  //margin: 1px 1px 0 1px;
+  box-sizing: border-box;
+
+  font-size: @tab_font_size;
+
+  color: @tab_text_color;
+  z-index: 1;
+
+  .icon {
+    font-size: 10px;
+  }
+
+  .icon-smaller {
+    font-size: 9px;
+  }
+}
+
+.border {
+  .layout-horizontal;
+  .layout-children(center);
+
+  //margin-top: 1px;
+  //margin-left: 1px;
+
+  padding-right: 5px;
+
+  align-items: center;
+}
+
+.tabs {
+  .layout-horizontal();
+  .flex(1);
+
+  height: @tabbar_height;
+  margin-bottom: -1px;
+  //margin-left: -1px;
+  //margin-top: -1px;
+  padding-right: 20px;
+  overflow: hidden;
+}
+
+.insert {
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
+  height: 100%;
+
+  pointer-events: none;
+  border: 1px solid @tabmask_insert_color;
+}
+
+.icon {
+  color: #777;
+  margin-left: 10px;
+}
+
+.icon.hide {
+  display: none;
+}
+
+.icon:hover {
+  color: #aaa;
+  cursor: pointer;
+}

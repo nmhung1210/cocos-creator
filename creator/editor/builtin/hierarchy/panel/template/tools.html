@@ -1,0 +1,27 @@
+<div class="tools">
+    <i class="fa fa-plus"
+        :title="t('HIERARCHY.tab.create')"
+        @click="createPopup"
+    ></i>
+    <ui-input
+        v-el:input
+        :placeholder="t('SHARED.search') + '...'"
+        :value="filter"
+        @change="onFilterChange"
+        @focus="onInputnFocus"
+        @blur="onInputBlur"
+    ></ui-input>
+    <span class="fa fa-times-circle tool-cancel" v-if="filter" @click="emptyFilter"></span>
+    <i class="fa fa-search"
+        :title="t('HIERARCHY.tab.search')"
+        @click="searchPopup"
+    ></i>
+    <i class="fa {{foldState ? 'fa-expand' : 'fa-compress'}}"
+        :title="t('HIERARCHY.tab.fold')"
+        @click="changeFold"
+    ></i>
+    <i class="fa fa-refresh"
+        :title="t('HIERARCHY.tab.refresh')"
+        @click="refresh"
+    ></i>
+</div>

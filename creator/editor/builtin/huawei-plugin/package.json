@@ -1,0 +1,51 @@
+{
+    "name": "huawei-runtime",
+    "version": "0.0.1",
+    "description": "构建 rpk 扩展包",
+    "author": "Cocos Creator",
+    "main-menu": {},
+    "license": "ISC",
+    "simple-build-target": "build.js",
+    "panel": {
+        "main": "panel/keystore.js",
+        "type": "dockable",
+        "title": "certificate",
+        "width": 520,
+        "min-width": 520,
+        "height": 450,
+        "min-height": 450
+    },
+    "panel.fingerprint": {
+        "main": "panel/fingerprint.js",
+        "type": "dockable",
+        "title": "证书指纹查看",
+        "width": 700,
+        "min-width": 520,
+        "height": 400,
+        "min-height": 400
+    },
+    "profiles": {
+        "project": {
+            "package": "",
+            "name": "",
+            "icon": "",
+            "versionName": "",
+            "versionCode": "",
+            "minPlatformVersion": "",
+            "manifestPath": "",
+            "deviceOrientation": "portrait",
+            "fullScreen": true,
+            "logLevel": "log",
+            "runRelease": false,
+            "appType": "fastgame",
+            "tinyPackageServer": "",
+            "useDebugKey": true,
+            "privatePath": "",
+            "certificatePath": "",
+            "disabledMode": "disabled is-disabled",
+            "npmPath": "",
+            "showNpmPath": false,
+            "packFirstScreenRes": false
+        }
+    }
+}

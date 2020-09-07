@@ -1,0 +1,44 @@
+
+<link rel='stylesheet' href='app://node_modules/font-awesome/css/font-awesome.min.css'>
+<div id="root">
+    <div id='toolBar'>
+        <ui-slider 
+                v-el:scaleslider 
+                id='scaleSlider' 
+                type='int' 
+                :disabled='hasContent' 
+                :min="minScale"
+                :max="maxScale"
+                :value='scale'
+                @change='_onSliderValueChanged'></ui-slider>
+        <ui-button :disabled='!dirty && hasContent' class='red transparent' @click='_onRevert'>
+            <i class='fa fa-close'></i>
+        </ui-button>
+        <ui-button :disabled='!canSave && hasContent' class='green transparent' @click='_onApply'>
+            <i class='fa fa-check'></i>
+        </ui-button>
+    </div>
+    <div id='content' v-el:content @wheel='onMouseWheel'>
+        <canvas v-el:canvas></canvas>
+        <svg v-el:svg></svg>
+    </div>
+    <div id='pad' class='layout vertical'>
+        <div class='title'>Border</div>
+        <div class='layout vertical'>
+            <div class='layout horizontal center'>
+                <!-- TODO: diabled 属性绑定 -->
+                <div class='label flex-1'>{{_T('SPRITE_EDITOR.left')}}</div>
+                <ui-num-input id='inputL' class='flex-1' min='0' @change='_onInputChanged' :value='leftPos'></ui-num-input>
+                <div class='label flex-1'>{{_T('SPRITE_EDITOR.right')}}</div>
+                <ui-num-input id='inputR' class='flex-1' min='0' @change='_onInputChanged' :value='rightPos'></ui-num-input>
+            </div>
+            <span class='space'></span>
+            <div class='layout horizontal center'>
+                <div class='label flex-1'>{{_T('SPRITE_EDITOR.top')}}</div>
+                <ui-num-input id='inputT' class='flex-1' min='0' @change='_onInputChanged' :value='topPos'></ui-num-input>
+                <div class='label flex-1'>{{_T('SPRITE_EDITOR.bottom')}}</div>
+                <ui-num-input id='inputB' class='flex-1' min='0' @change='_onInputChanged' :value='bottomPos'></ui-num-input>
+            </div>
+        </div>
+    </div>
+</div>

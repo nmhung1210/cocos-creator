@@ -1,0 +1,45 @@
+<div class="ui">
+    <div class="play">
+        <div class="play-layout">
+            <ui-button :disabled="runDisabled" :is-disabled="runDisabled" class="transparent big play-btn" @click="launch">
+                <i class="fa fa-play"></i>
+            </ui-button>
+            <ui-button :disabled="cancelDisabled" :is-disabled="cancelDisabled" class="transparent big play-btn" @click="stop">
+                <i class="fa icon-cancel"></i>
+            </ui-button>
+        </div>
+    </div>
+    <ui-prop :name="t('runtime-dev-tools.rpk_path')">
+        <ui-input v-value="rpkPath" class="flex-1" :placeholder="t('runtime-dev-tools.rpk_path_placeholder')"></ui-input>
+        <ui-button class="tiny" v-on:confirm="onChooseRpkPath">···</ui-button>
+    </ui-prop>
+
+    <ui-prop :name="t('runtime-dev-tools.rpk_params')">
+        <ui-input class="flex-1" v-value="params" :placeholder="t('runtime-dev-tools.rpk_params_placeholder')"></ui-input>
+    </ui-prop>
+</div>
+
+<style scoped>
+    .ui {
+        margin: 10px 10px;
+        padding: 0 10px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .play {
+        text-align: center;
+    }
+
+    .play-layout {
+        display: inline-block;
+        background: #444444;
+        height: 35px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+    }
+
+    .play-btn {
+        width: 50px;
+    }
+</style>

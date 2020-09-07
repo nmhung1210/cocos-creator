@@ -1,0 +1,7 @@
+{
+    "name": "fb-instant-games",
+    "version": "0.0.1", 
+    "description": "Facebook Instant Games",
+    "author": "Cocos Creator",
+    "main": "main.js"
+}

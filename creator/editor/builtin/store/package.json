@@ -1,0 +1,23 @@
+{
+  "name": "store",
+  "version": "1.0.0",
+  "author": "Cocos Creator",
+  "description": "Cocos Creator Store",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/i18n:MAIN_MENU.package.store": {
+      "message": "store:open"
+    }
+  },
+  "main": "./main/index.js",
+  "panel": {
+    "title": "Store",
+    "type": "simple",
+    "main": "./panel/index.html",
+    "min-width": 800,
+    "min-height": 500,
+    "width": 1000,
+    "height": 700,
+    "devTools": true,
+    "save": false
+  }
+}

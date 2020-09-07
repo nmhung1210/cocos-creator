@@ -1,0 +1,51 @@
+<ui-prop auto-height name="{{t('config_name')}}">
+    <div class="table-area">
+        <ui-select v-if="config.length > 0" class="flex-1" v-value="selected">
+            <template v-for="item in config">
+                <option v-bind:value="item.id">{{item.name}}</option>
+            </template>
+        </ui-select>
+        <table v-if="currentSelect && currentSelect.plugins.length > 0" class="config-table mt5">
+            <tr>
+                <th>{{t('plugin_name')}}</th>
+                <th>{{t('plugin_version')}}</th>
+                <th>{{t('plugin_params')}}</th>
+            </tr>
+            <tr v-for="item in currentSelect.plugins">
+                <th>{{item.pName}}</th>
+                <th>{{item.pVersion}}</th>
+                <th :class="paramValid(item)?'':'error-tips'">{{parseConfig(item)}}</th>
+            </tr>
+        </table>
+        <a class="jump-link mt5" @click="jumpClick">{{t('jump_tips')}}</a>
+    </div>
+</ui-prop>
+<style scoped>
+    .table-area {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mt5 {
+        margin-top: 5px;
+    }
+
+    .jump-link {
+        cursor: pointer;
+    }
+
+    .error-tips {
+        color: #e64646;
+    }
+
+    table {
+        border-collapse: collapse;
+        background: #2c2c2c;
+    }
+
+    table, th, tr {
+        border: 1px solid gray;
+        font-size: 1em;
+    }
+</style>

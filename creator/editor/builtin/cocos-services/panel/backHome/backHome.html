@@ -1,0 +1,4 @@
+<div style="display:flex;justify-content:space-between;background:rgb(47,47,47);width:100%;height:28px;text-align:center;padding:0px;">
+    <div @click='handleBackHomeLogic' style="text-align:left; height:28px; line-height:28px; overflow:hidden;"><i class="icon-left-dir" style="width:12px"></i>{{utils_t('back')}}</div>
+    <div @click='handleGotoLinkLogic' class="div-link" style="text-align:right; height:28px; line-height:28px; overflow:hidden;" v-if="showToLink">{{utils_t('service_center')}}<i class="icon-link-ext"></i></div>
+</div>

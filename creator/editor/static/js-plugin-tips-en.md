@@ -1,0 +1,1 @@
+Reference Document: [Plugin Script](https://docs.cocos2d-x.org/creator/manual/en/scripting/plugin-scripts.html)

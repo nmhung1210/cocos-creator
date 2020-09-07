@@ -1,0 +1,211 @@
+@keyframes hint {
+    0% {background: transparent;}
+    30% {background: #f90;}
+    100% {background: transparent;}
+}
+
+.nodes {
+    flex: 1;
+    display: flex;
+    overflow: auto;
+    outline: none;
+    position: relative;
+    padding-top: 2px;
+
+    ul {
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        li {
+            height:20px;
+            position: relative;
+            padding: 2px 10px 2px 0;
+            list-style: none;
+            white-space: nowrap;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            color: #ccc;
+            display: none;
+            padding-bottom: 1px;
+            border-bottom: 1px solid #454545;
+            
+            span {
+                opacity: 0.4;
+            }
+
+            i {
+                visibility: hidden;
+                padding: 2px 4px;
+                cursor: pointer;
+
+                &.fa-lock, &.fa-unlock {
+                    color: #ccc;
+                    position: absolute;
+                    left: 4px;
+                    visibility: visible;
+                    opacity: 0;
+
+                    &[active] {
+                        opacity: 1;
+                        color: #f75000;
+                    }
+                }
+            }
+
+            input {
+                z-index: 9;
+                position: relative;
+                left: -6px;
+                top: -1px;
+                padding: 0 5px;
+                margin: 0;
+                border: 1px solid #059;
+                background: #333;
+                outline: none;
+                color: #ccc;
+                font-size: 12px;
+                flex: 1;
+                width: 100%;
+            }
+
+            &[arrow] {
+
+                i {
+                    visibility: visible;
+                }
+            }
+
+            &[selected] {
+                background: #555;
+            }
+
+            &[active] {
+
+                span {
+                    opacity: 1;
+                }
+            }
+
+            &[prefab='1'] {
+                color: #09f;
+            }
+
+            &[prefab='2'] {
+                color: #3FC345;
+            }
+
+            &[prefab='3'] {
+                color: #ff5151;
+            }
+
+            &[show] {
+                display: block;
+            }
+
+            &[ignore] {
+                color: #666;
+            }
+            
+            &:hover {
+                background: #3e3e3e;
+                color: #f90;
+
+                .fa-lock, .fa-unlock {
+                    opacity: 1;
+                }
+            }
+
+            &[hint] {
+                opacity: 0.8;
+                animation: hint 0.3s;
+            }
+        }
+    }
+
+    .highlight {
+        position: absolute;
+        border: 2px solid #f90;
+        width: 200px;
+        height: 16px;
+        text-indent: 25px;
+        color: #000;
+        display: none;
+        flex-direction: column;
+
+        header {
+            background: #f90;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 20px;
+        }
+
+        section {
+            position: relative;
+
+            .line {
+                position: absolute;
+                width: 100%;
+                border: 1px solid #0f0;
+                box-sizing: border-box;
+                border-radius: 2px;
+            }
+
+
+            &[state='1'] {
+
+                .line {
+                    top: -1px;
+                }
+            }
+
+            &[state='2'] {
+
+                .line {
+                    height:20px;
+                    background: #0f0;
+                    opacity: 0.3;
+                }
+            }
+
+            &[state='3'] {
+
+                .line {
+                    top: auto;
+                    bottom: -3px;
+                }
+            }
+
+            &[state='3'][myself] {
+                flex: 1;
+
+                .line {
+                    transform: translateY(0) !important;
+                    top: auto;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    
+    &[focused] {
+
+        li {
+    
+            &[selected] {
+                background: #059;
+            }
+        }
+    }
+
+    &[drag-hovering] {
+
+        .highlight {
+            display: flex;
+        }
+    }
+}

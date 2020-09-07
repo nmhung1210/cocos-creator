@@ -1,0 +1,83 @@
+@element: 'color';
+@import (multiple) 'theme.less';
+
+:host {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  contain: content;
+
+  width: 100px;
+  height: 21px;
+  min-height: 21px;
+  margin: 0 0.25em 0 0;
+  outline: none;
+
+  background: @bg_color;
+  border-top-left-radius: @border_radius;
+  border-top-right-radius: @border_radius;
+  cursor: pointer;
+}
+
+:host(:last-child) {
+  margin-right: 0;
+}
+
+.inner {
+  .fit();
+  border: 1px solid @inner_border_color;
+  border-top-left-radius: @border_radius;
+  border-top-right-radius: @border_radius;
+}
+
+.rgb {
+  width: 100%;
+  height: 75%;
+
+  background: white;
+  border-top-left-radius: @border_radius - 1px;
+  border-top-right-radius: @border_radius - 1px;
+}
+
+.alpha {
+  width: 50%;
+  height: 22%;
+
+  background: white;
+  border-top: 1px solid @inner_border_color;
+}
+
+.mask {
+  .fit();
+
+  display: none;
+  opacity: 0.5;
+  background-image: url('theme://img/transparent-bg.png');
+}
+
+:host(:hover) {
+  border-color: @border_color_hover;
+}
+
+:host([focused]) {
+  border-color: @focus_color;
+}
+
+:host([unnavigable]) {
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.23);
+}
+
+:host([is-disabled]) {
+  pointer-events: none;
+
+  border-color: @border_color;
+
+  .mask {
+    display: block;
+  }
+}
+
+:host([multi-values]) {
+  opacity: 0.2;
+}

@@ -1,0 +1,1 @@
+module.exports={"received-ids":[],"installed-hotupdates":[]};

@@ -1,0 +1,101 @@
+{
+  "name": "builder",
+  "version": "0.1.4",
+  "description": "Fireball Project Builder",
+  "author": "Firebox Technology",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.project.title/i18n:MAIN_MENU.panel.build": {
+      "message": "builder:open",
+      "accelerator": "CmdOrCtrl+Shift+B"
+    }
+  },
+  "panel": {
+    "main": "panel/builder.js",
+    "type": "dockable",
+    "title": "i18n:MAIN_MENU.panel.build",
+    "width": 500,
+    "min-width": 350,
+    "height": 700,
+    "min-height": 300,
+    "save": false
+  },  
+  "profiles": {
+    "project": {
+      "title": "",
+      "packageName": "org.cocos2d.demo",
+      "startScene": "",
+      "excludeScenes": [],
+
+      "orientation": {
+        "landscapeRight": true,
+        "landscapeLeft": true,
+        "portrait": false,
+        "upsideDown": false
+      },
+      "webOrientation" : "auto",
+      "inlineSpriteFrames": true,
+      "inlineSpriteFrames_native": true,
+      "mainCompressionType": "default",
+      "mainIsRemote": false,
+      "optimizeHotUpdate": false,
+      "md5Cache": true,
+      "nativeMd5Cache": true,
+
+      "encryptJs": true,
+      "xxteaKey": "",
+      "zipCompressJs": true,
+      "fb-instant-games": {
+      },
+      "android": {
+        "packageName": "org.cocos2d.demo",
+        "REMOTE_SERVER_ROOT": ""
+      },
+      "ios": {
+        "packageName": "org.cocos2d.demo",
+        "REMOTE_SERVER_ROOT": ""
+      },
+      "mac": {
+        "packageName": "org.cocos2d.demo",
+        "REMOTE_SERVER_ROOT": "",
+        "width": 1280,
+        "height": 720
+      },
+      "win32": {
+        "REMOTE_SERVER_ROOT": "",
+        "width": 1280,
+        "height": 720
+      },
+      "android-instant": {
+        "packageName": "org.cocos2d.demo",
+        "REMOTE_SERVER_ROOT": "",
+        "pathPattern": "",
+        "scheme": "https",
+        "host": "",
+        "skipRecord": false,
+        "recordPath": ""
+      },
+      "appBundle": false
+    },
+    "local":{
+      "platform": "web-mobile",
+      "actualPlatform": "",
+      "template": "link",
+      "buildPath": "./build",
+      "debug": false,
+      "sourceMaps": false,
+      "embedWebDebugger": false,
+      "previewWidth": "1280",
+      "previewHeight": "720",
+      "useDebugKeystore": true,
+      "keystorePath": "",
+      "keystorePassword": "",
+      "keystoreAlias": "",
+      "keystoreAliasPassword": "",
+      "apiLevel": "",
+      "appABIs": [],
+      "vsVersion": "auto",
+      "buildScriptsOnly": false
+    }
+  }
+}

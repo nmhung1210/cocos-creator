@@ -1,0 +1,63 @@
+:host {
+    display: flex;
+}
+
+.node-library {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    header {
+        display: flex;
+        background: #333;
+
+        div {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            border: 1px solid #212121;
+            border-right: none;
+            border-radius: 2px;
+            box-shadow: inset 0 0 8px 2px rgba(0,0,0,0.2);
+            
+            &:last-child {
+                border-right: 1px solid #212121;
+            }
+
+            &[active] {
+                border-bottom: none;
+                box-shadow: none;
+            }
+        }
+    }
+
+    section {
+        display: flex;
+        flex: 1;
+        background: #333;
+        border: 1px solid #212121;
+        border-top: none;
+        overflow: hidden;
+
+        & > ui-drop-area {
+            flex: 1;
+            display: block;
+            overflow: auto;
+            padding: 5px;
+        }
+    }
+
+    footer {
+        text-align: right;
+        padding: 0 10px;
+
+        ui-slider {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+    }
+}
+
+@import './classification.less';
+@import './prefab.less';

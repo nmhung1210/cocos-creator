@@ -1,0 +1,38 @@
+.ui-gradient-range {
+    flex: 1;
+    display: flex;
+    flex-flow: wrap;
+
+    & > .prop-name {
+        width: 30%;
+        padding-right: 4px;
+        box-sizing: border-box;
+    }
+
+    & > .prop-content {
+        width: 70%;
+        flex: none;
+        display: flex;
+
+        & > .content {
+            flex: 1;
+
+            & > .ui-prop {
+                margin: 0;
+                line-height: 12px;
+                flex: 1;
+                height: 20px;
+    
+                .prop-name {
+                    display: none;
+                }
+            }
+        }
+
+        & > .button {
+            padding-left: 6px;
+            display: flex;
+            font-size: 10px;
+        }
+    }
+}

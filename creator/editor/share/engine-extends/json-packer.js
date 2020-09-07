@@ -1,0 +1,1 @@
+function t(){this.jsons={},this.name=""}t.prototype.add=function(t,n){this.jsons[t]&&Editor.warn("Key duplicated "+t),this.jsons[t]=n},t.prototype.pack=function(t){var n=this.jsons,s=Object.keys(n);s.sort();var o=s.map(function(t){return n[t]});return{indices:s,data:JSON.stringify(o,null,t?0:2)}},Editor.JsonPacker=module.exports=t;

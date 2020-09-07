@@ -1,0 +1,25 @@
+<section class="home">
+    <ui-loader :hidden="!loading" style="background-color: rgba(0, 0, 0, 0.3);"></ui-loader>
+    <section>
+        <multiple-thumb :records="records" :select="select" :width="width"></multiple-thumb>
+        <img class="preview-thumbnail"
+             :src="previewsrc"
+             v-if="previewsrc"
+             :style="computeStyle()"/>
+
+        <details :percentage="percentage" :record="select"></details>
+    </section>
+    <footer>
+        <div class="fl">
+            <ui-button class="green" @click="manualClick">
+                <i class="icon-plus"></i>
+                {{t('REFACTOR.manual')}}
+            </ui-button>
+        </div>
+        <div class="fr">
+            <ui-button @click="save">{{t('SHARED.save')}}</ui-button>
+            <ui-button @click="close">{{t('MESSAGE.cancel')}}</ui-button>
+        </div>
+    </footer>
+
+</section>

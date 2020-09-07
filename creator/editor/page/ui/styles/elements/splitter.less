@@ -1,0 +1,27 @@
+@element: 'dock';
+@import (multiple) 'theme.less';
+
+:host {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  contain: content;
+
+  font-size: @font_size;
+
+  overflow: hidden;
+  color: @page_text_color;
+}
+
+.content {
+  .fit();
+  .layout-vertical();
+}
+
+.content:focus {
+  outline: none;
+}
+
+:host([row]) > .content {
+  flex-direction: row;
+}

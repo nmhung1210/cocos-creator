@@ -1,0 +1,15 @@
+<div class="list"
+    @scroll="onScroll"
+>
+    <ul
+        :style="ul"
+    >
+        <item
+            v-for="item in list"
+            :log="item"
+            :offset="offset"
+            :fsize="fsize"
+            :bright="item.bright"
+        ></item>
+    </ul>
+</div>

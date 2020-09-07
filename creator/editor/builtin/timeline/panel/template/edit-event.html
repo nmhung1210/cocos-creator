@@ -1,0 +1,78 @@
+<div class="edit-event">
+    <div class="background"></div>
+
+    <div class="event-tools">
+        <i class="fa fa-remove"
+            @click="_onCloseClick"
+        ></i>
+        <i class="fa fa-plus"
+            @click="_onAddFuncClick"
+        ></i>
+        <i class="fa fa fa-floppy-o"
+            @click="save"
+        ></i>
+    </div>
+
+    <div class="ul">
+        <template
+            v-for="key in keys"
+        >
+            <div class="li">
+                <div class="func">
+                    <div class="title">
+                        FUNCTION:
+                        <ui-input
+                            :value="key.name"
+                            @confirm="_onFuncNameChanged(key)"
+                        ></ui-input>
+                    </div>
+                    <div class="l">
+                        <i class="fa fa-plus-square-o"
+                            @click="_onFuncAddParamClick(key)"
+                        ></i>
+                        <i class="fa fa-minus-square-o"
+                            @click="_onFuncRemoveParamClick(key)"
+                        ></i>
+                        <i class="fa fa-trash"
+                            @click="_onFuncDeleteClick(key)"
+                        ></i>
+                    </div>
+                </div>
+    
+                <div class="params">
+                    <div
+                        v-for="item in key.params"
+                    >
+                        <ui-select
+                            :value="item.type"
+                            @confirm="_onItemTypeChanged(item)"
+                        >
+                            <option value="string">string</option>
+                            <option value="number">number</option>
+                            <option value="boolean">boolean</option>
+                        </ui-select>
+                        <ui-input
+                            v-if="item.type === 'string'"
+                            :value="item.s"
+                            @confirm="_onItemSChanged(item)"
+                        ></ui-input>
+                        <ui-num-input
+                            v-if="item.type === 'number'"
+                            :value="item.n"
+                            @confirm="_onItemNChanged(item)"
+                        ></ui-num-input>
+                        <ui-select
+                            v-if="item.type === 'boolean'"
+                            @confirm="_onItemBChanged(item)"
+                            :value="item.b"
+                        >
+                            <option value="true">true</option>
+                            <option value="false">false</option>
+                        </ui-select>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="line"></div> -->
+        </template>
+    </div>
+</div>

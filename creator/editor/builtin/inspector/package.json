@@ -1,0 +1,68 @@
+{
+  "name": "inspector",
+  "version": "0.0.1",
+  "description": "Cocos Creator Inspector",
+  "author": "Cocos",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.inspector": {
+      "icon": "panel/icon.png",
+      "message": "inspector:open",
+      "accelerator": "CmdOrCtrl+3"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "popable": false,
+    "type": "dockable",
+    "title": "i18n:MAIN_MENU.panel.inspector",
+    "icon": "panel/icon.png",
+    "width": 300,
+    "min-width": 300,
+    "min-height": 200
+  },
+  "inspector": {
+    "unknown": "inspectors/unknown.js",
+    "animation-clip": "inspectors/animation-clip.js",
+    "asset": "inspectors/asset.js",
+    "audio-clip": "inspectors/audio-clip.js",
+    "bitmap-font": "inspectors/bitmap-font.js",
+    "typescript": "inspectors/typescript.js",
+    "dragonbones" : "inspectors/dragonbones.js",
+    "dragonbones-bin" : "inspectors/dragonbones-bin.js",
+    "dragonbones-atlas" : "inspectors/dragonbones-atlas.js",
+    "folder": "inspectors/folder.js",
+    "javascript": "inspectors/javascript.js",
+    "markdown": "inspectors/markdown.js",
+    "mount": "inspectors/mount.js",
+    "node": "inspectors/node.js",
+    "particle": "inspectors/particle.js",
+    "prefab": "inspectors/prefab.js",
+    "raw-asset": "inspectors/raw-asset.js",
+    "scene": "inspectors/scene.js",
+    "spine": "inspectors/spine.js",
+    "sprite-atlas": "inspectors/sprite-atlas.js",
+    "sprite-frame": "inspectors/sprite-frame.js",
+    "text": "inspectors/text.js",
+    "json": "inspectors/text.js",
+    "texture": "inspectors/texture.js",
+    "tiled-map": "inspectors/tiled-map.js",
+    "ttf-font": "inspectors/ttf-font.js",
+    "auto-atlas": "inspectors/auto-atlas.js",
+    "label-atlas": "inspectors/label-atlas.js",
+    "gltf": "inspectors/model.js",
+    "fbx": "inspectors/model.js",
+    "mesh": "inspectors/mesh.js",
+    "skeleton-animation-clip": "inspectors/animation-clip.js",
+    "skeleton": "inspectors/asset.js",
+    "buffer": "inspectors/asset.js",
+    "material": "inspectors/material.js",
+    "effect": "inspectors/effect.js",
+    "physics-material": "inspectors/physics-material.js"
+  },
+  "profiles": {
+    "project": {
+      "current-platform": "default"
+    }
+  }
+}

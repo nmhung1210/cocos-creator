@@ -1,0 +1,35 @@
+<li
+    :style="onUpdateStyle(start)"
+    :arrow="node.children && node.children.length > 0"
+    :show="node.show"
+    :prefab="node.prefabState"
+    :selected="node.selected"
+    :hint="node.hint"
+
+    @dblclick="onDBClick"
+    @mouseEnter="onMouseEnter"
+    @mouseLeave="onMouseLeave"
+    @mouseDown="onMouseDown"
+    @mouseUp="onMouseUp"
+>
+    <i class="fa fa-caret-down"
+       :style="node.fold ? 'transform: rotate(-90deg);' : 'transform: rotate(0deg);'"
+       @click="onIClick"
+       @mousedown="onIMouseDown"
+       @mouseup="onIMouseUp"
+       @dblclick="onIDBClick"
+    ></i>
+    <span :style="iconUrl" class="asset-icon"></span>
+    <input draggable="true"
+           v-if="node.rename"
+           :value="node.name"
+           @click="onInputClick"
+           @mousedown="onInputMouseDown"
+           @blur="onInputBlur"
+           @keydown="onInputKeydown"
+           :active="!node.isSubAsset"
+           v-init="init-input"
+    />
+    <span @click="onClick" v-else>{{node.name}}</span>
+    <i class="fa fa-lock" v-if="node.readonly"></i>
+</li>

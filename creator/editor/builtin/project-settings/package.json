@@ -1,0 +1,22 @@
+{
+  "name": "project-settings",
+  "version": "0.1.0",
+  "description": "Project settings",
+  "author": "Chukong Technologies",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.project.title/i18n:MAIN_MENU.panel.project_settings": {
+      "message": "project-settings:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "i18n:PROJECT_SETTINGS.title",
+    "width": 560,
+    "min-width": 580,
+    "height": 500,
+    "min-height": 500,
+    "save": false
+  }
+}

@@ -1,0 +1,48 @@
+<div class="tools">
+
+    <i class="fa fa-edit"
+        :title="t('record')"
+        @click="_onRecordClick"
+    ></i>
+
+    <i class="fa fa-fast-backward"
+        :title="t('jump_first_frame')"
+        @click="_onJumpFirstFrameClick"
+    ></i>
+
+    <i class="fa fa-step-backward"
+        :title="t('jump_prev_frame')"
+        @click="_onJumpPrevFrameClick"
+    ></i>
+
+    <i class="fa fa-play"
+        v-if="paused"
+        :title="t('play_animation')"
+        @click="_onPausedClick"
+    ></i>
+
+    <i class="fa fa-pause"
+        v-else
+        :title="t('pause_animation')"
+        @click="_onPausedClick"
+    ></i>
+
+    <i class="fa fa-step-forward"
+        :title="t('jump_next_frame')"
+        @click="_onJumpNextFrameClick"
+    ></i>
+
+    <i class="fa fa-external-link"
+        :title="t('insert_event')"
+        @click="_onAddEventClick"
+    ></i>
+
+    <i class="fa fa-plus-square"
+        @click="_onCreateClipClick"
+    ></i>
+
+    <!-- <i class="fa fa-question-circle"></i> -->
+    <span>
+        {{queryNum(frame, sample)}}
+    </span>
+</div>

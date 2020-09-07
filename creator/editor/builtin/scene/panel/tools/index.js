@@ -1,0 +1,1 @@
+module.exports=[Editor.require("app://editor/page/gizmos/2d/gizmo-manager"),require("./camera"),require("./select")];

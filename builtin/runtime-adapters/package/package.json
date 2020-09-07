@@ -1,0 +1,28 @@
+{
+  "name": "fa-sign-tools",
+  "version": "1.0.0-Beta.201",
+  "description": "Sign build dir and generate rpk file.",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "buildRelease": "gulp buildRelease && npm pack"
+  },
+  "dependencies": {
+    "archiver": "^3.0.0",
+    "jsrsasign": "^7.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^3.0.0",
+    "run-sequence": "^2.2.1"
+  },
+  "bundledDependencies": [
+    "archiver",
+    "jsrsasign"
+  ]
+}

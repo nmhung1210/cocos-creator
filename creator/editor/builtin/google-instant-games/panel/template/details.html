@@ -1,0 +1,86 @@
+<ui-drop-area class="details" droppable="asset" @drop-area-accept="onDropAreaAccept" multi>
+    <div>
+        <span class="title"></span>
+        <span class="files">{{t('REFACTOR.num_of_files')}}</span>
+        <span class="size">{{t('REFACTOR.total_size')}}</span>
+        <span class="size">{{t('REFACTOR.asset_size')}} / {{t('REFACTOR.apk_size')}}</span>
+        <span class="size">{{t('REFACTOR.operation')}}</span>
+    </div>
+
+    <div>
+        <span class="title">{{t('REFACTOR.total')}}</span>
+        <span class="files">{{tf}}</span>
+        <span class="size">{{handleSize(ts)}}</span>
+        <span class="size">{{handleSize(tzs)}} / {{handleSize(tzs+nativeSize)}}</span>
+        <span class="files"></span>
+    </div>
+
+    <ui-section v-fold v-for="(key, classify) in list">
+        <div class="header">
+            <span class="title">{{key}}</span>
+            <span class="files">{{classify.selectedLength}}</span>
+            <span class="size">{{handleSize(classify.size)}}</span>
+            <span class="size">{{handleSize(classify.zsize)}}</span>
+            <span class="size"></span>
+        </div>
+        <div class="list">
+
+            <table>
+                <thead>
+                <tr>
+                    <td class="t1">
+                        <span></span>
+                    </td>
+                    <td>
+                        <span>{{t('REFACTOR.file_size')}}</span>
+                    </td>
+                    <td>
+                        <span>{{t('REFACTOR.zip_size')}}</span>
+                    </td>
+                    <td>
+                        <span>{{t('REFACTOR.operation')}}</span>
+                    </td>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>
+                        <span>{{t('REFACTOR.all_files')}}</span>
+                    </td>
+                    <td>
+                        <span>{{handleSize(classify.size)}}</span>
+                    </td>
+                    <td>
+                        <span>{{handleSize(classify.zsize)}}</span>
+                    </td>
+                    <td>
+                        <ui-checkbox v-value="classify.selected" v-on:change="toggleAll(key)"></ui-checkbox>
+                    </td>
+                </tr>
+
+                <tr v-for="item in classify.list">
+                    <td>
+                        <div>
+                            <span class="asset-icon" :style="item.iconUrl"></span>
+                            <span :title="item.file">{{item.name}}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span>{{handleSize(item.size)}}</span>
+                    </td>
+                    <td>
+                        <span>{{handleSize(item.zsize)}}</span>
+                    </td>
+
+                    <td>
+                        <ui-checkbox v-value="item.selected"
+                                     v-on:change="onItemChanged(key,item.uuid)"></ui-checkbox>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </ui-section>
+</ui-drop-area>

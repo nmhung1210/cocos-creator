@@ -1,0 +1,261 @@
+@element: 'node';
+@import (multiple) 'theme.less';
+
+@import url('theme://globals/fontello.css');
+
+:host {
+  display: inline-block;
+
+  position: relative;
+  box-sizing: border-box;
+
+  width: auto;
+  min-width: 60px;
+  margin: 0 0.25em 0 0;
+  outline: none;
+
+  cursor: default;
+}
+
+/* .input-mask {                             */
+/*   .fit();                                 */
+/*   display: none;                          */
+
+/*   border-radius: @border_radius;          */
+/*   border: 1px solid #0f0;                 */
+/*   background-color: rgba(0, 255, 0, 0.3); */
+/*   border-top-left-radius: 0px;            */
+/* }                                         */
+
+.type {
+  .layout-horizontal();
+  .layout-children(center, flex-start);
+
+  position: absolute;
+  box-sizing: border-box;
+
+  top: -9px;
+  height: 10px;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  padding: 0px 5px;
+  font-size: 9px;
+  font-weight: bold;
+
+  color: @text_color;
+  background: @bg_color;
+
+  border: 1px solid @border_color;
+  border-bottom: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  z-index: 1;
+}
+
+.mark {
+  margin: 2px;
+  width: 5px;
+  height: 5px;
+  background: #090;
+}
+
+.type-name {
+  white-space: nowrap;
+  margin-top: -2px;
+  line-height: 12px;  // adjust for Windows
+}
+
+.browse {
+  .layout-children(center, center);
+  display: flex;
+  flex: none;
+  outline: none;
+
+  cursor: pointer;
+  color: @blue;
+}
+
+.browse:hover {
+  color: @blue + 50%;
+}
+
+.browse[pressed] {
+  color: @blue - 50%;
+}
+
+.input {
+  .layout-horizontal();
+  .layout-children(stretch, flex-start);
+
+  font-family: @page_font;
+
+  margin: 0;
+  //padding: 1px;
+  //padding-right: 0px;
+
+  outline: none;
+
+  border: 1px solid @border_color;
+  border-radius: @border_radius;
+  border-top-left-radius: 0;
+  /* box-shadow: inset 0 0 3px 1px rgba(0,0,0,0.3); */
+
+  background: @bg_color;
+  color: @text_color;
+}
+
+.name {
+  flex: 1;
+  outline: none;
+  width: 0;
+  white-space: nowrap;
+
+  font-weight: bold;
+  line-height: 15px;    // adapt font size on Windows
+  padding: 0.167em 0.3em;
+
+  color: @bg_color;
+  background: @text_color;
+
+  border-bottom-left-radius: @border_radius - 1px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name:hover {
+  background: @text_color + 50%;
+}
+
+.name[pressed] {
+  background: @text_color - 50%;
+}
+
+.close {
+  .layout-children(center, center);
+  display: flex;
+  flex: none;
+  outline: none;
+
+  width: 21px;
+
+  cursor: pointer;
+  color: @red;
+}
+
+.close:hover {
+  color: @red + 50%;
+}
+
+.close[pressed] {
+  color: @red - 50%;
+}
+
+:host([focused]) {
+  .type {
+    color: @focus_color;
+    border-color: @focus_color;
+  }
+
+  .input {
+    border-color: @focus_color;
+  }
+}
+
+:host([is-disabled]) {
+  pointer-events: none;
+
+  .browse, .close {
+    color: @text_color_disable;
+  }
+
+  .type {
+    color: @text_color_disable;
+    border-color: @border_color - 50%;
+    background: @bg_color + 20%;
+  }
+
+  .input {
+    color: @text_color_disable;
+    border-color: @border_color - 50%;
+    background: @bg_color + 20%;
+  }
+
+  .name {
+    color: @bg_color + 20%;
+    background: @text_color_disable;
+  }
+
+  .mark {
+    background: @text_color_disable;
+  }
+}
+
+:host([empty][is-disabled]) {
+  .name {
+    background: @bg_color + 20%;
+  }
+}
+
+:host([missing][is-disabled]) {
+  .name {
+    background: @red;
+    opacity: 0.5;
+  }
+}
+
+:host([empty]) {
+  .name {
+    color: @placeholder_text_color;
+    background: @bg_color;
+  }
+
+  .close {
+    display: none;
+  }
+}
+
+:host([missing]) {
+  .name {
+    background: @red;
+  }
+}
+
+:host([highlighted]) {
+  .type {
+    color: @green;
+    border-color: @green;
+  }
+
+  .input {
+    border-color: @green;
+  }
+
+  .name {
+    background: @green;
+  }
+}
+
+:host([highlighted][invalid]) {
+  .type {
+    color: @red;
+    border-color: @red;
+  }
+
+  .input {
+    border-color: @red;
+  }
+
+  .name {
+    background: @red;
+  }
+}
+
+:host(:last-child) {
+  margin-right: 0;
+}

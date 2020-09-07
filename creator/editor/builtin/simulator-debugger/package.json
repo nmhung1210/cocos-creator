@@ -1,0 +1,15 @@
+{
+  "name": "simulator-debugger",
+  "version": "0.0.1",
+  "description": "Debugger for Simulator",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "i18n:SIMULATOR_DEBUGGER.title",
+    "height": 600,
+    "width": 800
+  }
+}
+  

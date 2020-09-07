@@ -1,0 +1,1 @@
+"use strict";exports.MessageEvent=class{constructor(s){this.senderType=s,this.sender="",this.needCallback=!1,this.reply=function(){}}};

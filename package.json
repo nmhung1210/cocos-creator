@@ -1,0 +1,21 @@
+{
+  "name": "cocos-creator",
+  "version": "2.4.2",
+  "description": "This is built to support you quickly setup cocos creator for your project.",
+  "author": "nmhung1210@gmail.com",
+  "license": "MIT",
+  "bin": {
+    "cocos-creator": "scripts/cocos-creator.js"
+  },
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "yargs": "^15.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nmhung1210/npm-cocos-creator.git"
+  }
+}

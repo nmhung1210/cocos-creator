@@ -1,0 +1,49 @@
+<div class="group">
+    <header>
+        <span>{{T('PROJECT_SETTINGS.group.title')}}</span>
+        <ui-button
+            v-on:click="_addGroup"
+        >{{T('PROJECT_SETTINGS.group.add_group')}}</ui-button>
+        <span>{{T('PROJECT_SETTINGS.group.add_hint')}}</span>
+    </header>
+    <section class="group-list">
+        <div
+            v-for="item in list"
+        >
+            <span>Group {{$index}}</span>
+            <ui-input
+                v-value="item"
+            ></ui-input>
+        </div>
+    </section>
+    <header>
+        <span>{{T('PROJECT_SETTINGS.group.collide_map')}}</span>
+    </header>
+    <section class='collision'>
+        <table>
+            <tr>
+                <td></td>
+                <td
+                    :title="name"
+                    v-for="name in reverse(list)"
+                >{{name}}</td>
+            </tr>
+            <tr
+                v-for="(i,name) in list"
+            >
+            <td
+                :title="name"
+            >{{name}}</td>
+                <td
+                    v-for="(j,name) in reverse(list)"
+                >
+                    <ui-checkbox
+                        v-if="j < list.length - i"
+                        :checked="collision[i][list.length - 1 - j]"
+                        v-on:confirm="_collisionChanged(i, list.length - 1 - j, !collision[i][list.length - 1 - j])"
+                    ></ui-checkbox>
+                </td>
+            </tr>
+        </table>
+    </section>
+</div>

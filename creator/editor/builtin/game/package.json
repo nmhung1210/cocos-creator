@@ -1,0 +1,26 @@
+{
+  "name": "game-window",
+  "version": "0.1",
+  "description": "Game Window",
+  "author": "2youyou2",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.game": {
+      "message": "game-window:open",
+      "accelerator": "CmdOrCtrl+8",
+      "icon": "icon.png"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "icon": "icon.png",
+    "type": "dockable",
+    "title": "i18n:MAIN_MENU.panel.game",
+    "engineSupport": true,
+    "width": 500,
+    "min-width": 200,
+    "height": 500,
+    "min-height": 200
+  },
+  "scene-script": "scene-script.js"
+}

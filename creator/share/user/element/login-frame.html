@@ -1,0 +1,36 @@
+<style>
+/* {{style}} */
+</style>
+
+<section>
+    <header class="title">{{t('panel_title')}}</header>
+    <header class="info">{{t('panel_desc')}}</header>
+    <div class="input-group">
+        <div class="row">
+            <div class="icon">
+                <i class="fa fa-user"></i>
+            </div>
+            <input id="username" placeholder="{{t('username_ph')}}" tabindex="1"/>
+        </div>
+        <div class="row">
+            <div class="icon">
+                <i class="fa fa-lock"></i>
+            </div>
+            <input id="password" type="password" placeholder="{{t('password_ph')}}" tabindex="2"/>
+        </div>
+    </div>
+    <div class="info-div">
+        <p class="error"></p>
+    </div>
+
+    <footer>
+        <span class="forget">{{t('forgot')}}?</span>
+        <span class="register">{{t('signup')}}</span>
+        <button class="login">{{t('signin')}}</button>
+    </footer>
+
+    <div class="loading">
+        <span></span>
+        <span></span>
+    </div>
+</section>

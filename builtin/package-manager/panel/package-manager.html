@@ -1,0 +1,53 @@
+<div id="package-manager">
+  <div class='toolbar'>
+    <ui-input v-el:search id='search'
+      unnavigable
+      :value='filterText'
+      placeholder='Search...'
+      @change='_onSearchChange'
+    ></ui-input>
+  </div>
+  <div class='border'>
+    <ul v-if='filterPackages.length > 0' id='view' class='flex-1'>
+        <li class='pkg-item' v-for='item in filterPackages'>
+          <div class='layout horizontal justified name-col'>
+            <a class='name'>{{item.info.name}}</a>
+            <div class='version'>
+              <span>Version: </span>
+              <span>{{item.info.version}}</span>
+            </div>
+          </div>
+
+          <div class='layout horizontal desc-col'>
+            <span class='desc'>{{item.info.description}}</span>
+          </div>
+
+          <div class='layout horizontal author-col'>
+            <span>Author:</span>
+            <span class='author'>{{item.info.author}}</span>
+          </div>
+
+          <div class='layout horizontal btn-col end-justified'>
+            <!-- <ui-button class='red' no-focus>
+              <i class='icon-trash-empty'></i>
+              <span>Uninstall</span>
+            </ui-button>
+            <ui-button no-focus>
+              <i class='icon-pause'></i>
+              <span>{{_enabledText(item.enabled)}}</span>
+            </ui-button> -->
+            <ui-button no-focus @click='_onReload(item)'>
+              <i class='icon-ccw'></i>
+              <span>Reload</span>
+            </ui-button>
+            <!-- <ui-button no-focus on-click='_onTest' disabled='{{!item.hasTests}}'>
+              <span>Test</span>
+            </ui-button> -->
+          </div>
+        </li>
+    </ul>
+  </div>
+  <div v-if='filterPackages.length === 0' id='none'>
+      <h1>No Result!</h1>
+  </div>
+</div>

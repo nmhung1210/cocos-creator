@@ -1,0 +1,69 @@
+<div id="settings"
+    :loaded="loaded"
+>
+    <div class="slider">
+        <div
+            :active="tab === 0"
+            v-on:click="_selectTab(0)"
+        >{{T('PREFERENCES.tab.general')}}</div>
+        <div
+            :active="tab === 1"
+            v-on:click="_selectTab(1)"
+        >{{T('PREFERENCES.tab.data_editor')}}</div>
+        <div
+            :active="tab === 2"
+            v-on:click="_selectTab(2)"
+        >{{T('PREFERENCES.tab.native_develop')}}</div>
+        <div
+            :active="tab === 3"
+            v-on:click="_selectTab(3)"
+        >{{T('PREFERENCES.tab.preview_run')}}</div>
+    </div>
+    <div class="tabs">
+        <header>
+            <h1
+                v-if="tab === 0"
+            >{{T('PREFERENCES.tab.general')}}</h1>
+            <h1
+                v-if="tab === 1"
+            >{{T('PREFERENCES.tab.data_editor')}}</h1>
+            <h1
+                v-if="tab === 2"
+            >{{T('PREFERENCES.tab.native_develop')}}</h1>
+            <h1
+                v-if="tab === 3"
+            >{{T('PREFERENCES.tab.preview_run')}}</h1>
+        </header>
+        <section>
+            <general
+                v-if="tab === 0"
+                :general="general"
+            ></general>
+            <editor
+                v-if="tab === 1"
+                :editor="editor"
+            ></editor>
+            <native
+                v-if="tab === 2"
+                :native="native"
+            ></native>
+             <preview
+                v-if="tab === 3"
+                :preview="preview"
+            ></preview> 
+        </section>
+        <footer>
+            <ui-button class="green"
+                v-on:click="_save"
+            >{{T('PROJECT_SETTINGS.save')}}</ui-button>
+        </footer>
+    </div>
+
+    <div class="wait-popup"
+        :active="loading"
+    >
+        <div class="background"></div>
+        <ui-loader></ui-loader>
+    </div>
+
+</div>

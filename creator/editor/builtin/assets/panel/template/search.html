@@ -1,0 +1,16 @@
+<ui-drop-area class="search" tabindex="-1" draggable="true"
+    @scroll="onScroll"
+
+    @dragstart="onDragStart"
+    @dragover="onDragOver"
+    @dragend="onDragEnd"
+
+>
+    <ul :style="uh"
+    >
+        <node v-for="node in showList"
+          :node="node"
+          :start="start"
+        ></node>
+    </ul>
+</ui-drop-area>

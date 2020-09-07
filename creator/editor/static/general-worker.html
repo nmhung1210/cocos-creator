@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>General Walker</title>
+</head>
+<body>
+<script>
+    (function () {
+        var queries = Editor.argv;
+        var script = queries.scriptUrl;
+        if (!script) {
+            console.error('failed to get script to run');
+            return;
+        }
+        console.log('running:', script);
+        Editor.require(script);
+    })();
+</script>
+</body>
+</html>

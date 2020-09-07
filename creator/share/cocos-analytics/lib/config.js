@@ -1,0 +1,1 @@
+"use strict";module.exports={caAppID:"681395864",caURL:"http://logstorage.cocos.com/log/v1?",caEncryptURL:"https://logstorage.cocos.com/log/v2?"};

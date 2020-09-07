@@ -1,0 +1,71 @@
+<div>
+
+    <header>
+        <h3> {{T('IMPORT_ASSET.title')}} </h3>
+
+        <div class="progress">
+            <ui-progress class="small progressBar"
+                         v-value="progress"
+            >
+            </ui-progress>
+            <div class="progressState">
+                <span> {{progressState}} </span>
+            </div>
+        </div>
+
+        <div class="layout vertical content">
+            <div class="layout horizontal content title">
+                <p class="folder-title"
+                   title="{{T('IMPORT_ASSET.folder_path')}}"
+                >
+                    {{T('IMPORT_ASSET.folder_path')}}
+                </p>
+                <p class="folder-path"
+                   title="{{folderPath}}"
+                >
+                    {{folderPath}}
+                </p>
+                <ui-button class="btn-select tiny blue"
+                           v-on:confirm="onChooseImportFolder"
+                >
+                    {{T('IMPORT_ASSET.select_path')}}
+                </ui-button>
+            </div>
+            <div class="layout horizontal content title">
+                <p class="folder-title"
+                    title="{{T('IMPORT_ASSET.out_path')}}"
+                >
+                    {{T('IMPORT_ASSET.out_path')}}
+                </p>
+                <p class="folder-path"
+                   title="{{outPath}}"
+                >
+                    {{outPath}}
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <ui-box-container class="flex-1 shadow layout vertical content import-box">
+            <h3 style="opacity:0.5" v-show="folderPath === ''"> {{T('IMPORT_ASSET.content_tips')}} </h3>
+            <package-asset-item v-if="folderPath !== ''"
+                               v-bind:tree="filetree">
+            </package-asset-item>
+        </ui-box-container>
+    </section>
+
+    <footer class="layout horizontal content">
+        <ui-checkbox class="btn-import-all"
+                     v-value="selectAll"
+                     v-on:confirm="onSelectAll"
+        >
+            {{T('EXPORT_ASSET.all')}}
+        </ui-checkbox>
+
+        <ui-button class="btn-import blue"
+                   v-on:confirm="onImport"
+                   v-disabled="_isDisabled()"> {{T('IMPORT_ASSET.import')}}
+        </ui-button>
+    </footer>
+</div>

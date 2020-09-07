@@ -1,0 +1,70 @@
+<div class="tab-help">
+
+    <div class="logo">
+
+        <div class="content">
+            <img src="./static/img/logo_vertical.png" alt="Cocos Creator Logo">
+            <div class="version"><span>Ver </span>{{version}}</div>
+        </div>
+
+    </div>
+
+    <div class="list">
+
+        <div class="content">
+
+            <div class="item">
+                <div class="title">{{t('DASHBOARD.help.intro')}}</div>
+                <ul>
+                    <li
+                        @click="changeTab('project')"
+                    >{{t('DASHBOARD.help.link_recent')}}</li>
+                    <li
+                        @click="changeTab('create')"
+                    >{{t('DASHBOARD.help.link_new')}}</li>
+                    <li
+                        @click="changeTab('open')"
+                    >{{t('DASHBOARD.help.link_browse')}}</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="title">{{t('DASHBOARD.help.resource')}}</div>
+                <ul>
+                    <li
+                        @click="openDoc(0)"
+                    >{{t('DASHBOARD.help.getting_started')}}</li>
+                    <li
+                        @click="openDoc(1)"
+                    >{{t('DASHBOARD.help.link_tutorial')}}</li>
+                    <li
+                        @click="openDoc(2)"
+                    >{{t('DASHBOARD.help.link_manual')}}</li>
+                    <li
+                        @click="openDoc(3)"
+                    >{{t('DASHBOARD.help.link_api')}}</li>
+                    <li
+                        @click="openDoc(4)"
+                    >{{t('DASHBOARD.help.services')}}</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="title">{{t('DASHBOARD.help.demo')}}</div>
+                <ul>
+                    <li
+                        @click="openUrl('https://github.com/cocos-creator/example-cases')"
+                    >{{t('DASHBOARD.help.demo_example')}}</li>
+                    <li
+                        @click="openUrl('https://github.com/cocos-creator/tutorial-first-game')"
+                    >{{t('DASHBOARD.help.demo_first_game')}}</li>
+                    <li
+                        @click="openUrl('https://github.com/cocos-creator/tutorial-blackjack')"
+                    >{{t('DASHBOARD.help.demo_blackjack')}}</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>

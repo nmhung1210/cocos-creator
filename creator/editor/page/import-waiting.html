@@ -1,0 +1,32 @@
+<html>
+    <head>
+      <style>
+        body {
+          background: #474747;
+          font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+          font-size: 14px;
+          color: #aaaaaa;
+          overflow: hidden;
+        }
+  
+        * {
+          user-select: none;
+          -webkit-user-select: none;
+        }
+  
+        .info {
+          text-align: center;
+          margin-top: 56px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="info">
+          <span id="hint">Please wait...</span>
+      </div>
+      <script >
+          document.getElementById('hint').innerHTML = Editor.T('MESSAGE.assets.import_waiting');
+      </script>
+    </body>
+  </html>
+  

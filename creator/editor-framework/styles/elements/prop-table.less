@@ -1,0 +1,65 @@
+@element: 'prop-table';
+@import (multiple) 'theme.less';
+@import (multiple) 'globals/layout.less';
+
+:host {
+  display: block;
+  position: relative;
+  contain: content;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 1em;
+  width: 100%;
+}
+
+td, th {
+  font-weight: normal;
+  text-align: left;
+  padding: 4px 8px;
+}
+
+.label {
+  width: 10%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.fill {
+  width: 100%;
+}
+
+th ui-prop {
+  min-width: auto;
+}
+
+tr[hovering] .label {
+  color: @text_color_hover;
+}
+
+tr[selected] .label {
+  color: @text_color_focused;
+}
+
+tr[is-disabled] .label {
+  color: @text_color_disabled;
+  cursor: default;
+}
+
+:host(.debug) {
+  td, th {
+    border: 1px solid #666;
+  }
+
+  tr:nth-child(even) {
+    background-color: #333;
+  }
+}
+

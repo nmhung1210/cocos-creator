@@ -1,0 +1,73 @@
+<div class="prop-row"
+    @dragenter="_onDragEnter"
+    @dragleave="_onDragLeave"
+    @dragover="_onDragOver"
+    @drop="_onDrop"
+    @mousedown="_onMouseDown($event)"
+>
+
+    <template
+        v-for="line in lines"
+    >
+        <div class="line"
+            v-if="property !== 'spriteFrame'"
+            :style="queryLineStyle(line.frame, line.length, scale, offset)"
+            @click="_onLineClick(line)"
+            @dblclick="_onLineDBLClick(line)"
+        ></div>
+    </template>
+
+    <template
+        v-for="key in keys"
+    >
+        <div class="key" draggable="true"
+            v-if="property !== 'spriteFrame'"
+            :selected="checkSelected(key)"
+            :style="queryKeyStyle(key.frame, scale, offset)"
+            @mousedown="_onKeyMouseDown($event, key)"
+            @mouseup="_onKeyMouseUp($event, key)"
+            @dragstart="_onKeyDragStart($event, key)"
+            @click="_onKeyClick($event, key)"
+        >
+            <div class="dot"
+            ></div>
+        </div>
+        <div class="texture" draggable="true"
+            v-else
+            :selected="checkSelected(key)"
+            :style="queryKeyStyle(key.frame, scale, offset)"
+            @mousedown="_onKeyMouseDown($event, key)"
+            @mouseup="_onKeyMouseUp($event, key)"
+            @dragstart="_onKeyDragStart($event, key)"
+            @click="_onKeyClick($event, key)"
+        >
+            <div class="wrap">    
+                <texture-preview
+                    :key="key"
+                ></texture-preview>
+            </div>
+        </div>
+    </template>
+
+    <template
+        v-for="key in virtualkeys"
+    >
+        <div class="key" preview
+            v-if="property !== 'spriteFrame'"
+            :style="queryVKeyStyle(key.frame, key.offset, scale, offset)"
+        >
+            <div class="dot"></div>
+        </div>
+        <div class="texture" preview
+            v-else
+            :style="queryVKeyStyle(key.frame, key.offset, scale, offset)"
+        >
+            <div class="wrap">    
+                <texture-preview
+                    :key="key"
+                ></texture-preview>
+            </div>
+        </div>
+    </template>
+
+</div>

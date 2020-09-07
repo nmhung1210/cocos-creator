@@ -1,0 +1,29 @@
+<div class="prop-list" draggable="true"
+    :shadow="shadow"
+    @mousewheel="_onMouseWheel"
+    @mousedown="_onMouseDown"
+    @click="_onClick"
+    @dragstart="_onDragStart"
+>
+
+    <template class="property"
+        v-for="item in props"
+    >
+        <prop-row
+            :offset="offset"
+            :scale="scale"
+            :node="node"
+            :component="item.component"
+            :property="item.property"
+            :clip="clip"
+            :sample="sample"
+            :box="box"
+
+            :selected="selected"
+        ></prop-row>
+    </template>
+
+    <div class="box"
+        :style="box_style"
+    ></div>
+</div>

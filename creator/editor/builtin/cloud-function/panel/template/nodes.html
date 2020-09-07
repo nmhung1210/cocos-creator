@@ -1,0 +1,29 @@
+<div
+  class="nodes"
+  tabindex="-1"
+  multi
+  v-init="nodes"
+  :focused="focused"
+  @scroll="onScroll"
+  @focus="onFocus"
+  @blur="onBlur"
+  @mousedown="onMouseDown"
+>
+  <ul class="image-cache">
+    <span
+      v-for="node in allNodes"
+      :style="node.iconUrl"
+      track-by="$index"
+    ></span>
+  </ul>
+  <ul :style="uh">
+    <node
+      v-for="node in list"
+      :node="node"
+      :start="start"
+      track-by="$index"
+    ></node>
+  </ul>
+
+  <highlight :y="y"></highlight>
+</div>

@@ -1,0 +1,31 @@
+@element: 'dock';
+@import (multiple) 'theme.less';
+
+:host {
+   display: block;
+
+  position: relative;
+  box-sizing: border-box;
+  contain: content;
+
+  font-size: @font_size;
+
+  overflow: hidden;
+  color: @page_text_color;
+}
+
+.content {
+  .fit();
+  .layout-vertical();
+}
+
+.content:focus {
+  outline: none;
+}
+
+:host([row]) > .content {
+  // 修复 windows 上可能出现布局错位，顶部 tab 消失的问题
+  //position: relative;
+  //flex: 1;
+  flex-direction: row;
+}

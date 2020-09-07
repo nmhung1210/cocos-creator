@@ -1,0 +1,21 @@
+<div class="props"
+    @scroll="_onScroll"
+>
+
+    <div class="property"
+        v-for="item in props"
+    >
+        <span>{{item.component}}{{item.component ? '.' : ''}}{{item.property}}</span>
+
+        <i class="fa fa-navicon"
+            @click="_onPropertyClick($event, item.component, item.property)"
+        ></i>
+    </div>
+
+    <div style="width: 100%" v-show="this.node && this.node.id !== ''">
+        <ui-button @click="_onAddPropertyClick">
+            Add Property
+        </ui-button>
+    </div>
+
+</div>

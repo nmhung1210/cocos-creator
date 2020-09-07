@@ -1,0 +1,58 @@
+<div class="tab-project"
+    @click="clearSelected"
+>
+    <div class="content">
+        <ul
+            v-if="projects && projects.length"
+        >
+            <template
+                v-for="(index, item) in projects"
+            >
+                <li
+                    :hidden="!filterProject(item, filter)"
+                    :active="selected === index"
+                    @click="selectProject(index)"
+                    @mouseover="updatePath(item.path)"
+                    @mouseleave="updatePath()"
+                >
+                    <div class="icon">
+                        <img
+                            :src="getProjectIcon()"
+                        />
+
+                        <div class="mask"></div>
+                        <div class="button">
+                            <span
+                                @click="openProject(item.path)"
+                            >{{t('SHARED.open')}}</span>
+                            <i class="fa fa-times" aria-hidden="true"
+                                @click="removeProject(item.path)"
+                                :title="t('SHARED.close')"
+                            ></i>
+                        </div>
+                    </div>
+                    <div class="name"
+                        :title="item.name"
+                    >
+                        {{item.name}}
+                    </div>
+                </li>
+            </template>
+        </ul>
+        <div
+            v-else
+        >
+            
+            <div>
+                <span>{{t('DASHBOARD.create_project_hint')}}</span>
+                <span
+                    @click="jumpCreateProject()"
+                >{{t('DASHBOARD.new_project')}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        {{path}}
+    </div>
+</div>
