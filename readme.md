@@ -5,16 +5,16 @@ CocosCreator@2.4.2
 
 
 <p align="center">
-    <a href="https://github.com/nmhung1210/npm-cocos-creator/stargazers">
-        <img src="https://img.shields.io/github/stars/nmhung1210/npm-cocos-creator.svg?style=flat-square&colorB=4183c4"
+    <a href="https://github.com/nmhung1210/cocos-creator/stargazers">
+        <img src="https://img.shields.io/github/stars/nmhung1210/cocos-creator.svg?style=flat-square&colorB=4183c4"
              alt="stars">
     </a>
-    <a href="https://github.com/nmhung1210/npm-cocos-creator/network">
-        <img src="https://img.shields.io/github/forks/nmhung1210/npm-cocos-creator.svg?style=flat-square&colorB=4183c4"
+    <a href="https://github.com/nmhung1210/cocos-creator/network">
+        <img src="https://img.shields.io/github/forks/nmhung1210/cocos-creator.svg?style=flat-square&colorB=4183c4"
              alt="forks">
     </a>
-    <a href="https://github.com/nmhung1210/npm-cocos-creator/releases">
-        <img src="https://img.shields.io/github/tag/nmhung1210/npm-cocos-creator.svg?label=version&style=flat-square&colorB=4183c4"
+    <a href="https://github.com/nmhung1210/cocos-creator/releases">
+        <img src="https://img.shields.io/github/tag/nmhung1210/cocos-creator.svg?label=version&style=flat-square&colorB=4183c4"
              alt="version">
     </a>
     <a href="./licenses/LICENSE">
