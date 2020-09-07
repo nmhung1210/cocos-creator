@@ -1,6 +1,6 @@
 {
   "name": "cocos-creator",
-  "version": "2.4.2b",
+  "version": "2.4.2c",
   "description": "This is built to support you quickly setup cocos creator for your project.",
   "author": "nmhung1210@gmail.com",
   "license": "MIT",
@@ -10,8 +10,7 @@
   "scripts": {
     "postinstall": "node scripts/install.js"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "yargs": "^15.4.1"
   },
   "repository": {
