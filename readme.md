@@ -60,7 +60,7 @@ MIT
 
 
 
-## 👇 Tip me!  If you like this and wants to have latest update! ❤️
+## 👇 Donate to support!  If you like this and wants to have latest update! ❤️
 
 BTC: 3ARhxj9ZhPFnAzFcnLsZ4mQdEahQoEbE3C
 
