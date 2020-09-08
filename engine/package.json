@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "gulp test-in-ci",
-    "build-chunks": "node ./cocos2d/renderer/build/build-chunks",
-    "build-mapping": "node ./cocos2d/renderer/build/build-mapping"
+    "build:dev": "gulp build-dev"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",

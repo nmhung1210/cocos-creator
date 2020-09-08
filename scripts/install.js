@@ -6,3 +6,6 @@ const run = cmd => execSync(cmd, {
 
 process.chdir(resolve(__dirname, "..", "creator"));
 run(`npm i`);
+
+process.chdir(resolve(__dirname, "..", "engine"));
+run(`npm i && npm run build:dev`);
