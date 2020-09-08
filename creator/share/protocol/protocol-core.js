@@ -45,7 +45,7 @@ let i = {
         },
         "engine-dev": {
             dev: "engine/bin/.cache/dev",
-            release: "../engine/dev"
+            release: "../engine/bin/.cache/dev"
         },
         simulator: {
             dev: "simulator",
