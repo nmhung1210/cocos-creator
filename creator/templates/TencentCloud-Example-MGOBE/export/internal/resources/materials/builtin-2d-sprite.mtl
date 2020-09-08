@@ -1,0 +1,11 @@
+{
+  "__type__": "cc.Material",
+  "_name": "builtin-2d-sprite",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": "internal/resources/effects/builtin-2d-sprite.effect",
+  "_defines": {
+    "USE_TEXTURE": true
+  },
+  "_props": {}
+}

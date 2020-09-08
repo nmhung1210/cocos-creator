@@ -1,0 +1,29 @@
+{
+	"name": "cocos-creator",
+	"description": "Cocos Creator API auto completion",
+	"version": "0.0.1",
+	"publisher": "Chukong Technologies",
+	"engines": {
+		"vscode": "^0.10.6"
+	},
+	"activationEvents": [
+		"onLanguage:javascript"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"languages": [{
+			"id": "javascript",
+			"extensions": [ ".js", ".javascript"],
+			"configuration": "./configuration.json"
+		}]
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "^1.7.5",
+		"vscode": "^0.11.0"
+	}
+}

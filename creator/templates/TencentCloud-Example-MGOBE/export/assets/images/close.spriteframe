@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "close",
+    "texture": "assets/images/close.png",
+    "rect": [
+      2,
+      3,
+      54,
+      55
+    ],
+    "offset": [
+      0,
+      -1.5
+    ],
+    "originalSize": [
+      58,
+      58
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

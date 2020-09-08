@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "mgobe",
+    "texture": "assets/images/mgobe.png",
+    "rect": [
+      54,
+      54,
+      288,
+      263
+    ],
+    "offset": [
+      2,
+      10.5
+    ],
+    "originalSize": [
+      392,
+      392
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

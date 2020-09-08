@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "join_room",
+    "texture": "assets/images/join_room.png",
+    "rect": [
+      33,
+      16,
+      267,
+      274
+    ],
+    "offset": [
+      0,
+      13.5
+    ],
+    "originalSize": [
+      333,
+      333
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

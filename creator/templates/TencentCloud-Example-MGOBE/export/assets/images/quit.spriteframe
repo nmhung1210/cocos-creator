@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "quit",
+    "texture": "assets/images/quit.png",
+    "rect": [
+      6,
+      2,
+      50,
+      54
+    ],
+    "offset": [
+      2,
+      0
+    ],
+    "originalSize": [
+      58,
+      58
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
