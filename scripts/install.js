@@ -9,3 +9,10 @@ run(`npm i`);
 
 process.chdir(resolve(__dirname, "..", "engine"));
 run(`npm i`);
+
+process.chdir(resolve(__dirname, "..", "creator/editor/builtin/cocos-services"));
+run(`npm i`);
+
+process.chdir(resolve(__dirname, "..", "creator/editor/builtin/cloud-function"));
+run(`npm i`);
+
