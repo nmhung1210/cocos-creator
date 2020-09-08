@@ -39,6 +39,7 @@
     "chroma-js": "^1.4.1",
     "commander": "2.9.0",
     "compare-versions": "3.1.0",
+    "compressing": "^1.5.1",
     "compression": "^1.7.4",
     "convert-source-map": "1.4.0",
     "decompress": "4.0.0",
@@ -47,6 +48,7 @@
     "diff": "2.2.1",
     "download": "^6.2.5",
     "ejs": "2.6.2",
+    "electron": "^5.0.8",
     "electron-cookies": "1.1.0",
     "electron-devtools-installer": "^2.0.0",
     "electron-dl": "1.5.0",
@@ -136,8 +138,7 @@
     "xmldom": "0.1.22",
     "xxhashjs": "0.2.1",
     "xxtea-node": "1.1.2",
-    "yargs": "4.3.1",
-    "electron": "^5.0.8"
+    "yargs": "4.3.1"
   },
   "devDependencies": {
     "check-dependencies": "^1.1.0",
