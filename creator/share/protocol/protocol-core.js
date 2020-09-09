@@ -2,6 +2,7 @@
 const e = require("fire-path"),
     t = require("fire-url"),
     r = require("fire-fs");
+
 if (Editor.isMainProcess) {
     const e = require("electron").protocol;
     e.registerFileProtocol("unpack", (e, r) => {
@@ -41,11 +42,11 @@ if (Editor.isMainProcess) {
 let i = {
     engine: {
         dev: "engine",
-        release: "../engine"
+        release:`../engine`
     },
     "engine-dev": {
         dev: "engine/bin/.cache/dev",
-        release: "../engine/bin/.cache/dev"
+        release: `../engine/bin/.cache/dev`
     },
     simulator: {
         dev: "simulator",

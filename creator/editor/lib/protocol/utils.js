@@ -3,11 +3,11 @@ const e = require("path"),
   t = {
     engine: {
       dev: "engine",
-      release: "../engine"
+      release:`../engine`
     },
     "engine-dev": {
-      dev: "engine/bin/.cache/dev",
-      release: "../engine/bin/.cache/dev"
+        dev: "engine/bin/.cache/dev",
+        release: `../engine/bin/.cache/dev`
     },
     simulator: {
       dev: "simulator",

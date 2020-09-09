@@ -8,6 +8,7 @@ const run = cmd => execSync(cmd, {
     stdio: "inherit"
 });
 
+const creatorDir = resolve(__dirname, "..", "creator");
 const argv = yargs.usage('\nUsage: $0 [path] - Open cocos creator.')
     .command('build <path>', ' - Build project by path', (yargs) => {
         yargs
@@ -16,7 +17,7 @@ const argv = yargs.usage('\nUsage: $0 [path] - Open cocos creator.')
             })
     }, (argv) => {
         const projectRoot = resolve(process.cwd(), argv.path);
-        process.chdir(resolve(__dirname, "..", "creator"));
+        process.chdir(creatorDir);
         run(`npx electron --no-sandbox . --nologin --path="${projectRoot}" --build="platform=${argv.platform};debug=false" `);
     }).option('platform', {
         alias: 'p',
@@ -28,13 +29,13 @@ const argv = yargs.usage('\nUsage: $0 [path] - Open cocos creator.')
 if (argv._.length === 1 && argv._[0]) {
     const projectRoot = resolve(process.cwd(), argv._[0]);
     if (fs.existsSync(projectRoot) && fs.statSync(projectRoot).isDirectory) {
-        process.chdir(resolve(__dirname, "..", "creator"));
+        process.chdir(creatorDir);
         run(`npx electron --no-sandbox . --nologin --path="${projectRoot}"`);
     } else {
         console.error(`Project at ${projectRoot} does not exist!`);
     }
 } else {
-    process.chdir(resolve(__dirname, "..", "creator"));
+    process.chdir(creatorDir);
     run(`npx electron --no-sandbox . --nologin`);
 }
 
