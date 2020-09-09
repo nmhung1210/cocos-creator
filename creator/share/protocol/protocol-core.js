@@ -39,39 +39,39 @@ if (Editor.isMainProcess) {
     })
 }
 let i = {
-        engine: {
-            dev: "engine",
-            release: "../engine"
-        },
-        "engine-dev": {
-            dev: "engine/bin/.cache/dev",
-            release: "../engine/bin/.cache/dev"
-        },
-        simulator: {
-            dev: "simulator",
-            release: "simulator"
-        },
-        static: {
-            dev: "editor/static",
-            release: "editor/static"
-        },
-        templates: {
-            dev: "templates",
-            release: "templates"
-        },
-        utils: {
-            dev: "utils",
-            release: "utils"
-        },
-        editor: {
-            dev: "editor",
-            release: "editor"
-        },
-        node_modules: {
-            dev: "",
-            release: ""
-        }
+    engine: {
+        dev: "engine",
+        release: "../engine"
     },
+    "engine-dev": {
+        dev: "engine/bin/.cache/dev",
+        release: "../engine/bin/.cache/dev"
+    },
+    simulator: {
+        dev: "simulator",
+        release: "simulator"
+    },
+    static: {
+        dev: "editor/static",
+        release: "editor/static"
+    },
+    templates: {
+        dev: "templates",
+        release: "templates"
+    },
+    utils: {
+        dev: "utils",
+        release: "utils"
+    },
+    editor: {
+        dev: "editor",
+        release: "editor"
+    },
+    node_modules: {
+        dev: "",
+        release: ""
+    }
+},
     o = e.relative(i.engine.release, i["engine-dev"].release);
 
 function s(t) {

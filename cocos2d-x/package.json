@@ -1,8 +1,36 @@
 {
-  "name": "cocos2d-x-lite",
-  "version": "2.4.1",
+  "_args": [
+    [
+      "cocos2d-x@https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz",
+      "/Users/nmh/Documents/devs/ccCreator"
+    ]
+  ],
+  "_from": "cocos2d-x@https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz",
+  "_id": "cocos2d-x@https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz",
+  "_inBundle": false,
+  "_integrity": "sha512-AIQR8/THo3Csvm0wqKsQQrsZl/t112gN/ALnEqrstTPhAB7vnJDiHSny+BYfAMsa5Vzc2XgDcGeQ6IJBVWKYbA==",
+  "_location": "/cocos2d-x",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "cocos2d-x@https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz",
+    "name": "cocos2d-x",
+    "escapedName": "cocos2d-x",
+    "rawSpec": "https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz",
+    "saveSpec": "https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz",
+    "fetchSpec": "https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": false,
+  "_spec": "https://github.com/cocos-creator/cocos2d-x-lite/archive/2.4.2.tar.gz",
+  "_where": "/Users/nmh/Documents/devs/ccCreator",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/cocos-creator/cocos2d-x-lite/issues"
+  },
   "description": "Cocos2d-x, compact version",
-  "main": "gulpfile.js",
   "devDependencies": {
     "async": "^2.6.1",
     "chalk": "^2.4.1",
@@ -14,14 +42,13 @@
     "gulp-zip": "3.2.0",
     "tree-kill": "^1.2.0"
   },
+  "homepage": "https://github.com/cocos-creator/cocos2d-x-lite#readme",
+  "license": "ISC",
+  "main": "gulpfile.js",
+  "name": "cocos2d-x",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cocos-creator/cocos2d-x-lite.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cocos-creator/cocos2d-x-lite/issues"
-  },
-  "homepage": "https://github.com/cocos-creator/cocos2d-x-lite#readme"
+  "version": "2.1.0"
 }

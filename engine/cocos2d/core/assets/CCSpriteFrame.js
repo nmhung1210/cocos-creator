@@ -26,7 +26,6 @@
  ****************************************************************************/
 
 const EventTarget = require("../event/event-target");
-const textureUtil = require('../utils/texture-util');
 
 const INSET_LEFT = 0;
 const INSET_TOP = 1;
@@ -157,12 +156,6 @@ let SpriteFrame = cc.Class(/** @lends cc.SpriteFrame# */{
                 }
             }
         },
-    },
-
-    statics: {
-        _parseDepsFromJson (json) {
-            return [cc.assetManager.utils.decodeUuid(json.content.texture)];
-        }
     },
 
     /**
@@ -445,8 +438,8 @@ let SpriteFrame = cc.Class(/** @lends cc.SpriteFrame# */{
      * @method clone
      * @return {SpriteFrame}
      */
-    clone: function () {
-        return new SpriteFrame(this._texture, this._rect, this._rotated, this._offset, this._originalSize);
+    clone: function() {
+        return new SpriteFrame(this._texture, this.getRect(), this._rotated, this.getOffset(), this.getOriginalSize());
     },
 
     /**
@@ -745,7 +738,7 @@ let SpriteFrame = cc.Class(/** @lends cc.SpriteFrame# */{
 
     // SERIALIZATION
 
-    _serialize: CC_EDITOR && function (exporting) {
+    _serialize: (CC_EDITOR || CC_TEST) && function (exporting, ctx) {
         let rect = this._rect;
         let offset = this._offset;
         let size = this._originalSize;
@@ -762,6 +755,7 @@ let SpriteFrame = cc.Class(/** @lends cc.SpriteFrame# */{
         }
         if (uuid && exporting) {
             uuid = Editor.Utils.UuidUtils.compressUuid(uuid, true);
+            ctx.dependsOn('_textureSetter', uuid);
         }
 
         let vertices;
@@ -777,7 +771,7 @@ let SpriteFrame = cc.Class(/** @lends cc.SpriteFrame# */{
 
         return {
             name: this._name,
-            texture: uuid || undefined,
+            texture: (!exporting && uuid) || undefined,
             atlas: exporting ? undefined : this._atlasUuid,  // strip from json if exporting
             rect: rect ? [rect.x, rect.y, rect.width, rect.height] : undefined,
             offset: offset ? [offset.x, offset.y] : undefined,
@@ -821,10 +815,12 @@ let SpriteFrame = cc.Class(/** @lends cc.SpriteFrame# */{
             this.vertices.nv = [];
         }
 
-        // load texture via _textureSetter
-        let textureUuid = data.texture;
-        if (textureUuid) {
-            handle.result.push(this, '_textureSetter', textureUuid);
+        if (!CC_BUILD) {
+            // manually load texture via _textureSetter
+            let textureUuid = data.texture;
+            if (textureUuid) {
+                handle.result.push(this, '_textureSetter', textureUuid);
+            }
         }
     }
 });

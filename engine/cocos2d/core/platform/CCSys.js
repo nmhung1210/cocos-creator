@@ -605,7 +605,6 @@ function initSys () {
      */
     sys.isNative = CC_JSB || CC_RUNTIME;
 
-
     /**
      * Is web browser ?
      * @property {Boolean} isBrowser
@@ -1136,7 +1135,7 @@ function initSys () {
      * 获取当前设备的网络类型, 如果网络类型无法获取，默认将返回 cc.sys.NetworkType.LAN
      *
      * @method getNetworkType
-     * @return {NetworkType}
+     * @return {sys.NetworkType}
      */
     sys.getNetworkType = function() {
         // TODO: need to implement this for mobile phones.

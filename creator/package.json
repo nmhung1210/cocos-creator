@@ -1,7 +1,7 @@
 {
   "name": "CocosCreator",
   "version": "2.4.2",
-  "language": "zh",
+  "language": "en",
   "description": "Cocos Creator is a flexible, efficient and data-driven game development tool, focused on content creation.",
   "homepage": "http://cocos.com/creator",
   "repository": {
@@ -13,7 +13,7 @@
     "url": "https://github.com/cocos-creator/fireball/issues"
   },
   "scripts": {
-    "postinstall": "electron-rebuild"
+    "rebuild": "electron-rebuild"
   },
   "dependencies": {
     "@babel/core": "7.8.7",

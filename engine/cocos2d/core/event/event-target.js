@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
  Copyright (c) 2013-2016 Chukong Technologies Inc.
  Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
@@ -213,6 +213,26 @@ proto.once = function (type, callback, target) {
  */
 proto.dispatchEvent = function (event) {
     this.emit(event.type, event);
+};
+
+/**
+ * !#en
+ * Destroy all callbackInfos.
+ * !#zh
+ * 销毁记录的事件
+ *
+ * @method clear
+ */
+proto.clear = function () {
+    // remove all callback
+    for (const key in this._callbackTable) {
+        const list = this._callbackTable[key];
+        const infos = list.callbackInfos;
+        for (let i = 0, len = infos.length; i < len; ++i) {
+            const info = infos[i];
+            this.off(key, info.callback, info.target);
+        }
+    }
 };
 
 cc.EventTarget = module.exports = EventTarget;

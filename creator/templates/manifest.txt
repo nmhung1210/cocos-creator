@@ -1,5 +1,1 @@
-example-cases
 hello-world
-helloworld-typescript
-TencentCloud-Example-MGOBE
-preview-template

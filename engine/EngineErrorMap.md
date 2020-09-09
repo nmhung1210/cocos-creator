@@ -1092,7 +1092,7 @@ Lazy init texture with image element failed due to image loading failure: %s
 
 ### 3120
 
-Loading texture from '%s' with unsupported type: '%s'. Add '%s' into 'cc.macro.SUPPORT_TEXTURE_FORMATS' please.
+Loading texture with unsupported type: '%s'. Add '%s' into 'cc.macro.SUPPORT_TEXTURE_FORMATS' please.
 
 ### 3200
 
@@ -1709,6 +1709,7 @@ No need to release non-cached asset.
 
 ### 4903
 
+<!-- DEPRECATED -->
 Can not get class '%s'
 
 ### 4904
@@ -1881,6 +1882,14 @@ Can not find script '%s'
 ### 5302
 
 Can not find class '%s'
+
+### 5303
+
+Failed to deserialize %s, missing _deserialize function.
+
+### 5304
+
+Unable to deserialize version %s data.
 
 ### 5400
 
@@ -2172,15 +2181,15 @@ Unkown error
 
 ### 6030
 
-cc.ParticleSystem: error decoding or ungzipping textureImageData
+cc.ParticleSystem: error decoding or ungzipping textureImageData in plist '%s'
 
 ### 6031
 
-cc.ParticleSystem: unknown image format with Data
+cc.ParticleSystem: unknown image format with Data in plist %s
 
 ### 6032
 
-cc.ParticleSystem.initWithDictionary() : error loading the texture
+cc.ParticleSystem.initWithDictionary() : error loading the texture in plist '%s' 
 
 ### 6100
 

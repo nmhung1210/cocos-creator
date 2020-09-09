@@ -251,7 +251,7 @@ Bundle.prototype = {
      */
     load (paths, type, onProgress, onComplete) {
         var { type, onProgress, onComplete } = parseLoadResArgs(type, onProgress, onComplete);
-        cc.assetManager.loadAny(paths, { __requestType__: RequestType.PATH, type: type, bundle: this.name }, onProgress, onComplete);
+        cc.assetManager.loadAny(paths, { __requestType__: RequestType.PATH, type: type, bundle: this.name, __outputAsArray__: Array.isArray(paths) }, onProgress, onComplete);
     },
 
     /**
@@ -430,8 +430,8 @@ Bundle.prototype = {
      * loadScene(sceneName: string, options: Record<string, any>, onProgress: (finish: number, total: number, item: RequestItem) => void, onComplete: (error: Error, sceneAsset: cc.SceneAsset) => void): void
      * loadScene(sceneName: string, onProgress: (finish: number, total: number, item: RequestItem) => void, onComplete: (error: Error, sceneAsset: cc.SceneAsset) => void): void
      * loadScene(sceneName: string, options: Record<string, any>, onComplete: (error: Error, sceneAsset: cc.SceneAsset) => void): void
-     * loadScene(sceneName: string, options: Record<string, any>): void
      * loadScene(sceneName: string, onComplete: (error: Error, sceneAsset: cc.SceneAsset) => void): void
+     * loadScene(sceneName: string, options: Record<string, any>): void
      * loadScene(sceneName: string): void
      */
     loadScene (sceneName, options, onProgress, onComplete) {
@@ -484,8 +484,8 @@ Bundle.prototype = {
      * preloadScene(sceneName: string, options: Record<string, any>, onProgress: (finish: number, total: number, item: RequestItem) => void, onComplete: (error: Error) => void): void
      * preloadScene(sceneName: string, onProgress: (finish: number, total: number, item: RequestItem) => void, onComplete: (error: Error) => void): void
      * preloadScene(sceneName: string, options: Record<string, any>, onComplete: (error: Error) => void): void
-     * preloadScene(sceneName: string, options: Record<string, any>): void
      * preloadScene(sceneName: string, onComplete: (error: Error) => void): void
+     * preloadScene(sceneName: string, options: Record<string, any>): void
      * preloadScene(sceneName: string): void
      */
     preloadScene (sceneName, options, onProgress, onComplete) {
@@ -519,7 +519,7 @@ Bundle.prototype = {
      * bundle1.get('music/hit', cc.AudioClip);
      * 
      * @typescript
-     * get (path: string, type?: typeof cc.Asset): cc.Asset
+     * get<T extends cc.Asset> (path: string, type?: typeof cc.Asset): T
      */
     get (path, type) {
         var info = this.getInfoWithPath(path, type);
