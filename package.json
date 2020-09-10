@@ -1,6 +1,6 @@
 {
   "name": "cocos-creator",
-  "version": "2.4.2o",
+  "version": "2.4.2p",
   "description": "This is built to support you quickly setup cocos creator for your project.",
   "author": "nmhung1210@gmail.com",
   "license": "MIT",
@@ -73,6 +73,7 @@
     "gulp-fb": "0.5.1",
     "gulp-header": "1.2.2",
     "gulp-htmlmin": "1.2.0",
+    "gulp-jshint": "1.11.2",
     "gulp-minify-css": "1.2.1",
     "gulp-mirror": "0.4.0",
     "gulp-optimize-js": "^1.1.0",
@@ -94,8 +95,10 @@
     "insert-module-globals": "7.0.1",
     "jade": "1.11.0",
     "jimp": "0.2.5",
+    "js-sha1": "^0.6.0",
     "js-sha3": "^0.8.0",
     "js-yaml": "^3.13.1",
+    "jshint-stylish": "2.1.0",
     "jsondiffpatch": "0.1.43",
     "jszip": "^3.4.0",
     "less": "^3.8.0",
@@ -123,6 +126,7 @@
     "remarkable": "1.6.2",
     "request-progress": "^3.0.0",
     "require-dir": "^0.3.2",
+    "rollup": "^0.66.6",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
     "semver": "^6.3.0",
@@ -152,11 +156,7 @@
     "xmldom": "0.1.22",
     "xxhashjs": "0.2.1",
     "xxtea-node": "1.1.2",
-    "yargs": "4.3.1",
-    "gulp-jshint": "1.11.2",
-    "js-sha1": "^0.6.0",
-    "jshint-stylish": "2.1.0",
-    "rollup": "^0.66.6"
+    "yargs": "^16.0.2"
   },
   "repository": {
     "type": "git",
