@@ -65,6 +65,7 @@ EditorFramework.App.extend({
             project = Path.resolve(options._[0]);
         } else if (options.path) {
             project = Path.resolve(options.path);
+            process.chdir(project);
         }
 
         // 如果有传入 project 路径，则启动 editor
